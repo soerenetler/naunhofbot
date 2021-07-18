@@ -166,5 +166,5 @@ if __name__ == '__main__':
     updater.start_webhook(listen="0.0.0.0",
                         port=PORT,
                         url_path=TOKEN,
-                        webhook_url="https://reiher-bot-xxbe8.ondigitalocean.app/" + TOKEN)
+                        webhook_url="https://naunhofbot-szuep.ondigitalocean.app/" + TOKEN)
     updater.idle()
