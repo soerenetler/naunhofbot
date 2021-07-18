@@ -1,0 +1,389 @@
+tbd:
+    - type: function
+      func: save_name
+    - type: message
+      text: >
+            Herzlich Willkommen zur Jugend-Stadtrallye Naunhof. Die Tour ist noch nicht fertig!
+            Du kannst dich zum Beispiel auf Instagram über des Jugendforum informieren: https://www.instagram.com/jugendforum_naunhof
+
+intro:
+    - type: function
+      func: save_name
+    - type: message
+      text: >
+            Herzlich Willkommen zur Jugend-Stadtrallye Naunhof. Schön, dass du Naunhof durch die Augen junger Menschen entdecken willst. Dich erwarten Stationen und Rätsel, Fragen, Infos und Interaktives. Wie es zu dieser Rallye kam? Das Jugendforum Naunhof hat ein Projekt inittiert, bei dem Jugendliche in und um Naunhof ihre Sicht auf den Ort mitgeteilt haben und auf das aufmerksam machen konnten, was toll ist, aber vielleicht auch fehlt für junge Menschen. Was dabei unter anderem heraus gekommen ist, erfahrt ihr kreativ verarbeitet, wenn ihr losgeht.
+    - type: message
+      text: >
+            Du brauchst noch etwas Anlauf und willst erst noch mehr über das Jugendforum erfahren? Dann klicke hier [Facebook/Insta] oder schau dir diesen Film an [Film]
+      InlineKeyboard:
+        - text: "Facebook"
+          url:  'https://www.facebook.com/Jugendforum-Naunhof-100477228376229/'
+        - text: "Instagram"
+          url: "https://www.instagram.com/jugendforum_naunhof"
+        - text: "🐾 weiter"
+          data: 'action:frage_bahnhof'
+    - type: return
+      state: INTRO
+
+frage_bahnhof:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: >
+            Dein Startpunkt ist der Bahnhof Naunhof. Dieser wurde 1887 eröffnet und hat sich seitdem über die Jahre verändert bis hin zu dem, was du heute siehst. Auch Jugendliche sitzen oft hier oder nutzen die gute Anbindung nach Grimma oder Leipzig. Nur Nachts ist das mit den Verbindungen so eine Sache ... 
+            Wann denkst du fährt der letzte Zug in Naunhof ab?
+    - type: return
+      state: FRAGE_BAHNHOF
+
+frage_bahnhof_aufloesung:
+    - type: function
+      func: eval_schaetzfrage_bahnhof
+    - type: message
+      text: Unter der Woche fährt der letzte Zug nach ... um ... Uhr. Und am Wochenende fährt der letzte Zug um ... Uhr durch Naunhof
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:routen_auswahl'
+    - type: return
+      state: FRAGE_BAHNHOF_AUFLOESUNG
+
+routen_auswahl:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: |
+            Von hier aus hast du die Qual der Wahl:
+            ◼️ Route 1 City XY Minuten
+            ◼️ Route 2 zum See XY Minuten
+    - type: return
+      state: ROUTEN_AUSWAHL
+
+city_route_start:
+    - type: message
+      text: Wunderbar, du hast dich für die City Route entschieden!
+    - type: message
+      text: Dein nächstes Ziel ist gar nicht weit weg. Folge der XY Straße bis du zu einem kleinen Skatepark rechts von dir kommst.
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:frage_skatepark'
+    - type: return
+      state: WEG_SKATEPARK
+
+frage_skatepark:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: >
+            Klein aber fein unser Skatepark. Kennst du dich mit Rollsport aus? Was meinst du, wie viel größer müsste der Skatepark sein, um auch für Profis und die, die es werden wollen befahrbar zu sein? Welche Rampen fehlen? Nutze unser Raumplanungstool, um deinen Traumskatepark zu kreieren. Mache von deinem Ergebnis einen Screenshot und schicke ihn uns!
+    - type: return
+      state: FRAGE_SKATEPARK
+
+frage_skatepark_aufloesung:
+    - type: message
+      text: 'Vielen lieben Dank an dich.'
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_parkplatz'
+    - type: return
+      state: FRAGE_SKATEPARK_AUFLOESUNG
+
+weg_parkplatz:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: Laufe jetzt quer über den Reweparkplatz. Hier gibt es nichts Spannendes, aber kauf dir doch 'ne Limo für deinen weiteren Weg.
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_stadtgut'
+    - type: return
+      state: WEG_PARKPLATZ
+
+weg_stadtgut:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: Wegbeschreibung Stadtgut <<Hier fehlt noch etwas>>>
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:eis_stadtgut'
+    - type: return
+      state: WEG_STADTGUT
+
+eis_stadtgut:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: Der schöne Innenhof lädt zum Verweilen ein. Nimm kurz Platz und höre, was Tahira vom Jugendforum mit dem Stadtgut verbindet.
+    - type: audio
+      file: 'assets/audio/Oberschule.m4a'
+      title: "Eis im Stadtgut"
+      performer: "Tahira"
+    - type: message
+      text: Wegbeschreibung Stadtgut <<Hier fehlt noch etwas>>>
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:frage_stadtgut'
+    - type: return
+      state: EIS_STADTGUT
+
+frage_stadtgut:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: >
+            "Bevor du weitergehst noch eine Frage an dich: Bisher gibt es wenige Veranstaltungen für Jugendliche im Bürgersaal. Was könntest du dir vorstellen, das hier für Jugendliche stattfindet?"
+    - type: return
+      state: FRAGE_STADTGUT
+
+frage_stadtgut2:
+    - type: message
+      text: >
+            Für alle, die gern recherchieren: Wie viele Treffen des Jugendforums haben bisher im Bürgersaal oder woanders stattgefunden?
+    - type: return
+      state: FRAGE_STADTGUT2
+
+weg_marktplatz:
+    - type: message
+      text: >
+            Jetzt gehst du vorn aus dem Stadtgut raus, auf die Hauptstraße. Die überquerst du und stehst direkt auf dem Marktplatz.
+            Der Marktplatz ...
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:frage_marktplatz'
+    - type: return
+      state: WEG_MARKTPLATZ
+
+frage_marktplatz:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: Schau dich um, was gefällt dir am Marktplatz?
+    - type: return
+      state: FRAGE_MARKTPLATZ
+
+frage_marktplatz2:
+    - type: message
+      text: Was könnte man hier ändern?
+    - type: return
+      state: FRAGE_MARKTPLATZ2
+
+rathaus:
+    - type: message
+      text: Hier am Marktplatz steht auch das Rathaus mit der Stadtverwaltung. Wir haben für dich die Bürgermeisterin gefragt, was eine Stadtverwaltung so macht, was ihre Aufgaben als Bürgermeisterin sind und welche Visionen für Jugendbeteiligung sie hat.
+    - type: audio
+      file: 'assets/audio/Oberschule.m4a'
+      title: "Bürgermeisterin"
+      performer: "Frau Conrad"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_oase'
+    - type: return
+      state: RATHAUS
+
+weg_oase:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Jetzt hast du einen etwas längeren Streckenabschnitt vor dir: Die Leipziger Straße."
+    - type: message
+      text: "Hör dir doch einfach Podcast XY zu XY auf dem Weg an."
+    - type: message
+      text: "Oder werde aktiv: Mach auf dem Weg eine Soundaufnahme von Naunhof und schick sie uns."
+      InlineKeyboard:
+        - text: "Podcast"
+          url:  'https://open.spotify.com/episode/2P3T5Vfb7vy85Gv1FiqBq9?si=Vy_cMtA1T3uNl8yeS-lfcQ&utm_source=whatsapp&dl_branch=1'
+        - text: "Soundaufnahme"
+          data:  'action:soundaufnahme'
+        - text: "🐾 weiter"
+          data:  'action:weg_oase2'
+    - type: return
+      state: WEG_OASE
+
+soundaufnahme:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Du kannst einfach eine Sprachnachricht aufnehmen und an mich schicken."
+      InlineKeyboard:
+        - text: "🐾 überspringen"
+          data:  'action:weg_oase2'
+    - type: return
+      state: SOUNDAUFNAHME
+
+soundaufnahme_bestätigen:
+    - type: message
+      text: "Danke für deine Aufnahme :)"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_oase2'
+    - type: return
+      state: SOUNDAUFNAHME_BESTÄTIGEN
+
+weg_oase2:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Du biegst jetzt nach rechts ab in die XY Straße."
+    - type: message
+      text: "Du musst dich nur noch ein Stück des Weges kämpfen. Eine Oase ist schon ganz nah."
+    - type: message
+      text: "Oase?, denkst du jetzt vielleicht. Ja, du bist auf direktem Weg zu unserem hiesigen Jugendclub. Schau doch mal ob Julia da ist, die die Einrichtung leitet. Julia kann dir viel erzählen und hat einen Schluck zu trinken für dich. Auf dem Gelände der Oase kannst du Volleyball spielen oder chillen. Tob dich aus. Aber vergiss nicht, bei wieder rausgehen, den QR Code am Tor zu scannen."
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:stadtteile'
+    - type: return
+      state: WEG_OASE2
+
+stadtteile:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "<<TEXT STADTEILEN>>"
+      InlineKeyboard:
+          - text: "Radkarte"
+            url:  'https://www.outdooractive.com/de/radrouten/naunhof/radfahren-in-naunhof/2509388/'
+    - type: message
+      text: "<<TEXT CROWDMAP>>"
+      InlineKeyboard:
+          - text: "CROWDMAP"
+            url:  'https://padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n'
+          - text: "🐾 weiter"
+            data:  'action:weg_kita'
+    - type: return
+      state: STADTTEILE
+
+weg_kita:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "<<Naviagation?>>"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:frage_kita'
+    - type: return
+      state: WEG_KITA
+
+frage_kita:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Schau mal links von dir, hier befindet sich KiTa XY. Was meinst du, wie viele Kitas hat Naunhof?"
+    - type: return
+      state: FRAGE_KITA
+
+frage_kita_aufloesung:
+    - type: message
+      text: Du bist nah dran, tendenziell werden es mehr werden, denn viele junge Familien ziehen nach Naunhof. Das freut uns besonders - alles neue potenzielle Mitglieder fürs Jugendforum ;)
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:gymnasium'
+    - type: return
+      state: FRAGE_KITA_AUFLOESUNG
+
+gymnasium:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: Alle Kinder, die jetzt in eine der XY Kitas gehen, haben später die Möglichkeit, das Freie Gymnasium zu besuchen, das du gerade siehst.
+    - type: audio
+      file: 'assets/audio/Oberschule.m4a'
+      title: "Gymnasium Naunhof"
+      performer: "JuFo Naunhof"
+    - type: message
+      text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice.
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:feuerwehr'
+    - type: return
+      state: GYMNASIUM
+    
+feuerwehr:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "<<TEXT FEUERWEHR>>"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:parthelandhalle'
+    - type: return
+      state: FEUERWEHR
+
+parthelandhalle:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "<<TEXT PARTHELANDHALLE>>"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:waldbad'
+    - type: return
+      state: PARTHELANDHALLE
+    
+waldbad:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Tata! Unser Waldbad. Im Sommer kühlt es uns ab, im Winter ist es zwar geschlossen, aber der Wald drumherum ist auch in der kalten Jahreszeit einen Spaziergang wert. Rate mal, wieviel Liter das Becken des Waldbades fasst. Du willst mehr Infos zum Waldbad? "
+      InlineKeyboard:
+        - text: "Website"
+          url:  https://www.naunhof.de/verzeichnis/visitenkarte.php?mandat=189888
+        - text: "🐾 weiter"
+          data:  'action:parthe'
+    - type: return
+      state: WALDBAD
+
+parthe:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders. <<HIER FEHLEN NOCH MEHR INFOS>>"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_schlossturmplatz'
+    - type: return
+      state: PARTHE
+
+weg_schlossturmplatz:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "<<WEG SCHLOSSTURMPLATZ>>"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:frage_schlossturmplatz'
+    - type: return
+      state: WEG_SCHLOSSTURMPLATZ
+
+frage_schlossturmplatz:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Der Schloßturmplatz. Ein Sportplatz, der jedem*r zwar frei zugänglich ist, um Sport zu machen, aber nicht so ganz in Schuss ist. Welchen Sport machst du? Schick mir doch ein Emoji deiner Lieblingssportart."
+    - type: return
+      state: FRAGE_SCHLOSSTURMPLATZ
+
+frage_schlossturmplatz_aufloesung:
+    - type: message
+      text: "<<TEXT AUFLOESUNG>>"
+    - type: message
+      text: "Was es sonst noch für Sportperspektiven in Naunhof gibt, erfährst du jetzt vom Kreissportbund, der seinen Sitz auch in Naunhof hat:"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:ende'
+    - type: return
+      state: FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG
+
+ende:
+  - type: message
+    text: '🐾'
+  - type: function
+    func: ende_feedback
+  - type: message
+    text: Danke für dein Interesse! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
+  - type: return
+    state: END
+
+timeout:
+  - type: message
+    text: Du warst seit einer ganzen Weile nicht aktiv. Mit /start kannst du eine neue Tour mit dem Reiherbot beginnen.
+  - type: return
+    state: END
