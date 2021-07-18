@@ -42,7 +42,7 @@ frage_bahnhof_aufloesung:
       text: Unter der Woche fährt der letzte Zug nach ... um ... Uhr. Und am Wochenende fährt der letzte Zug um ... Uhr durch Naunhof
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:routen_auswahl'
+          data: 'action:routen_auswahl'
     - type: return
       state: FRAGE_BAHNHOF_AUFLOESUNG
 
@@ -50,10 +50,12 @@ routen_auswahl:
     - type: message
       text: '🐾'
     - type: message
-      text: |
-            Von hier aus hast du die Qual der Wahl:
-            ◼️ Route 1 City XY Minuten
-            ◼️ Route 2 zum See XY Minuten
+      text: "Von hier aus hast du die Qual der Wahl:"
+      InlineKeyboard:
+        - text: ◼️ Route 1 City XY Minuten
+          data: "action:city_route_start"
+        - text: ◼️ Route 2 zum See XY Minuten
+          data: "action:see_route_start"
     - type: return
       state: ROUTEN_AUSWAHL
 

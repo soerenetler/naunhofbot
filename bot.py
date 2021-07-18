@@ -93,7 +93,8 @@ if __name__ == '__main__':
 
             "FRAGE_BAHNHOF_AUFLOESUNG": [CommandHandler('weiter', naunhofActions["frage_bahnhof"])],
 
-            "ROUTEN_AUSWAHL": [MessageHandler(Filters.regex('^(City)$'), naunhofActions["city_route_start"])],
+            "ROUTEN_AUSWAHL": [CommandHandler('city', naunhofActions["city_route_start"]),
+                               CommandHandler('see', naunhofActions["see_route_start"])],
 
             "WEG_SKATEPARK": [CommandHandler('weiter', naunhofActions["frage_bahnhof"])],
 
