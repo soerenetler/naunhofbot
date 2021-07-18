@@ -82,8 +82,7 @@ if __name__ == '__main__':
         allow_reentry=True,
         per_chat=False,
         conversation_timeout = 6 * 60 * 60, 
-        entry_points=[CommandHandler('start', naunhofActions["intro"], filters=Filters.user(username=['@soeren101', '@aehryk'])),
-                    CommandHandler('start', naunhofActions["tbd"])],
+        entry_points=[CommandHandler('start', naunhofActions["intro"])],
         persistent=True,
         name='naunhofbot',
 
