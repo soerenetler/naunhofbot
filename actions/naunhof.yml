@@ -59,6 +59,13 @@ routen_auswahl:
     - type: return
       state: ROUTEN_AUSWAHL
 
+see_route_start:
+    - type: message
+      text: Wunderbar, du hast dich für die See Route entschieden! Die Route ist leider noch nicht fertig :/
+      InlineKeyboard:
+        - text: "🐾 zurück zur Routenauswahl"
+          data:  'action:routen_auswahl'
+
 city_route_start:
     - type: message
       text: Wunderbar, du hast dich für die City Route entschieden!
