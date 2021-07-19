@@ -21,7 +21,7 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Call
                           ConversationHandler, CallbackQueryHandler, PollAnswerHandler, PollHandler, TypeHandler)
 
 from digitalguide.generateActions import Action, read_action_yaml, callback_query_handler
-from digitalguide.uhrzeit_filter import UhrzeitFilter
+from digitalguide.uhrzeit_filter import FilterUhrzeit
 
 from actions import naunhofActions, generalActions
 
@@ -92,7 +92,7 @@ if __name__ == '__main__':
         states={
             "INTRO": [CommandHandler('weiter', naunhofActions["frage_bahnhof"])],
 
-            "FRAGE_BAHNHOF": [MessageHandler(UhrzeitFilter(), naunhofActions["frage_bahnhof_aufloesung"]),
+            "FRAGE_BAHNHOF": [MessageHandler(FilterUhrzeit(), naunhofActions["frage_bahnhof_aufloesung"]),
                               TypeHandler(Update, naunhofActions["frage_bahnhof_tipp"])],
 
             "FRAGE_BAHNHOF_AUFLOESUNG": [CommandHandler('weiter', naunhofActions["frage_bahnhof"])],
