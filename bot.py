@@ -21,8 +21,11 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Call
                           ConversationHandler, CallbackQueryHandler, PollAnswerHandler, PollHandler, TypeHandler)
 
 from digitalguide.generateActions import Action, read_action_yaml, callback_query_handler
+from digitalguide.uhrzeit_filter import UhrzeitFilter
 
 from actions import naunhofActions, generalActions
+
+from actions.utils import EMOJI_PATTERN
 
 from configparser import ConfigParser
 import argparse
@@ -89,34 +92,43 @@ if __name__ == '__main__':
         states={
             "INTRO": [CommandHandler('weiter', naunhofActions["frage_bahnhof"])],
 
-            "FRAGE_BAHNHOF": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["frage_bahnhof_aufloesung"])],
+            "FRAGE_BAHNHOF": [MessageHandler(UhrzeitFilter(), naunhofActions["frage_bahnhof_aufloesung"]),
+                              TypeHandler(Update, naunhofActions["frage_bahnhof_tipp"])],
 
             "FRAGE_BAHNHOF_AUFLOESUNG": [CommandHandler('weiter', naunhofActions["frage_bahnhof"])],
 
             "ROUTEN_AUSWAHL": [CommandHandler('city', naunhofActions["city_route_start"]),
-                               CommandHandler('see', naunhofActions["see_route_start"])],
+                               CommandHandler('see', naunhofActions["see_route_start"]),
+                               TypeHandler(Update, naunhofActions["routen_auswahl_tipp"])],
 
             "WEG_SKATEPARK": [CommandHandler('weiter', naunhofActions["frage_bahnhof"])],
 
-            "FRAGE_SKATEPARK": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["frage_skatepark_aufloesung"])],
+            "FRAGE_SKATEPARK": [MessageHandler((Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["frage_skatepark_aufloesung"]),
+                               TypeHandler(Update, naunhofActions["frage_skatepark_tipp"])],
 
             "FRAGE_SKATEPARK_AUFLOESUNG": [CommandHandler('weiter', naunhofActions["weg_parkplatz"])],
 
             "WEG_PARKPLATZ": [CommandHandler('weiter', naunhofActions["weg_stadtgut"])],
 
-            "WEG_STADTGUT": [CommandHandler('weiter', naunhofActions["eis_stadtgut"])],
+            "WEG_STADTGUT": [CommandHandler('weiter', naunhofActions["cafe_stadtgut"])],
+
+            "CAFE_STADTGUT": [CommandHandler('weiter', naunhofActions["eis_stadtgut"])],
 
             "EIS_STADTGUT": [CommandHandler('weiter', naunhofActions["frage_stadtgut"])],
 
-            "FRAGE_STADTGUT": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["frage_stadtgut2"])],
+            "FRAGE_STADTGUT": [MessageHandler((Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["frage_stadtgut2"]),
+                               TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
-            "FRAGE_STADTGUT2": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["weg_marktplatz"])],
+            "FRAGE_STADTGUT2": [MessageHandler((Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["weg_marktplatz"]),
+                                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
             "WEG_MARKTPLATZ": [CommandHandler('weiter', naunhofActions["frage_marktplatz"])],
 
-            "FRAGE_MARKTPLATZ": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["frage_marktplatz2"])],
+            "FRAGE_MARKTPLATZ": [MessageHandler((Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["frage_marktplatz2"]),
+                                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
-            "FRAGE_MARKTPLATZ2": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["rathaus"])],
+            "FRAGE_MARKTPLATZ2": [MessageHandler((Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["rathaus"]),
+                                  TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
             "RATHAUS": [CommandHandler('weiter', naunhofActions["weg_oase"])],
 
@@ -128,7 +140,8 @@ if __name__ == '__main__':
 
             "WEG_KITA": [CommandHandler('weiter', naunhofActions["frage_kita"])],
 
-            "FRAGE_KITA": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["frage_kita_aufloesung"])],
+            "FRAGE_KITA": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["frage_kita_aufloesung"]),
+                          TypeHandler(Update, naunhofActions["frage_kita_tipp"])],
 
             "FRAGE_KITA_AUFLOESUNG": [CommandHandler('weiter', naunhofActions["gymnasium"])],
 
@@ -144,7 +157,8 @@ if __name__ == '__main__':
 
             "WEG_SCHLOSSTURMPLATZ": [CommandHandler('weiter', naunhofActions["frage_schlossturmplatz"])],
 
-            "FRAGE_SCHLOSSTURMPLATZ": [MessageHandler(Filters.text & ~Filters.command, naunhofActions["frage_schlossturmplatz_aufloesung"])],
+            "FRAGE_SCHLOSSTURMPLATZ": [MessageHandler(Filters.regex(EMOJI_PATTERN) & ~Filters.command, naunhofActions["frage_schlossturmplatz_aufloesung"]),
+                                       TypeHandler(Update, naunhofActions["frage_schlossturmplatz_tipp"])],
 
             "FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG": [CommandHandler('weiter', naunhofActions["ende"])],
 
@@ -156,7 +170,7 @@ if __name__ == '__main__':
                    CallbackQueryHandler(cqh),
                    CommandHandler('restart', restart, filters=Filters.user(username='@soeren101')),
                    CommandHandler('restart', restart, filters=Filters.user(username='@aehryk')),
-                   TypeHandler(Update, generalActions["log_update"])]
+                   TypeHandler(Update, naunhofActions["weiter_tipp"])]
     )
 
     dp.add_handler(conv_handler)

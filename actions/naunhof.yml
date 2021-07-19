@@ -1,11 +1,3 @@
-tbd:
-    - type: function
-      func: save_name
-    - type: message
-      text: >
-            Herzlich Willkommen zur Jugend-Stadtrallye Naunhof. Die Tour ist noch nicht fertig!
-            Du kannst dich zum Beispiel auf Instagram über des Jugendforum informieren: https://www.instagram.com/jugendforum_naunhof
-
 intro:
     - type: function
       func: save_name
@@ -35,6 +27,10 @@ frage_bahnhof:
     - type: return
       state: FRAGE_BAHNHOF
 
+frage_bahnhof_tipp:
+    - type: message
+      text: 'Bitte schick mir die Uhrzeit im Format hh:mm damit ich es verstehe.'
+
 frage_bahnhof_aufloesung:
     - type: function
       func: eval_schaetzfrage_bahnhof
@@ -58,6 +54,10 @@ routen_auswahl:
           data: "action:see_route_start"
     - type: return
       state: ROUTEN_AUSWAHL
+
+routen_auswahl_tipp:
+    - type: message
+      text: 'Deine Auswahl habe ich nicht verstanden. Du kannst auf die Buttons klicken oder mit /city und /see die Route auswählen.'
 
 see_route_start:
     - type: message
@@ -86,6 +86,10 @@ frage_skatepark:
     - type: return
       state: FRAGE_SKATEPARK
 
+frage_skatepark_tipp:
+    - type: message
+      text: 'Ups, ich habe die Eingabe nicht verstanden. Du kannst eine Nachricht oder ein Foto schicken. Eine Sprachnachricht geht auch.'
+
 frage_skatepark_aufloesung:
     - type: message
       text: 'Vielen lieben Dank an dich.'
@@ -113,9 +117,20 @@ weg_stadtgut:
       text: Wegbeschreibung Stadtgut <<Hier fehlt noch etwas>>>
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:eis_stadtgut'
+          data:  'action:cafe_stadtgut'
     - type: return
       state: WEG_STADTGUT
+
+cafe_stadtgut:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Deine nächstes Ziel hast du nun erreicht: Das Stadtgut Naunhof. Hier findest du die Stadtbibliothek, das Begegenungszentrum sowie Gewerbe. Darüber hinaus ist hier der Bürgersaal, den auch das Jugendforum nutzt, um sich zu treffen."
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:eis_stadtgut'
+    - type: return
+      state: CAFE_STADTGUT
 
 eis_stadtgut:
     - type: message
@@ -127,7 +142,7 @@ eis_stadtgut:
       title: "Eis im Stadtgut"
       performer: "Tahira"
     - type: message
-      text: Wegbeschreibung Stadtgut <<Hier fehlt noch etwas>>>
+      text: 🍨🍧🍦
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_stadtgut'
@@ -140,8 +155,14 @@ frage_stadtgut:
     - type: message
       text: >
             "Bevor du weitergehst noch eine Frage an dich: Bisher gibt es wenige Veranstaltungen für Jugendliche im Bürgersaal. Was könntest du dir vorstellen, das hier für Jugendliche stattfindet?"
+    - type: message
+      text: Wegbeschreibung Stadtgut <<Hier fehlt noch etwas>>>
     - type: return
       state: FRAGE_STADTGUT
+
+frage_stadtgut_tipp:
+    - type: message
+      text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
 
 frage_stadtgut2:
     - type: message
@@ -279,6 +300,10 @@ frage_kita:
     - type: return
       state: FRAGE_KITA
 
+frage_kita_tipp:
+    - type: message
+      text: 'Wie viele Kitas sind es? Schick mir einfach eine Zahl?'
+
 frage_kita_aufloesung:
     - type: message
       text: Du bist nah dran, tendenziell werden es mehr werden, denn viele junge Familien ziehen nach Naunhof. Das freut uns besonders - alles neue potenzielle Mitglieder fürs Jugendforum ;)
@@ -370,6 +395,10 @@ frage_schlossturmplatz:
     - type: return
       state: FRAGE_SCHLOSSTURMPLATZ
 
+frage_schlossturmplatz_tipp:
+    - type: message
+      text: 'Die Antwort habe ich nicht verstanden?! Schick mir bitte ein Emoji von deiner Lieblingsportart!'
+
 frage_schlossturmplatz_aufloesung:
     - type: message
       text: "<<TEXT AUFLOESUNG>>"
@@ -396,3 +425,7 @@ timeout:
     text: Du warst seit einer ganzen Weile nicht aktiv. Mit /start kannst du eine neue Tour mit dem Reiherbot beginnen.
   - type: return
     state: END
+
+weiter_tipp:
+  - type: message
+    text: "Ich habe deine Eingabe nicht verstanden: Weiter kommst du mit /weiter oder einem klick of den Button"

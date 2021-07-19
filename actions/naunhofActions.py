@@ -32,13 +32,32 @@ def send_bahnhof_gif(update, context):
     update.message.reply_document(gif)
 
 def eval_schaetzfrage_bahnhof(update, context):
-    schaetzung = int(update.message.text)
-    echter_wert = 106
-    if schaetzung == echter_wert:
-        update.message.reply_text('Nicht schlecht! (Das ist brandenburgisch für "gut gemacht!") 😉',
+    from ctparse import ctparse
+
+    parse = ctparse(update.message.text, timeout=1).resolution
+    schaetzung_minute = parse.minute
+    schaetzung_hour = parse.hour
+
+    if schaetzung_hour > 0 & schaetzung_hour <= 6:
+        schaetzung_hour = schaetzung_hour
+    elif schaetzung_hour > 6 & schaetzung_hour <= 12:
+        schaetzung_hour = schaetzung_hour -12
+    elif schaetzung_hour > 12 & schaetzung_hour <= 24:
+        schaetzung_hour = schaetzung_hour - 24
+
+    schaetzung_value = schaetzung_hour*60+schaetzung_minute
+
+    echter_hour = 0
+    echter_minute = 59
+    echter_value = echter_hour*60 + echter_minute
+    
+    dif_value = echter_value-schaetzung_value
+
+    if dif_value == 0:
+        update.message.reply_text('Nicht schlecht! Perfekt getroffen 😉',
             reply_markup=ReplyKeyboardRemove())
-    elif schaetzung >= echter_wert-echter_wert*0.2 and schaetzung <= echter_wert+echter_wert*0.2:
-        update.message.reply_text('Du bist schon nah dran!',
+    elif dif_value > -60 and dif_value < 60:
+        update.message.reply_text('Du liegst weniger als eine Stunde daneben!',
             reply_markup=ReplyKeyboardRemove())
     else:
         update.message.reply_text('Nicht ganz!',
