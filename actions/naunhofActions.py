@@ -32,13 +32,16 @@ def send_bahnhof_gif(update, context):
     update.message.reply_document(gif)
 
 def eval_schaetzfrage_bahnhof(update, context):
+    update.message.reply_text("Let's seee",
+            reply_markup=ReplyKeyboardRemove())
+
     from ctparse import ctparse
 
     parse = ctparse(update.message.text, timeout=1).resolution
     schaetzung_minute = parse.minute
     schaetzung_hour = parse.hour
 
-    if schaetzung_hour > 0 & schaetzung_hour <= 6:
+    if schaetzung_hour >= 0 & schaetzung_hour <= 6:
         schaetzung_hour = schaetzung_hour
     elif schaetzung_hour > 6 & schaetzung_hour <= 12:
         schaetzung_hour = schaetzung_hour -12
