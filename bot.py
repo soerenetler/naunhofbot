@@ -26,7 +26,7 @@ from digitalguide.uhrzeit_filter import FilterUhrzeit
 from actions import naunhofActions, generalActions
 from digitalguide.mongo_persistence import DBPersistence
 
-from actions.utils import EMOJI_PATTERN
+from digitalguide.pattern import EMOJI_PATTERN
 
 from configparser import ConfigParser
 import argparse
