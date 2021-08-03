@@ -4,6 +4,8 @@ intro:
     - type: message
       text: >
             Herzlich Willkommen zur Jugend-Stadtrallye Naunhof. Schön, dass du Naunhof durch die Augen junger Menschen entdecken willst. Dich erwarten Stationen und Rätsel, Fragen, Infos und Interaktives. Wie es zu dieser Rallye kam? Das Jugendforum Naunhof hat ein Projekt inittiert, bei dem Jugendliche in und um Naunhof ihre Sicht auf den Ort mitgeteilt haben und auf das aufmerksam machen konnten, was toll ist, aber vielleicht auch fehlt für junge Menschen. Was dabei unter anderem heraus gekommen ist, erfahrt ihr kreativ verarbeitet, wenn ihr losgeht.
+    - type: video
+      file: assets/intro_video.mp4
     - type: message
       text: >
             Du brauchst noch etwas Anlauf und willst erst noch mehr über das Jugendforum erfahren? Dann klicke hier [Facebook/Insta] oder schau dir diesen Film an [Film]
