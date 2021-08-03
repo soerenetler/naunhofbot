@@ -4,3 +4,5 @@ Pillow
 PyYAML
 boto3
 ctparse
+pymongo[srv]
+mongoengine
