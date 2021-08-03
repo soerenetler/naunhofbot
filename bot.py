@@ -24,6 +24,7 @@ from digitalguide.generateActions import Action, read_action_yaml, callback_quer
 from digitalguide.uhrzeit_filter import FilterUhrzeit
 
 from actions import naunhofActions, generalActions
+from digitalguide.mongo_persistence import DBPersistence
 
 from actions.utils import EMOJI_PATTERN
 
@@ -32,7 +33,6 @@ import argparse
 
 import os
 import sys
-import traceback
 from threading import Thread
 
 import logging
@@ -42,15 +42,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Read Telegram Token')
-    parser.add_argument('telegram_token', type=str,
-                        help='the telegram token for your bot')
-
-    args = parser.parse_args()
-
-    import os
-
-    TOKEN = args.telegram_token
+    TOKEN = os.environ.get('TELEGRAM_TOKEN')
     PORT = int(os.environ.get('PORT', '8080'))
 
     def stop_and_restart():
@@ -71,7 +63,7 @@ if __name__ == '__main__':
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    my_persistence = PicklePersistence(filename='../bot_persistence')
+    my_persistence = DBPersistence()
     updater = Updater(TOKEN, persistence=my_persistence, use_context=True)
 
     # Get the dispatcher to register handlers
