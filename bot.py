@@ -78,160 +78,160 @@ if __name__ == '__main__':
         name='naunhofbot',
 
         states={
-            "INTRO": [prechecks,
-                      CommandHandler(
-                          'weiter', naunhofActions["frage_bahnhof"]),
-                      TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "INTRO": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["frage_bahnhof"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "FRAGE_BAHNHOF": [prechecks,
-                              MessageHandler(
-                                  FilterUhrzeit(), naunhofActions["frage_bahnhof_aufloesung"]),
-                              TypeHandler(Update, naunhofActions["frage_bahnhof_tipp"])],
+            "FRAGE_BAHNHOF": prechecks+[
+                MessageHandler(
+                    FilterUhrzeit(), naunhofActions["frage_bahnhof_aufloesung"]),
+                TypeHandler(Update, naunhofActions["frage_bahnhof_tipp"])],
 
-            "FRAGE_BAHNHOF_AUFLOESUNG": [prechecks,
-                                         CommandHandler(
-                                             'weiter', naunhofActions["frage_bahnhof"]),
-                                         TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "FRAGE_BAHNHOF_AUFLOESUNG": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["frage_bahnhof"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "ROUTEN_AUSWAHL": [prechecks,
-                               CommandHandler(
-                                   'city', naunhofActions["city_route_start"]),
-                               CommandHandler(
-                                   'see', naunhofActions["see_route_start"]),
-                               CallbackQueryHandler(cqh),
-                               TypeHandler(Update, naunhofActions["routen_auswahl_tipp"])],
+            "ROUTEN_AUSWAHL": prechecks+[
+                CommandHandler(
+                    'city', naunhofActions["city_route_start"]),
+                CommandHandler(
+                    'see', naunhofActions["see_route_start"]),
+                CallbackQueryHandler(cqh),
+                TypeHandler(Update, naunhofActions["routen_auswahl_tipp"])],
 
-            "WEG_SKATEPARK": [prechecks,
-                              CommandHandler(
-                                  'weiter', naunhofActions["frage_bahnhof"]),
-                              TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WEG_SKATEPARK": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["frage_bahnhof"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "FRAGE_SKATEPARK": [prechecks,
-                                MessageHandler((Filters.text | Filters.photo | Filters.voice) &
-                                               ~Filters.command, naunhofActions["frage_skatepark_aufloesung"]),
-                                TypeHandler(Update, naunhofActions["frage_skatepark_tipp"])],
+            "FRAGE_SKATEPARK": prechecks+[
+                MessageHandler((Filters.text | Filters.photo | Filters.voice) &
+                               ~Filters.command, naunhofActions["frage_skatepark_aufloesung"]),
+                TypeHandler(Update, naunhofActions["frage_skatepark_tipp"])],
 
-            "FRAGE_SKATEPARK_AUFLOESUNG": [prechecks,
-                                           CommandHandler(
-                                               'weiter', naunhofActions["weg_parkplatz"]),
-                                           TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "FRAGE_SKATEPARK_AUFLOESUNG": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["weg_parkplatz"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "WEG_PARKPLATZ": [prechecks,
-                              CommandHandler(
-                                  'weiter', naunhofActions["weg_stadtgut"]),
-                              TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WEG_PARKPLATZ": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["weg_stadtgut"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "WEG_STADTGUT": [prechecks,
-                             CommandHandler(
-                                 'weiter', naunhofActions["cafe_stadtgut"]),
-                             TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WEG_STADTGUT": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["cafe_stadtgut"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "CAFE_STADTGUT": [prechecks,
-                              CommandHandler(
-                                  'weiter', naunhofActions["eis_stadtgut"]),
-                              TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "CAFE_STADTGUT": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["eis_stadtgut"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "EIS_STADTGUT": [prechecks,
-                             CommandHandler(
-                                 'weiter', naunhofActions["frage_stadtgut"]),
-                             TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "EIS_STADTGUT": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["frage_stadtgut"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "FRAGE_STADTGUT": [prechecks,
-                               MessageHandler((Filters.text | Filters.photo | Filters.voice)
-                                              & ~Filters.command, naunhofActions["frage_stadtgut2"]),
-                               TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
+            "FRAGE_STADTGUT": prechecks+[
+                MessageHandler((Filters.text | Filters.photo | Filters.voice)
+                               & ~Filters.command, naunhofActions["frage_stadtgut2"]),
+                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
-            "FRAGE_STADTGUT2": [prechecks,
-                                MessageHandler((Filters.text | Filters.photo | Filters.voice)
-                                               & ~Filters.command, naunhofActions["weg_marktplatz"]),
-                                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
+            "FRAGE_STADTGUT2": prechecks+[
+                MessageHandler((Filters.text | Filters.photo | Filters.voice)
+                               & ~Filters.command, naunhofActions["weg_marktplatz"]),
+                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
-            "WEG_MARKTPLATZ": [prechecks,
-                               CommandHandler(
-                                   'weiter', naunhofActions["frage_marktplatz"]),
-                               TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WEG_MARKTPLATZ": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["frage_marktplatz"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "FRAGE_MARKTPLATZ": [prechecks,
-                                 MessageHandler((Filters.text | Filters.photo | Filters.voice)
-                                                & ~Filters.command, naunhofActions["frage_marktplatz2"]),
-                                 TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
+            "FRAGE_MARKTPLATZ": prechecks+[
+                MessageHandler((Filters.text | Filters.photo | Filters.voice)
+                               & ~Filters.command, naunhofActions["frage_marktplatz2"]),
+                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
-            "FRAGE_MARKTPLATZ2": [prechecks,
-                                  MessageHandler(
-                                      (Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["rathaus"]),
-                                  TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
+            "FRAGE_MARKTPLATZ2": prechecks+[
+                MessageHandler(
+                    (Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["rathaus"]),
+                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
-            "RATHAUS": [prechecks,
-                        CommandHandler('weiter', naunhofActions["weg_oase"]),
-                        TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "RATHAUS": prechecks+[
+                CommandHandler('weiter', naunhofActions["weg_oase"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "WEG_OASE": [prechecks,
-                         CommandHandler('weiter', naunhofActions["weg_oase2"]),
-                         TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WEG_OASE": prechecks+[
+                CommandHandler('weiter', naunhofActions["weg_oase2"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "WEG_OASE2": [prechecks,
-                          CommandHandler(
-                              'weiter', naunhofActions["stadtteile"]),
-                          TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WEG_OASE2": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["stadtteile"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "STADTTEILE": [prechecks,
-                           CommandHandler(
-                               'weiter', naunhofActions["weg_kita"]),
-                           TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "STADTTEILE": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["weg_kita"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "WEG_KITA": [prechecks,
-                         CommandHandler(
-                             'weiter', naunhofActions["frage_kita"]),
-                         TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WEG_KITA": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["frage_kita"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "FRAGE_KITA": [prechecks,
-                           MessageHandler(
-                               Filters.text & ~Filters.command, naunhofActions["frage_kita_aufloesung"]),
-                           TypeHandler(Update, naunhofActions["frage_kita_tipp"])],
+            "FRAGE_KITA": prechecks+[
+                MessageHandler(
+                    Filters.text & ~Filters.command, naunhofActions["frage_kita_aufloesung"]),
+                TypeHandler(Update, naunhofActions["frage_kita_tipp"])],
 
-            "FRAGE_KITA_AUFLOESUNG": [prechecks,
-                                      CommandHandler(
-                                          'weiter', naunhofActions["gymnasium"]),
-                                      TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "FRAGE_KITA_AUFLOESUNG": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["gymnasium"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "GYMNASIUM": [prechecks,
-                          CommandHandler(
-                              'weiter', naunhofActions["feuerwehr"]),
-                          TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "GYMNASIUM": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["feuerwehr"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "FEUERWEHR": [prechecks,
-                          CommandHandler(
-                              'weiter', naunhofActions["parthelandhalle"]),
-                          TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "FEUERWEHR": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["parthelandhalle"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "PARTHELANDHALLE": [prechecks,
-                                CommandHandler(
-                                    'weiter', naunhofActions["waldbad"]),
-                                TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "PARTHELANDHALLE": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["waldbad"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "WALDBAD": [prechecks,
-                        CommandHandler('weiter', naunhofActions["parthe"]),
-                        TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WALDBAD": prechecks+[
+                CommandHandler('weiter', naunhofActions["parthe"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "PARTHE": [prechecks,
-                       CommandHandler(
-                           'weiter', naunhofActions["weg_schlossturmplatz"]),
-                       TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "PARTHE": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["weg_schlossturmplatz"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "WEG_SCHLOSSTURMPLATZ": [prechecks,
-                                     CommandHandler(
-                                         'weiter', naunhofActions["frage_schlossturmplatz"]),
-                                     TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "WEG_SCHLOSSTURMPLATZ": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["frage_schlossturmplatz"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
-            "FRAGE_SCHLOSSTURMPLATZ": [prechecks,
-                                       MessageHandler(Filters.regex(
-                                           EMOJI_PATTERN) & ~Filters.command, naunhofActions["frage_schlossturmplatz_aufloesung"]),
-                                       TypeHandler(Update, naunhofActions["frage_schlossturmplatz_tipp"])],
+            "FRAGE_SCHLOSSTURMPLATZ": prechecks+[
+                MessageHandler(Filters.regex(
+                    EMOJI_PATTERN) & ~Filters.command, naunhofActions["frage_schlossturmplatz_aufloesung"]),
+                TypeHandler(Update, naunhofActions["frage_schlossturmplatz_tipp"])],
 
-            "FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG": [prechecks,
-                                                  CommandHandler(
-                                                      'weiter', naunhofActions["ende"]),
-                                                  TypeHandler(Update, naunhofActions["weiter_tipp"])],
+            "FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["ende"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
             ConversationHandler.TIMEOUT: [TypeHandler(Update, naunhofActions["timeout"])],
         },
