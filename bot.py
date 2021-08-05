@@ -91,6 +91,7 @@ if __name__ == '__main__':
 
             "ROUTEN_AUSWAHL": [CommandHandler('city', naunhofActions["city_route_start"]),
                                CommandHandler('see', naunhofActions["see_route_start"]),
+                               CallbackQueryHandler(cqh),
                                TypeHandler(Update, naunhofActions["routen_auswahl_tipp"])],
 
             "WEG_SKATEPARK": [CommandHandler('weiter', naunhofActions["frage_bahnhof"])],
@@ -159,7 +160,6 @@ if __name__ == '__main__':
 
         fallbacks=[CommandHandler('cancel', generalActions["cancel"]),
                    CommandHandler('start', generalActions["start_name"]),
-                   CallbackQueryHandler(cqh),
                    CommandHandler('restart', restart, filters=Filters.user(username='@soeren101')),
                    CommandHandler('restart', restart, filters=Filters.user(username='@aehryk')),
                    TypeHandler(Update, naunhofActions["weiter_tipp"])]
