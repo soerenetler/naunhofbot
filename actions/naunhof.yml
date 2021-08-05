@@ -140,7 +140,7 @@ eis_stadtgut:
     - type: message
       text: Der schöne Innenhof lädt zum Verweilen ein. Nimm kurz Platz und höre, was Tahira vom Jugendforum mit dem Stadtgut verbindet.
     - type: audio
-      file: 'assets/audio/Oberschule.m4a'
+      file: 'assets/audio/Stadtgut.m4a'
       title: "Eis im Stadtgut"
       performer: "Tahira"
     - type: message
@@ -322,6 +322,10 @@ gymnasium:
       text: Alle Kinder, die jetzt in eine der XY Kitas gehen, haben später die Möglichkeit, das Freie Gymnasium zu besuchen, das du gerade siehst.
     - type: audio
       file: 'assets/audio/Oberschule.m4a'
+      title: "Oberschule Naunhof"
+      performer: "JuFo Naunhof"
+    - type: audio
+      file: 'assets/audio/Gymnasium.mp3'
       title: "Gymnasium Naunhof"
       performer: "JuFo Naunhof"
     - type: message
