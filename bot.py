@@ -234,7 +234,8 @@ if __name__ == '__main__':
                                                   TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
             ConversationHandler.TIMEOUT: [TypeHandler(Update, naunhofActions["timeout"])],
-        }
+        },
+        fallbacks=[]
     )
 
     dp.add_handler(conv_handler)
