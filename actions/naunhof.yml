@@ -3,16 +3,18 @@ intro:
       func: save_name
     - type: message
       text: >
-            Herzlich Willkommen zur Jugend-Stadtrallye Naunhof. Schön, dass du Naunhof durch die Augen junger Menschen entdecken willst. Dich erwarten Stationen und Rätsel, Fragen, Infos und Interaktives. Wie es zu dieser Rallye kam? Das Jugendforum Naunhof hat ein Projekt inittiert, bei dem Jugendliche in und um Naunhof ihre Sicht auf den Ort mitgeteilt haben und auf das aufmerksam machen konnten, was toll ist, aber vielleicht auch fehlt für junge Menschen. Was dabei unter anderem heraus gekommen ist, erfahrt ihr kreativ verarbeitet, wenn ihr losgeht.
+            *Herzlich Willkommen zur Jugend-Stadtrallye Naunhof.*
+            Mit dieser Route wollen wir euch auf einen Rundgang aus unserer Sicht mitnehmen - aus der Perspektive junger Menschen. Was gefällt uns an Naunhof und was fehlt hier? Was dabei heraus gekommen ist, erfährst du in dieser Stadtrallye.
+    - type: message
+      text: Bevor wir losgehen, erzählt dir Maxie noch, was das Jugenforum macht. 📺
     - type: video
       file: assets/intro_video.mp4
     - type: message
-      text: >
-            Du brauchst noch etwas Anlauf und willst erst noch mehr über das Jugendforum erfahren? Dann klicke hier [Facebook/Insta] oder schau dir diesen Film an [Film]
+      text: Mit dem 🐾 Weiter-Button kannst du immer zum nächsten Schritt springen.
       InlineKeyboard:
-        - text: "Facebook"
+        - text: "👍 Facebook"
           url:  'https://www.facebook.com/Jugendforum-Naunhof-100477228376229/'
-        - text: "Instagram"
+        - text: "📸 Instagram"
           url: "https://www.instagram.com/jugendforum_naunhof"
         - text: "🐾 weiter"
           data: 'action:frage_bahnhof'
@@ -24,8 +26,10 @@ frage_bahnhof:
       text: '🐾'
     - type: message
       text: >
-            Dein Startpunkt ist der Bahnhof Naunhof. Dieser wurde 1887 eröffnet und hat sich seitdem über die Jahre verändert bis hin zu dem, was du heute siehst. Auch Jugendliche sitzen oft hier oder nutzen die gute Anbindung nach Grimma oder Leipzig. Nur Nachts ist das mit den Verbindungen so eine Sache ... 
-            Wann denkst du fährt der letzte Zug in Naunhof ab?
+            Wir starten am Bahnhof Naunhof.
+            Der wurde schon 1887 eröffnet und bietet seitdem eine gute Anbindung nach Grimma oder Leipzig. Nur Nachts ist das mit den Verbindungen so eine Sache ... 
+    - type: message
+      text: Wann denkst du kommt der letzte Zug in Naunhof an?🚂
     - type: return
       state: FRAGE_BAHNHOF
 
@@ -37,7 +41,9 @@ frage_bahnhof_aufloesung:
     - type: function
       func: eval_schaetzfrage_bahnhof
     - type: message
-      text: Unter der Woche fährt der letzte Zug nach ... um ... Uhr. Und am Wochenende fährt der letzte Zug um ... Uhr durch Naunhof
+      text: >
+            Am Freitag fährt der letzte Zug von Leipzig nach Naunhof um 0:35 Uhr. Die nächste Verbindung fährt dann erst 5 Stunden später. 
+            Wenn wir also feiern gehen, müssen wir die Nacht durchmachen oder schon richtig früh aufbrechen. 😪
       InlineKeyboard:
         - text: "🐾 weiter"
           data: 'action:routen_auswahl'
@@ -50,16 +56,14 @@ routen_auswahl:
     - type: message
       text: "Von hier aus hast du die Qual der Wahl:"
       InlineKeyboard:
-        - text: ◼️ Route 1 City XY Minuten
+        - text: 🏙️ Cityroute
           data: "action:city_route_start"
-        - text: ◼️ Route 2 zum See XY Minuten
-          data: "action:see_route_start"
     - type: return
       state: ROUTEN_AUSWAHL
 
 routen_auswahl_tipp:
     - type: message
-      text: 'Deine Auswahl habe ich nicht verstanden. Du kannst auf die Buttons klicken oder mit /city und /see die Route auswählen.'
+      text: 'Deine Auswahl habe ich nicht verstanden. Du kannst auf die Buttons klicken oder mit /city die Route auswählen.'
 
 see_route_start:
     - type: message
@@ -70,9 +74,9 @@ see_route_start:
 
 city_route_start:
     - type: message
-      text: Wunderbar, du hast dich für die City Route entschieden!
+      text: Wunderbar, du hast dich für die Cityroute entschieden!
     - type: message
-      text: Dein nächstes Ziel ist gar nicht weit weg. Folge der XY Straße bis du zu einem kleinen Skatepark rechts von dir kommst.
+      text: Dein nächstes Ziel ist gar nicht weit weg. Folge der Ladestraße entlang der Bahnschienen, bis du zu einem kleinen Skatepark rechts von dir kommst.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_skatepark'
@@ -84,7 +88,8 @@ frage_skatepark:
       text: '🐾'
     - type: message
       text: >
-            Klein aber fein unser Skatepark. Kennst du dich mit Rollsport aus? Was meinst du, wie viel größer müsste der Skatepark sein, um auch für Profis und die, die es werden wollen befahrbar zu sein? Welche Rampen fehlen? Nutze unser Raumplanungstool, um deinen Traumskatepark zu kreieren. Mache von deinem Ergebnis einen Screenshot und schicke ihn uns!
+            Unser Skatepark ist klein aber fein. Aber  ein bisschen größer könnte er schon sein..
+            Wie würde ein perfekter Skatepark für dich aussehen? INHALT Mache von deinem Ergebnis einen Screenshot und schicke ihn uns!
     - type: return
       state: FRAGE_SKATEPARK
 
@@ -94,7 +99,9 @@ frage_skatepark_tipp:
 
 frage_skatepark_aufloesung:
     - type: message
-      text: 'Vielen lieben Dank an dich.'
+      text: Danke! 😎
+    - type: message
+      text: Wir werden die besten Ideen sammeln und uns für deine Wünsche einsetzen!
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:weg_parkplatz'
@@ -105,18 +112,39 @@ weg_parkplatz:
     - type: message
       text: '🐾'
     - type: message
-      text: Laufe jetzt quer über den Reweparkplatz. Hier gibt es nichts Spannendes, aber kauf dir doch 'ne Limo für deinen weiteren Weg.
+      text: >
+            Siehst du das Rewe-Schild?
+            Unser Weg führt uns quer über den Parkplatz, zwischen Dönerhaus und Apotheke entlang.
+            Kauf dir doch 'ne Limo für deinen weiteren Weg. 🧃
       InlineKeyboard:
+        - text: 🧭 Wo muss ich hin?
+          data: action:weg_stadtgut_navigation'
         - text: "🐾 weiter"
           data:  'action:weg_stadtgut'
     - type: return
       state: WEG_PARKPLATZ
 
+weg_stadtgut_navigation:
+    - type: message
+      text: 🧭 Du bist richtig, wenn links von dir das Star Dönerhaus und rechts von dir die Löwen Apotheke liegt.
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_stadtgut'
+
 weg_stadtgut:
     - type: message
       text: '🐾'
     - type: message
-      text: Wegbeschreibung Stadtgut <<Hier fehlt noch etwas>>>
+      text: >
+            Wir überqueren jetzt auch noch diesen Parkplatzt und die Straße vor uns.
+            Das Stadtgut ist gut versteckt.
+    - type: venue
+      latitude: 51.16416
+      longitude: 2.35211
+      address: Stadtgut
+      title: Dein nächstes Ziel 📌
+    - type: message
+      text: 🔍 Diese Karte kann dir bei der Orientierung helfen.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:cafe_stadtgut'
@@ -127,7 +155,9 @@ cafe_stadtgut:
     - type: message
       text: '🐾'
     - type: message
-      text: "Deine nächstes Ziel hast du nun erreicht: Das Stadtgut Naunhof. Hier findest du die Stadtbibliothek, das Begegenungszentrum sowie Gewerbe. Darüber hinaus ist hier der Bürgersaal, den auch das Jugendforum nutzt, um sich zu treffen."
+      text: >
+            Im Stadtgut Naunhof findest du die Stadtbibliothek und das Begegenungszentrum.
+            Hier ist auch der Bürgersaal, den auch das Jugendforum nutzt, um sich zu treffen.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:eis_stadtgut'
@@ -138,11 +168,11 @@ eis_stadtgut:
     - type: message
       text: '🐾'
     - type: message
-      text: Der schöne Innenhof lädt zum Verweilen ein. Nimm kurz Platz und höre, was Tahira vom Jugendforum mit dem Stadtgut verbindet.
+      text: Der schöne Innenhof lädt zum Verweilen ein. Nimm kurz Platz und höre, was Tahira mit dem Stadtgut verbindet.
     - type: audio
       file: 'assets/audio/Stadtgut.m4a'
       title: "Eis im Stadtgut"
-      performer: "Tahira"
+      performer: "Jugenforum Naunhof"
     - type: message
       text: 🍨🍧🍦
       InlineKeyboard:
@@ -156,39 +186,67 @@ frage_stadtgut:
       text: '🐾'
     - type: message
       text: >
-            "Bevor du weitergehst noch eine Frage an dich: Bisher gibt es wenige Veranstaltungen für Jugendliche im Bürgersaal. Was könntest du dir vorstellen, das hier für Jugendliche stattfindet?"
-    - type: message
-      text: Wegbeschreibung Stadtgut <<Hier fehlt noch etwas>>>
+            Bevor du weitergehst:
+    - type: poll
+      question: Was könntest du dir vorstellen, was für Veranstaltungen hier für Jugendliche stattfinden?
+      options:
+        - "Konzerte"
+        - "Kino"
+        - "Stand Up Comedy"
+        - "Poetry Slam"
     - type: return
       state: FRAGE_STADTGUT
 
 frage_stadtgut_tipp:
     - type: message
-      text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
+      text: 'Das habe ich nicht verstanden. Wenn du das Quiz beantwortest geht es automatisch weiter.'
 
 frage_stadtgut2:
     - type: message
       text: >
-            Für alle, die gern recherchieren: Wie viele Treffen des Jugendforums haben bisher im Bürgersaal oder woanders stattgefunden?
+            Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal.
+            Wir wünschen uns, dass sich das ändert!
+    - type: message
+      text: Welche Veranstaltungen für Jugendliche sollten hier deiner Meinung nach stattfinden?
     - type: return
       state: FRAGE_STADTGUT2
+
+frage_stadtgut2_tipp:
+    - type: message
+      text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
+
+frage_stadtgut2_aufloesung:
+    - type: message
+      text: Wir werden alle Ideen sammeln und versuchen, die häufigsten Vorschläge in die Tat umzusetzen.
 
 weg_marktplatz:
     - type: message
       text: >
-            Jetzt gehst du vorn aus dem Stadtgut raus, auf die Hauptstraße. Die überquerst du und stehst direkt auf dem Marktplatz.
-            Der Marktplatz ...
+            Jetzt gehst du vorn aus dem Stadtgut raus, an der Litfaßsäule 💈 vorbei, auf die Hauptstraße.
+            Die überquerst du und stehst direkt auf dem Marktplatz.
       InlineKeyboard:
+        - text: "🐾 🧭 Wo muss ich hin?"
+          data:  'action:weg_marktplatz_navigation
         - text: "🐾 weiter"
           data:  'action:frage_marktplatz'
     - type: return
       state: WEG_MARKTPLATZ
 
+weg_marktplatz_navigation:
+    - type: message
+      text: 🧭 In diese Richtung geht's zum Marktplatz.
+
 frage_marktplatz:
     - type: message
       text: '🐾'
     - type: message
-      text: Schau dich um, was gefällt dir am Marktplatz?
+      text: >
+            Vor über 300 Jahren erwarb Naunhof das Marktrecht... 🧙‍♂️
+            Nein, keine Sorge, wir lassen die Stadtgeschichte hier weg.
+    - type: message
+      text: Schau dich lieber um!
+    - type: message
+      text: Was gefällt dir am Marktplatz?
     - type: return
       state: FRAGE_MARKTPLATZ
 
@@ -198,13 +256,25 @@ frage_marktplatz2:
     - type: return
       state: FRAGE_MARKTPLATZ2
 
+frage_marktplatz2_aufloesung:
+    - type: message
+      text: Uns ist auch aufgefallen, dass es hier im Sommer keine schattigen Bänke gibt. ⛱
+    - type: message
+      text: "Du ahnst es schon: Wir sammeln die Ideen und geben sie an die Stadt weiter."
+    - type: return
+      state: FRAGE_MARKTPLATZ2_AUFLOESUNG
+
 rathaus:
     - type: message
-      text: Hier am Marktplatz steht auch das Rathaus mit der Stadtverwaltung. Wir haben für dich die Bürgermeisterin gefragt, was eine Stadtverwaltung so macht, was ihre Aufgaben als Bürgermeisterin sind und welche Visionen für Jugendbeteiligung sie hat.
+      text: >
+            Hier am Marktplatz steht auch das Rathaus mit der Stadtverwaltung.
+            Wir haben für dich die Bürgermeisterin gefragt, was eine Stadtverwaltung und eine Bürgermeisterin so machen und welche Visionen sie für Jugendbeteiligung hat.
     - type: audio
       file: 'assets/audio/Oberschule.m4a'
-      title: "Bürgermeisterin"
+      title: "Visionen für die Jugendbeteiligung"
       performer: "Frau Conrad"
+    - type: message
+      text: ✨✨✨
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:weg_oase'
@@ -216,39 +286,15 @@ weg_oase:
       text: '🐾'
     - type: message
       text: "Jetzt hast du einen etwas längeren Streckenabschnitt vor dir: Die Leipziger Straße."
+    - type: photo
+      file: "assets/schild_oase.jpg"
     - type: message
-      text: "Hör dir doch einfach Podcast XY zu XY auf dem Weg an."
-    - type: message
-      text: "Oder werde aktiv: Mach auf dem Weg eine Soundaufnahme von Naunhof und schick sie uns."
+      text: "Gehe rechts am Rathaus vorbei und folge der Straße, bis du dieses Schild auf der rechten Straßenseite entdeckst:"
       InlineKeyboard:
-        - text: "Podcast"
-          url:  'https://open.spotify.com/episode/2P3T5Vfb7vy85Gv1FiqBq9?si=Vy_cMtA1T3uNl8yeS-lfcQ&utm_source=whatsapp&dl_branch=1'
-        - text: "Soundaufnahme"
-          data:  'action:soundaufnahme'
         - text: "🐾 weiter"
           data:  'action:weg_oase2'
     - type: return
       state: WEG_OASE
-
-soundaufnahme:
-    - type: message
-      text: '🐾'
-    - type: message
-      text: "Du kannst einfach eine Sprachnachricht aufnehmen und an mich schicken."
-      InlineKeyboard:
-        - text: "🐾 überspringen"
-          data:  'action:weg_oase2'
-    - type: return
-      state: SOUNDAUFNAHME
-
-soundaufnahme_bestätigen:
-    - type: message
-      text: "Danke für deine Aufnahme :)"
-      InlineKeyboard:
-        - text: "🐾 weiter"
-          data:  'action:weg_oase2'
-    - type: return
-      state: SOUNDAUFNAHME_BESTÄTIGEN
 
 weg_oase2:
     - type: message
@@ -260,6 +306,8 @@ weg_oase2:
     - type: message
       text: "Oase?, denkst du jetzt vielleicht. Ja, du bist auf direktem Weg zu unserem hiesigen Jugendclub. Schau doch mal ob Julia da ist, die die Einrichtung leitet. Julia kann dir viel erzählen und hat einen Schluck zu trinken für dich. Auf dem Gelände der Oase kannst du Volleyball spielen oder chillen. Tob dich aus. Aber vergiss nicht, bei wieder rausgehen, den QR Code am Tor zu scannen."
       InlineKeyboard:
+        - text: Podcast
+          url:  'https://open.spotify.com/episode/2P3T5Vfb7vy85Gv1FiqBq9?si=Vy_cMtA1T3uNl8yeS-lfcQ&utm_source=whatsapp&dl_branch=1'
         - text: "🐾 weiter"
           data:  'action:stadtteile'
     - type: return
