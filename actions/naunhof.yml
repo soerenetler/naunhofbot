@@ -233,6 +233,8 @@ weg_marktplatz:
       state: WEG_MARKTPLATZ
 
 weg_marktplatz_navigation:
+    - type: photo
+      file: "assets/Stadtgut.png"
     - type: message
       text: 🧭 In diese Richtung geht's zum Marktplatz.
 
@@ -287,7 +289,7 @@ weg_oase:
     - type: message
       text: "Jetzt hast du einen etwas längeren Streckenabschnitt vor dir: Die Leipziger Straße."
     - type: photo
-      file: "assets/schild_oase.jpg"
+      file: "assets/Oase.png"
     - type: message
       text: "Gehe rechts am Rathaus vorbei und folge der Straße, bis du dieses Schild auf der rechten Straßenseite entdeckst:"
       InlineKeyboard:
