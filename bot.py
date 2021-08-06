@@ -26,6 +26,7 @@ from digitalguide.uhrzeit_filter import FilterUhrzeit
 
 from actions import naunhofActions, generalActions
 from digitalguide.mongo_persistence import DBPersistence
+from digitalguide.errorHandler import error_handler
 
 from digitalguide.pattern import EMOJI_PATTERN
 
@@ -43,12 +44,6 @@ logger = logging.getLogger(__name__)
 if __name__ == '__main__':
     TOKEN = os.environ.get('TELEGRAM_TOKEN')
     PORT = int(os.environ.get('PORT', '8080'))
-
-    def error_handler(update: Update, context: CallbackContext):
-        """Log the error and send a telegram message to notify the developer."""
-        # Log the error before we do anything else, so we can see it even if something breaks.
-        logger.error(msg="Exception while handling an update:",
-                     exc_info=context.error)
 
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
@@ -235,7 +230,7 @@ if __name__ == '__main__':
 
             ConversationHandler.TIMEOUT: [TypeHandler(Update, naunhofActions["timeout"])],
         },
-        fallbacks=[]
+        fallbacks=[TypeHandler(Update, generalActions["log_update"])]
     )
 
     dp.add_handler(conv_handler)
