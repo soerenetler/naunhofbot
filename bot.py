@@ -224,7 +224,13 @@ if __name__ == '__main__':
                 TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
             "WALDBAD": prechecks+[
-                CommandHandler('weiter', naunhofActions["parthe"]),
+                MessageHandler(
+                    Filters.text & ~Filters.command, naunhofActions["waldbad_aufloesung"]),
+                TypeHandler(Update, naunhofActions["waldbad_tipp"])],
+
+            "WALDBAD_AUFLOESUNG": prechecks+[
+                CommandHandler(
+                    'weiter', naunhofActions["parthe"]),
                 TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
             "PARTHE": prechecks+[

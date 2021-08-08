@@ -507,6 +507,10 @@ waldbad:
     - type: return
       state: WALDBAD
 
+waldbad_tipp:
+    - type: message
+      text: Was meisnt du? Schreib deine Schätzung einfach in den Chat!
+
 waldbad_aufloesung:
     - type: message
       text: 'Du bist schon nah dran!'
@@ -519,6 +523,8 @@ waldbad_aufloesung:
           url:  https://www.naunhof.de/verzeichnis/visitenkarte.php?mandat=189888
         - text: "🐾 weiter"
           data:  'action:parthe'
+    - type: return
+      state: WALDBAD_AUFLOESUNG
 
 parthe:
     - type: message
