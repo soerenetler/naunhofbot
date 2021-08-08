@@ -180,7 +180,7 @@ if __name__ == '__main__':
 
             "WEG_KITA": prechecks+[
                 CommandHandler(
-                    'weiter', naunhofActions["frage_kita2"]),
+                    'weiter', naunhofActions["weg_kita2"]),
                 TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
             "WEG_KITA2": prechecks+[
