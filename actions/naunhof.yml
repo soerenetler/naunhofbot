@@ -205,9 +205,11 @@ frage_stadtgut_tipp:
 
 frage_stadtgut2:
     - type: message
+      text: Tut mir leid... keine der Antworten war richtig. 😇😇😇
+    - type: message
       text: >
             Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal.
-            Wir wünschen uns, dass sich das ändert!
+            Wir wollen, dass sich das ändert!
     - type: message
       text: Welche Veranstaltungen für Jugendliche sollten hier deiner Meinung nach stattfinden?
     - type: return
@@ -220,6 +222,11 @@ frage_stadtgut2_tipp:
 frage_stadtgut2_aufloesung:
     - type: message
       text: Wir werden alle Ideen sammeln und versuchen, die häufigsten Vorschläge in die Tat umzusetzen.
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_marktplatz'
+    - type: return
+      state: FRAGE_STADTGUT2_AUFLOESUNG
 
 weg_marktplatz:
     - type: message
