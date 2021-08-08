@@ -345,7 +345,7 @@ weg_kita:
       text: '🐾'
     - type: message
       text: "😴 Genug ausgeruht? "
-   - type: message
+    - type: message
       text: "Unser Weg führt uns nun die Straße zurück, bis zum Schild zur Oase."
       InlineKeyboard:
         - text: "🐾 weiter"
