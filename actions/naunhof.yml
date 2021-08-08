@@ -579,6 +579,10 @@ ende:
     text: '🐾'
   - type: message
     text: >
+          Unsere Tour ist hier zu Ende.
+          Ich hoffe, du hattest viel Spaß und konntest Naunhof von einer neuen Seite kennenlernen.
+  - type: message
+    text: >
           Sag uns gern auch deine Meinung zum Rundgang.
     InlineKeyboard:
       - text: "💛 Feedback geben"
@@ -603,8 +607,6 @@ feedback_geben:
     text: Schreib einfach dein Feedback in den Chat oder sende uns eine Sprachnachricht.
 
 ende_feedback:
-  - type: function
-    func: ende_feedback
   - type: message
     text: Danke für dein Feedback! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
   - type: return
