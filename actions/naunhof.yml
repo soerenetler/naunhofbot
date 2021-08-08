@@ -343,6 +343,9 @@ oase:
             "Oase?" Ja, das ist keine Fata Morgana, sondern unser Jugendclub.
             Hier hat Julia das sagen. Schau doch mal, ob sie da ist.
             Drinnen wartet eine Erfrischung auf dich, bevor wir unsere Reise fortsetzen. 🥤🏝🐪
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_oase'
 
 stadtteile:
     - type: message
@@ -369,7 +372,7 @@ weg_kita:
       text: "Unser Weg führt uns nun die Straße zurück, bis zum Schild zur Oase."
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:frage_kita'
+          data:  'action:weg_kita2'
     - type: return
       state: WEG_KITA
 
@@ -381,6 +384,8 @@ weg_kita2:
             "Du stehst vermutlich kurz vor einer kleinen Brücke.
             Überquere sie und biege direkt dahinter rechts ab.
             Der Wiesenstraße kannst du dann folgen, bis du auf der linken Seite einen Kindergarten entdeckst. "
+    - type: return
+      state: WEG_KITA2
 
 frage_kita:
     - type: message
