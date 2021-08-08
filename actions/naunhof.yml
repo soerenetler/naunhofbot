@@ -226,9 +226,9 @@ weg_marktplatz:
             Die überquerst du und stehst direkt auf dem Marktplatz.
       InlineKeyboard:
         - text: "🐾 🧭 Wo muss ich hin?"
-          data:  'action:weg_marktplatz_navigation
+          data:  'action:weg_marktplatz_navigation'
         - text: "🐾 weiter"
-          data:  'action:frage_marktplatz'
+          data: 'action:frage_marktplatz'
     - type: return
       state: WEG_MARKTPLATZ
 
@@ -292,7 +292,11 @@ weg_oase:
       file: "assets/Oase.png"
     - type: message
       text: "Gehe rechts am Rathaus vorbei und folge der Straße, bis du dieses Schild auf der rechten Straßenseite entdeckst:"
+    - type: message
+      text: Hör dir doch einfach Podcast Talk & Tools zu Jugendbeteiligung auf dem Weg an.
       InlineKeyboard:
+        - text: Podcast
+          url:  'https://open.spotify.com/episode/2P3T5Vfb7vy85Gv1FiqBq9?si=Vy_cMtA1T3uNl8yeS-lfcQ&utm_source=whatsapp&dl_branch=1'
         - text: "🐾 weiter"
           data:  'action:weg_oase2'
     - type: return
@@ -302,32 +306,34 @@ weg_oase2:
     - type: message
       text: '🐾'
     - type: message
-      text: "Du biegst jetzt nach rechts ab in die XY Straße."
-    - type: message
-      text: "Du musst dich nur noch ein Stück des Weges kämpfen. Eine Oase ist schon ganz nah."
-    - type: message
-      text: "Oase?, denkst du jetzt vielleicht. Ja, du bist auf direktem Weg zu unserem hiesigen Jugendclub. Schau doch mal ob Julia da ist, die die Einrichtung leitet. Julia kann dir viel erzählen und hat einen Schluck zu trinken für dich. Auf dem Gelände der Oase kannst du Volleyball spielen oder chillen. Tob dich aus. Aber vergiss nicht, bei wieder rausgehen, den QR Code am Tor zu scannen."
-      InlineKeyboard:
-        - text: Podcast
-          url:  'https://open.spotify.com/episode/2P3T5Vfb7vy85Gv1FiqBq9?si=Vy_cMtA1T3uNl8yeS-lfcQ&utm_source=whatsapp&dl_branch=1'
-        - text: "🐾 weiter"
-          data:  'action:stadtteile'
+      text: >
+            "Du musst dich nur noch ein Stück des Weges kämpfen.
+            Biege hinter dem Schild nach rechts in die Parthestraße ab und folge ihr, bis du auf der linken Seite die Oase findest. 🏝"
+    - text: "🐾 weiter"
+          data:  'action:oase'
     - type: return
       state: WEG_OASE2
+
+oase:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: >
+            "Oase?" Ja, das ist keine Fata Morgana, sondern unser Jugendclub.
+            Hier hat Julia das sagen. Schau doch mal, ob sie da ist.
+            Drinnen wartet eine Erfrischung auf dich, bevor wir unsere Reise fortsetzen. 🥤🏝🐪
 
 stadtteile:
     - type: message
       text: '🐾'
     - type: message
-      text: "<<TEXT STADTEILEN>>"
+      text: "Im Schaukasten vor der Oase findest du eine Karte mit den Radwegen zu den Ortsteilen von Naunhof. Dazu gehören:"
       InlineKeyboard:
           - text: "Radkarte"
             url:  'https://www.outdooractive.com/de/radrouten/naunhof/radfahren-in-naunhof/2509388/'
     - type: message
-      text: "<<TEXT CROWDMAP>>"
+      text: "Von hier aus lassen sich die Ortsteile auch bequem mit dem Rad erreichen."
       InlineKeyboard:
-          - text: "CROWDMAP"
-            url:  'https://padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n'
           - text: "🐾 weiter"
             data:  'action:weg_kita'
     - type: return
@@ -337,39 +343,64 @@ weg_kita:
     - type: message
       text: '🐾'
     - type: message
-      text: "<<Naviagation?>>"
+      text: "😴 Genug ausgeruht? "
+   - type: message
+      text: "Unser Weg führt uns nun die Straße zurück, bis zum Schild zur Oase."
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_kita'
     - type: return
       state: WEG_KITA
 
+weg_kita2:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: >
+            "Du stehst vermutlich kurz vor einer kleinen Brücke.
+            Überquere sie und biege direkt dahinter rechts ab.
+            Der Wiesenstraße kannst du dann folgen, bis du auf der linken Seite einen Kindergarten entdeckst. "
+
 frage_kita:
     - type: message
       text: '🐾'
     - type: message
-      text: "Schau mal links von dir, hier befindet sich KiTa XY. Was meinst du, wie viele Kitas hat Naunhof?"
+      text: "Hier befindet sich KiTa Zwergenland. Was meinst du, wie viele Kitas hat Naunhof?"
     - type: return
       state: FRAGE_KITA
 
 frage_kita_tipp:
     - type: message
-      text: 'Wie viele Kitas sind es? Schick mir einfach eine Zahl?'
+      text: 'Wie viele Kitas sind es? Schick mir einfach eine Zahl!'
 
 frage_kita_aufloesung:
     - type: message
       text: Du bist nah dran, tendenziell werden es mehr werden, denn viele junge Familien ziehen nach Naunhof. Das freut uns besonders - alles neue potenzielle Mitglieder fürs Jugendforum ;)
+    - type: message
+      text: >
+            Insgesamt hat Naunhof 10 Kitas.
+            Und es werden immer mehr, denn viele junge Familien ziehen nach Naunhof.
+            Das freut uns besonders - alles neue potenzielle Mitglieder fürs Jugendforum 😉
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_gymnasium'
+    - type: return
+      state: FRAGE_KITA_AUFLOESUNG
+
+weg_gymnasium:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: Gehe weiter entlang der Straße, bis du auf der rechten Seite einen Sportplatz siehst. 🏀
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:gymnasium'
-    - type: return
-      state: FRAGE_KITA_AUFLOESUNG
 
 gymnasium:
     - type: message
       text: '🐾'
     - type: message
-      text: Alle Kinder, die jetzt in eine der XY Kitas gehen, haben später die Möglichkeit, das Freie Gymnasium zu besuchen, das du gerade siehst.
+      text: Das hier ist das Freie Gymnasium Naunhof, eine der zwei weiterführenden Schulen in Naunhof. Lass dir von Schüler*innen der Oberschule und des Gymnasium von den Besonderheiten ihrer Schulen erzählen. 🔊
     - type: audio
       file: 'assets/audio/Oberschule.m4a'
       title: "Oberschule Naunhof"
@@ -382,9 +413,20 @@ gymnasium:
       text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice.
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:feuerwehr'
+          data:  'action:weg_feuerwehr'
     - type: return
       state: GYMNASIUM
+
+weg_feuerwehr:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Direkte neben dem Gymnasium siehst du die freiwillige Feuerwehr Naunhof. 🚒"
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:feuerwehr'
+    - type: return
+      state: FEUERWEHR
     
 feuerwehr:
     - type: message
@@ -396,6 +438,17 @@ feuerwehr:
           data:  'action:parthelandhalle'
     - type: return
       state: FEUERWEHR
+
+weg_parthelandhalle:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Lauf jetzt einfach weiter bis zum nächsten Gebäude. "
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:waldbad'
+    - type: return
+      state: PARTHELANDHALLE
 
 parthelandhalle:
     - type: message
