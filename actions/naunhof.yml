@@ -234,7 +234,7 @@ weg_marktplatz:
             Jetzt gehst du vorn aus dem Stadtgut raus, an der Litfaßsäule 💈 vorbei, auf die Hauptstraße.
             Die überquerst du und stehst direkt auf dem Marktplatz.
       InlineKeyboard:
-        - text: "🐾 🧭 Wo muss ich hin?"
+        - text: "🧭 Wo muss ich hin?"
           data: 'action:weg_marktplatz_navigation'
         - text: "🐾 weiter"
           data: 'action:frage_marktplatz'
@@ -246,6 +246,9 @@ weg_marktplatz_navigation:
       file: "assets/Stadtgut.PNG"
     - type: message
       text: 🧭 In diese Richtung geht's zum Marktplatz.
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data: 'action:frage_marktplatz'
 
 frage_marktplatz:
     - type: message
