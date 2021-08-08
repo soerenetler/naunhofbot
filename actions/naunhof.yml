@@ -421,6 +421,8 @@ weg_gymnasium:
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:gymnasium'
+    - type: return
+      state: WEG_GYMNASIUM
 
 gymnasium:
     - type: message
@@ -460,7 +462,7 @@ feuerwehr:
     - type: message
       text: '🐾'
     - type: message
-      text: "<<TEXT FEUERWEHR>>"
+      text: Direkte neben dem Gymnasium siehst du die freiwillige Feuerwehr Naunhof. 🚒
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:parthelandhalle'
@@ -474,9 +476,9 @@ weg_parthelandhalle:
       text: "Lauf jetzt einfach weiter bis zum nächsten Gebäude. "
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:waldbad'
+          data:  'action:parthelandhalle'
     - type: return
-      state: PARTHELANDHALLE
+      state: WEG_PARTHELANDHALLE
 
 parthelandhalle:
     - type: message
