@@ -309,7 +309,8 @@ weg_oase2:
       text: >
             "Du musst dich nur noch ein Stück des Weges kämpfen.
             Biege hinter dem Schild nach rechts in die Parthestraße ab und folge ihr, bis du auf der linken Seite die Oase findest. 🏝"
-    - text: "🐾 weiter"
+      InlineKeyboard:
+        - text: "🐾 weiter"
           data:  'action:oase'
     - type: return
       state: WEG_OASE2
