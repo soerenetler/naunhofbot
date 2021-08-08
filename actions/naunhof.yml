@@ -381,9 +381,12 @@ weg_kita2:
       text: '🐾'
     - type: message
       text: >
-            "Du stehst vermutlich kurz vor einer kleinen Brücke.
+            Du stehst vermutlich kurz vor einer kleinen Brücke.
             Überquere sie und biege direkt dahinter rechts ab.
-            Der Wiesenstraße kannst du dann folgen, bis du auf der linken Seite einen Kindergarten entdeckst. "
+            Der Wiesenstraße kannst du dann folgen, bis du auf der linken Seite einen Kindergarten entdeckst.
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:frage_kita'
     - type: return
       state: WEG_KITA2
 
