@@ -345,7 +345,7 @@ oase:
             Drinnen wartet eine Erfrischung auf dich, bevor wir unsere Reise fortsetzen. 🥤🏝🐪
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:weg_oase'
+          data:  'action:stadtteile'
 
 stadtteile:
     - type: message
@@ -443,20 +443,9 @@ gymnasium:
       text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice.
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:weg_feuerwehr'
-    - type: return
-      state: GYMNASIUM
-
-weg_feuerwehr:
-    - type: message
-      text: '🐾'
-    - type: message
-      text: "Direkte neben dem Gymnasium siehst du die freiwillige Feuerwehr Naunhof. 🚒"
-      InlineKeyboard:
-        - text: "🐾 weiter"
           data:  'action:feuerwehr'
     - type: return
-      state: FEUERWEHR
+      state: GYMNASIUM
     
 feuerwehr:
     - type: message
