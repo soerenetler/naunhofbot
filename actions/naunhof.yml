@@ -140,8 +140,8 @@ weg_stadtgut:
             Wir überqueren jetzt auch noch diesen Parkplatzt und die Straße vor uns.
             Das Stadtgut ist gut versteckt.
     - type: venue
-      latitude: 51.16416
-      longitude: 2.35211
+      latitude: 51.278182
+      longitude: 12.589196
       address: Stadtgut
       title: Dein nächstes Ziel 📌
     - type: message
