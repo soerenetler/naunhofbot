@@ -215,6 +215,11 @@ if __name__ == '__main__':
 
             "PARTHELANDHALLE": prechecks+[
                 CommandHandler(
+                    'weiter', naunhofActions["weg_waldbad"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
+
+            "WEG_WALDBAD": prechecks+[
+                CommandHandler(
                     'weiter', naunhofActions["waldbad"]),
                 TypeHandler(Update, naunhofActions["weiter_tipp"])],
 

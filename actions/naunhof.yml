@@ -487,9 +487,23 @@ parthelandhalle:
       text: "<<TEXT PARTHELANDHALLE>>"
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:waldbad'
+          data:  'action:weg_waldbad'
     - type: return
       state: PARTHELANDHALLE
+
+weg_waldbad:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: >
+            Wenn du in dieser Route schon eins gelernt hast, dann, dass wir über Parkplätze immer quer drübergehen.
+            Mach das auch bei diesem Parkplatz, um zum Waldbad zu gelangen. 🏞
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:waldbad'
+    - type: return
+      state: WEG_WALDBAD
+
     
 waldbad:
     - type: message
