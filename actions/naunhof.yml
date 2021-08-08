@@ -401,7 +401,7 @@ frage_kita_tipp:
 
 frage_kita_aufloesung:
     - type: message
-      text: Du bist nah dran, tendenziell werden es mehr werden, denn viele junge Familien ziehen nach Naunhof. Das freut uns besonders - alles neue potenzielle Mitglieder fürs Jugendforum ;)
+      text: Du bist nah dran!
     - type: message
       text: >
             Insgesamt hat Naunhof 10 Kitas.
@@ -426,7 +426,9 @@ gymnasium:
     - type: message
       text: '🐾'
     - type: message
-      text: Das hier ist das Freie Gymnasium Naunhof, eine der zwei weiterführenden Schulen in Naunhof. Lass dir von Schüler*innen der Oberschule und des Gymnasium von den Besonderheiten ihrer Schulen erzählen. 🔊
+      text: >
+            Das hier ist das Freie Gymnasium Naunhof, eine der zwei weiterführenden Schulen in Naunhof.
+            Lass dir von Schüler*innen der Oberschule und des Gymnasium von den Besonderheiten ihrer Schulen erzählen. 🔊
     - type: audio
       file: 'assets/audio/Oberschule.m4a'
       title: "Oberschule Naunhof"

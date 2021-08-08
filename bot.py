@@ -195,6 +195,11 @@ if __name__ == '__main__':
 
             "FRAGE_KITA_AUFLOESUNG": prechecks+[
                 CommandHandler(
+                    'weiter', naunhofActions["weg_gymnasium"]),
+                TypeHandler(Update, naunhofActions["weiter_tipp"])],
+
+            "WEG_GYMNASIUM": prechecks+[
+                CommandHandler(
                     'weiter', naunhofActions["gymnasium"]),
                 TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
