@@ -132,8 +132,7 @@ if __name__ == '__main__':
                 TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
             "FRAGE_STADTGUT": prechecks+[
-                MessageHandler((Filters.text | Filters.photo | Filters.voice)
-                               & ~Filters.command, naunhofActions["frage_stadtgut2"]),
+                PollAnswerHandler(naunhofActions["frage_stadtgut2"]),
                 TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
 
             "FRAGE_STADTGUT2": prechecks+[
