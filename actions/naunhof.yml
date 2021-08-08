@@ -119,7 +119,7 @@ weg_parkplatz:
             Kauf dir doch 'ne Limo für deinen weiteren Weg. 🧃
       InlineKeyboard:
         - text: 🧭 Wo muss ich hin?
-          data: action:weg_stadtgut_navigation'
+          data: 'action:weg_stadtgut_navigation'
         - text: "🐾 weiter"
           data:  'action:weg_stadtgut'
     - type: return
