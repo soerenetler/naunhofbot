@@ -2,6 +2,7 @@ intro:
     - type: function
       func: save_name
     - type: message
+      parse_mode: MARKDOWN_V2
       text: >
             *Herzlich Willkommen zur Jugend-Stadtrallye Naunhof.*
             Mit dieser Route wollen wir euch auf einen Rundgang aus unserer Sicht mitnehmen - aus der Perspektive junger Menschen. Was gefällt uns an Naunhof und was fehlt hier? Was dabei heraus gekommen ist, erfährst du in dieser Stadtrallye.
