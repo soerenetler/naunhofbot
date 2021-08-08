@@ -235,7 +235,7 @@ weg_marktplatz:
             Die überquerst du und stehst direkt auf dem Marktplatz.
       InlineKeyboard:
         - text: "🐾 🧭 Wo muss ich hin?"
-          data:  'action:weg_marktplatz_navigation'
+          data: 'action:weg_marktplatz_navigation'
         - text: "🐾 weiter"
           data: 'action:frage_marktplatz'
     - type: return
@@ -243,7 +243,7 @@ weg_marktplatz:
 
 weg_marktplatz_navigation:
     - type: photo
-      file: "assets/Stadtgut.png"
+      file: "assets/Stadtgut.PNG"
     - type: message
       text: 🧭 In diese Richtung geht's zum Marktplatz.
 
