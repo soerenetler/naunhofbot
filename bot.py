@@ -247,6 +247,11 @@ if __name__ == '__main__':
                     'weiter', naunhofActions["ende"]),
                 TypeHandler(Update, naunhofActions["weiter_tipp"])],
 
+            "FEEDBACK": prechecks+[MessageHandler((Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["ende_feedback"]),                        MessageHandler(
+                        Filters.text, reiherbergActions["kontakt_rueckfragen"]),
+                        CommandHandler('weiter', ende_feedback["ende_feedback"]),
+                        TypeHandler(Update, ende_feedback["feedback_tipp"])],
+
             ConversationHandler.TIMEOUT: [TypeHandler(Update, naunhofActions["timeout"])],
         },
         fallbacks=[TypeHandler(Update, generalActions["log_update"])]

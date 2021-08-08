@@ -509,20 +509,32 @@ waldbad:
     - type: message
       text: '🐾'
     - type: message
-      text: "Tata! Unser Waldbad. Im Sommer kühlt es uns ab, im Winter ist es zwar geschlossen, aber der Wald drumherum ist auch in der kalten Jahreszeit einen Spaziergang wert. Rate mal, wieviel Liter das Becken des Waldbades fasst. Du willst mehr Infos zum Waldbad? "
+      text: "Tata! Unser Waldbad. Im Sommer kühlt es uns ab, im Winter ist es zwar geschlossen, aber der Wald drumherum ist auch in der kalten Jahreszeit einen Spaziergang wert."
+    - type: message
+      text: Rate mal, wieviel Liter das Becken des Waldbades fasst. Du willst mehr Infos zum Waldbad?
+    - type: return
+      state: WALDBAD
+
+waldbad_aufloesung:
+    - type: message
+      text: 'Du bist schon nah dran!'
+    - type: message
+      text: Deine Schätzung liegt nur X Liter daneben.
+    - type: message
+      type: Du willst mehr Infos zum Waldbad? 
       InlineKeyboard:
         - text: "Website"
           url:  https://www.naunhof.de/verzeichnis/visitenkarte.php?mandat=189888
         - text: "🐾 weiter"
           data:  'action:parthe'
-    - type: return
-      state: WALDBAD
 
 parthe:
     - type: message
       text: '🐾'
     - type: message
-      text: "Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders. <<HIER FEHLEN NOCH MEHR INFOS>>"
+      text: >
+            "Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders.
+            Das ist auch schlecht für den Wald drumherum und die Seen, für die Naunhof bekannt ist. "
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:weg_schlossturmplatz'
@@ -533,7 +545,9 @@ weg_schlossturmplatz:
     - type: message
       text: '🐾'
     - type: message
-      text: "<<WEG SCHLOSSTURMPLATZ>>"
+      text: >
+            "Unser Weg führt uns links am Waldbad vorbei. Du kannst hier durch den Zaun gucken, um das Waldbad von innen zu sehen.
+            🕵️‍♀️ Folge dem Weg, bis du an den Sportplatz kommst. "
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_schlossturmplatz'
@@ -544,7 +558,10 @@ frage_schlossturmplatz:
     - type: message
       text: '🐾'
     - type: message
-      text: "Der Schloßturmplatz. Ein Sportplatz, der jedem*r zwar frei zugänglich ist, um Sport zu machen, aber nicht so ganz in Schuss ist. Welchen Sport machst du? Schick mir doch ein Emoji deiner Lieblingssportart."
+      text: >
+            Der Schlossturmplatz ist ein Sportplatz, auf dem alle Sport machen können. Leider ist er aber nicht so ganz in Schuss. 
+    - type: message
+      text: Welchen Sport machst du? Antworte mit einem passenden Emoji, der deine Sportart darstellt.
     - type: return
       state: FRAGE_SCHLOSSTURMPLATZ
 
@@ -554,10 +571,12 @@ frage_schlossturmplatz_tipp:
 
 frage_schlossturmplatz_aufloesung:
     - type: message
-      text: "<<TEXT AUFLOESUNG>>"
+      text: "Bei uns im Jugendforum sind nicht alle sportlich aktiv, aber einen renovierten Sportplatz wünschen wir uns alle! 🏸⚽🏃‍♀️"
     - type: message
       text: "Was es sonst noch für Sportperspektiven in Naunhof gibt, erfährst du jetzt vom Kreissportbund, der seinen Sitz auch in Naunhof hat:"
       InlineKeyboard:
+        - text: "Website"
+          url:  https://www.ksb-ll.de/
         - text: "🐾 weiter"
           data:  'action:ende'
     - type: return
@@ -566,16 +585,42 @@ frage_schlossturmplatz_aufloesung:
 ende:
   - type: message
     text: '🐾'
-  - type: function
-    func: ende_feedback
+  - type: message
+    text: >
+          Sag uns gern auch deine Meinung zum Rundgang.
+    InlineKeyboard:
+      - text: "💛 Feedback geben"
+        data: 'action:feedback_geben'
+      - text: "↪️ überspringen"
+        data: 'action:ende_ende'
+  - type: return
+    state: FEEDBACK
+
+ende_ende:
   - type: message
     text: Danke für dein Interesse! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
   - type: return
     state: END
 
+feedback_tipp:
+    - type: message
+      text: Ich bin gespannt, wie es dir gefallen hat. Du kannst mir dein Feedbakc als Text- oder Sprachnachricht schicken.
+
+feedback_geben:
+  - type: message
+    text: Schreib einfach dein Feedback in den Chat oder sende uns eine Sprachnachricht.
+
+ende_feedback:
+  - type: function
+    func: ende_feedback
+  - type: message
+    text: Danke für dein Feedback! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
+  - type: return
+    state: END
+
 timeout:
   - type: message
-    text: Du warst seit einer ganzen Weile nicht aktiv. Mit /start kannst du eine neue Tour mit dem Reiherbot beginnen.
+    text: Du warst seit einer ganzen Weile nicht aktiv. Mit /start kannst du eine neue Tour beginnen.
   - type: return
     state: END
 
