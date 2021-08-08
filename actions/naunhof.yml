@@ -264,11 +264,19 @@ frage_marktplatz:
     - type: return
       state: FRAGE_MARKTPLATZ
 
+frage_marktplatz_tipp:
+    - type: message
+      text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
+
 frage_marktplatz2:
     - type: message
       text: Was könnte man hier ändern?
     - type: return
       state: FRAGE_MARKTPLATZ2
+
+frage_marktplatz2_tipp:
+    - type: message
+      text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
 
 frage_marktplatz2_aufloesung:
     - type: message

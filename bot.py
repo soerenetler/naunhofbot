@@ -153,12 +153,12 @@ if __name__ == '__main__':
             "FRAGE_MARKTPLATZ": prechecks+[
                 MessageHandler((Filters.text | Filters.photo | Filters.voice)
                                & ~Filters.command, naunhofActions["frage_marktplatz2"]),
-                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
+                TypeHandler(Update, naunhofActions["frage_marktplatz_tipp"])],
 
             "FRAGE_MARKTPLATZ2": prechecks+[
                 MessageHandler(
                     (Filters.text | Filters.photo | Filters.voice) & ~Filters.command, naunhofActions["rathaus"]),
-                TypeHandler(Update, naunhofActions["frage_stadtgut_tipp"])],
+                TypeHandler(Update, naunhofActions["frage_marktplatz2_tipp"])],
 
             "RATHAUS": prechecks+[
                 CommandHandler('weiter', naunhofActions["weg_oase"]),
