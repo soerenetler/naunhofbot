@@ -190,6 +190,7 @@ frage_stadtgut:
             Bevor du weitergehst:
     - type: poll
       question: Was könntest du dir vorstellen, was für Veranstaltungen hier für Jugendliche stattfinden?
+      poll_type: REGULAR
       options:
         - "Konzerte"
         - "Kino"
