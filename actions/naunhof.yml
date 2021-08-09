@@ -93,10 +93,23 @@ frage_skatepark:
       text: '🐾'
     - type: message
       text: >
-            Unser Skatepark ist klein aber fein. Aber  ein bisschen größer könnte er schon sein..
-            Wie würde ein perfekter Skatepark für dich aussehen? INHALT Mache von deinem Ergebnis einen Screenshot und schicke ihn uns!
+            Unser Skatepark ist klein aber fein. Aber ein bisschen größer könnte er schon sein..
+            Wie würde ein perfekter Skatepark für dich aussehen? Zeichne deinen Skatepark und schicke uns einen Screenshot davon!
+    - type: photo
+      file: assets/Skatepark.png
+    - type: message
+      text: Wir sind gespannt auf deine Ideen!
+      InlineKeyboard:
+        - text: "🤷 Wie geht das?"
+          data:  'action:frage_skatepark_hilfe'
     - type: return
       state: FRAGE_SKATEPARK
+
+frage_skatepark_hilfe:
+    - type: message
+      text: >
+            Du kannst das Bild einfach in Telegram bearbeiten.
+            In diesem Video zeig ich dir, wie das geht.
 
 frage_skatepark_tipp:
     - type: message
