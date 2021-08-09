@@ -108,8 +108,10 @@ frage_skatepark:
 frage_skatepark_hilfe:
     - type: message
       text: >
-            Du kannst das Bild einfach in Telegram bearbeiten.
+            Du kannst das Bild direkt in Telegram bearbeiten.
             In diesem Video zeig ich dir, wie das geht.
+    - type: video
+      file: assets/skatepark.mp4
 
 frage_skatepark_tipp:
     - type: message
