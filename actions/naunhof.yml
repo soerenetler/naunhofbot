@@ -40,6 +40,10 @@ frage_bahnhof_tipp:
 
 frage_bahnhof_aufloesung:
     - type: function
+      func: write
+      bucket: naunhofbot
+      folder: bahnhof
+    - type: function
       func: eval_schaetzfrage_bahnhof
     - type: message
       text: >
@@ -99,6 +103,10 @@ frage_skatepark_tipp:
       text: 'Ups, ich habe die Eingabe nicht verstanden. Du kannst eine Nachricht oder ein Foto schicken. Eine Sprachnachricht geht auch.'
 
 frage_skatepark_aufloesung:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: skatepark
     - type: message
       text: Danke! 😎
     - type: message
@@ -220,6 +228,10 @@ frage_stadtgut2_tipp:
       text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
 
 frage_stadtgut2_aufloesung:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: stadtgut
     - type: message
       text: Wir werden alle Ideen sammeln und versuchen, die häufigsten Vorschläge in die Tat umzusetzen.
       InlineKeyboard:
@@ -269,6 +281,10 @@ frage_marktplatz_tipp:
       text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
 
 frage_marktplatz2:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: marktplatz1
     - type: message
       text: Was könnte man hier ändern?
     - type: return
@@ -279,6 +295,10 @@ frage_marktplatz2_tipp:
       text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
 
 frage_marktplatz2_aufloesung:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: marktplatz2
     - type: message
       text: Uns ist auch aufgefallen, dass es hier im Sommer keine schattigen Bänke gibt. ⛱
     - type: message
@@ -327,8 +347,8 @@ weg_oase2:
       text: '🐾'
     - type: message
       text: >
-            "Du musst dich nur noch ein Stück des Weges kämpfen.
-            Biege hinter dem Schild nach rechts in die Parthestraße ab und folge ihr, bis du auf der linken Seite die Oase findest. 🏝"
+            Du musst dich nur noch ein Stück des Weges kämpfen.
+            Biege hinter dem Schild nach rechts in die Parthestraße ab und folge ihr, bis du auf der linken Seite die Oase findest. 🏝
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:oase'
@@ -403,6 +423,10 @@ frage_kita_tipp:
       text: 'Wie viele Kitas sind es? Schick mir einfach eine Zahl!'
 
 frage_kita_aufloesung:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: kita
     - type: message
       text: Du bist nah dran!
     - type: message
@@ -465,7 +489,7 @@ weg_parthelandhalle:
     - type: message
       text: '🐾'
     - type: message
-      text: "Lauf jetzt einfach weiter bis zum nächsten Gebäude. "
+      text: "Lauf jetzt einfach weiter bis zum nächsten Gebäude."
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:parthelandhalle'
@@ -512,6 +536,10 @@ waldbad_tipp:
       text: Was meisnt du? Schreib deine Schätzung einfach in den Chat!
 
 waldbad_aufloesung:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: waldbad
     - type: message
       text: 'Du bist schon nah dran!'
     - type: message
@@ -531,8 +559,8 @@ parthe:
       text: '🐾'
     - type: message
       text: >
-            "Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders.
-            Das ist auch schlecht für den Wald drumherum und die Seen, für die Naunhof bekannt ist. "
+            Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders.
+            Das ist auch schlecht für den Wald drumherum und die Seen, für die Naunhof bekannt ist.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:weg_schlossturmplatz'
@@ -568,6 +596,10 @@ frage_schlossturmplatz_tipp:
       text: 'Die Antwort habe ich nicht verstanden?! Schick mir bitte ein Emoji von deiner Lieblingsportart!'
 
 frage_schlossturmplatz_aufloesung:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: schlossturmplatz
     - type: message
       text: "Bei uns im Jugendforum sind nicht alle sportlich aktiv, aber einen renovierten Sportplatz wünschen wir uns alle! 🏸⚽🏃‍♀️"
     - type: message
@@ -613,6 +645,10 @@ feedback_geben:
     text: Schreib einfach dein Feedback in den Chat oder sende uns eine Sprachnachricht.
 
 ende_feedback:
+  - type: function
+    func: write
+    bucket: naunhofbot
+    folder: feedback
   - type: message
     text: Danke für dein Feedback! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
   - type: return

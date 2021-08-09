@@ -27,6 +27,7 @@ from digitalguide.uhrzeit_filter import FilterUhrzeit
 from actions import naunhofActions, generalActions
 from digitalguide.mongo_persistence import DBPersistence
 from digitalguide.errorHandler import error_handler
+from digitalguide import writeActions 
 
 from digitalguide.pattern import EMOJI_PATTERN
 
@@ -55,7 +56,7 @@ if __name__ == '__main__':
     dp = updater.dispatcher
 
     naunhofActions = read_action_yaml(
-        "actions/naunhof.yml", action_functions=naunhofActions.action_functions)
+        "actions/naunhof.yml", action_functions={**naunhofActions.action_functions, **writeActions.action_functions})
     generalActions = read_action_yaml(
         "actions/general.yml", action_functions=generalActions.action_functions)
     cqh = callback_query_handler({**naunhofActions})
