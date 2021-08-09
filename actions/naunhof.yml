@@ -9,7 +9,7 @@ intro:
     - type: message
       text: Bevor wir losgehen, erzählt dir Maxie noch, was das Jugenforum macht. 📺
     - type: video
-      file: assets/intro_video.mp4
+      file: assets/intro_video_small.mp4
     - type: message
       text: Mit dem 🐾 Weiter-Button kannst du immer zum nächsten Schritt springen.
       InlineKeyboard:
@@ -111,7 +111,7 @@ frage_skatepark_hilfe:
             Du kannst das Bild direkt in Telegram bearbeiten.
             In diesem Video zeig ich dir, wie das geht.
     - type: video
-      file: assets/skatepark.mp4
+      file: assets/skatepark_small.mp4
 
 frage_skatepark_tipp:
     - type: message
