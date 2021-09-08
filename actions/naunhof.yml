@@ -1,6 +1,8 @@
 intro:
     - type: function
       func: save_name
+    - type: sticker
+      id: CAACAgIAAxkBAAIupWE4bjZccpN7PrJDGRlIuONlMlpPAAL7EQACP3awSYv-Y0S1Syb2IAQ
     - type: message
       parse_mode: MarkdownV2
       text: >
@@ -91,6 +93,8 @@ city_route_start:
 frage_skatepark:
     - type: message
       text: '🐾'
+    - type: sticker
+      id: CAACAgIAAxkBAAIup2E4bpIKXaKdYMUZdNn_8iNw-SN6AAJbEgACdiGpSVlyhlHJDDqeIAQ
     - type: message
       text: >
             Unser Skatepark ist klein aber fein. Aber ein bisschen größer könnte er schon sein..
@@ -560,7 +564,7 @@ waldbad_aufloesung:
     - type: message
       text: Deine Schätzung liegt nur X Liter daneben.
     - type: message
-      type: Du willst mehr Infos zum Waldbad? 
+      text: Du willst mehr Infos zum Waldbad? 
       InlineKeyboard:
         - text: "Website"
           url:  https://www.naunhof.de/verzeichnis/visitenkarte.php?mandat=189888
@@ -646,6 +650,8 @@ ende:
     state: FEEDBACK
 
 ende_ende:
+  - type: sticker
+    id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
   - type: message
     text: Danke für dein Interesse! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
   - type: return
@@ -664,6 +670,8 @@ ende_feedback:
     func: write
     bucket: naunhofbot
     folder: feedback
+  - type: sticker
+    id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
   - type: message
     text: Danke für dein Feedback! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
   - type: return
