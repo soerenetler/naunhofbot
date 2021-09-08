@@ -5,9 +5,9 @@ intro:
       id: CAACAgIAAxkBAAIupWE4bjZccpN7PrJDGRlIuONlMlpPAAL7EQACP3awSYv-Y0S1Syb2IAQ
     - type: message
       parse_mode: MarkdownV2
-      text: >
+      text: |
             *Herzlich Willkommen zur Jugend\-Stadtrallye Naunhof\.*
-            Mit dieser Route wollen wir euch auf einen Rundgang aus unserer Sicht mitnehmen \- aus der Perspektive junger Menschen\. Was gefällt uns an Naunhof und was fehlt hier\? Was dabei heraus gekommen ist\, erfährst du in dieser Stadtrallye\.
+            Mit dieser Route wollen wir euch auf einen Rundgang aus unserer Sicht mitnehmen \- aus der Perspektive junger Menschen\. Was gefällt uns an Naunhof und was fehlt hier\?
     - type: message
       text: Bevor wir losgehen, erzählt dir Maxie noch, was das Jugenforum macht. 📺
     - type: video
@@ -28,9 +28,10 @@ frage_bahnhof:
     - type: message
       text: '🐾'
     - type: message
-      text: >
-            Wir starten am Bahnhof Naunhof.
-            Der wurde schon 1887 eröffnet und bietet seitdem eine gute Anbindung nach Grimma oder Leipzig. Nur Nachts ist das mit den Verbindungen so eine Sache ... 
+      parse_mode: MarkdownV2
+      text: |
+            *Wir starten am Bahnhof Naunhof\.*
+            Der wurde schon 1887 eröffnet und bietet seitdem eine gute Anbindung nach Grimma oder Leipzig\. Nur Nachts ist das mit den Verbindungen so eine Sache \.\.\. 
     - type: message
       text: Wann denkst du kommt der letzte Zug in Naunhof an?🚂
     - type: return
@@ -50,7 +51,8 @@ frage_bahnhof_aufloesung:
     - type: message
       text: >
             Am Freitag fährt der letzte Zug von Leipzig nach Naunhof um 0:35 Uhr. Die nächste Verbindung fährt dann erst 5 Stunden später. 
-            Wenn wir also feiern gehen, müssen wir die Nacht durchmachen oder schon richtig früh aufbrechen. 😪
+    - type: message
+      text: Wenn wir also feiern gehen, müssen wir die Nacht durchmachen oder schon richtig früh aufbrechen. 😪
       InlineKeyboard:
         - text: "🐾 weiter"
           data: 'action:routen_auswahl'
@@ -81,9 +83,11 @@ see_route_start:
 
 city_route_start:
     - type: message
-      text: Wunderbar, du hast dich für die Cityroute entschieden!
+      text: Wunderbar, du hast dich für die 🏙️ Cityroute entschieden!
     - type: message
-      text: Dein nächstes Ziel ist gar nicht weit weg. Folge der Ladestraße entlang der Bahnschienen, bis du zu einem kleinen Skatepark rechts von dir kommst.
+      text: |
+            Dein nächstes Ziel ist gar nicht weit weg.
+            Folge der Ladestraße entlang der Bahnschienen, bis du zu einem kleinen Skatepark rechts von dir kommst.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_skatepark'
@@ -96,7 +100,7 @@ frage_skatepark:
     - type: sticker
       id: CAACAgIAAxkBAAIup2E4bpIKXaKdYMUZdNn_8iNw-SN6AAJbEgACdiGpSVlyhlHJDDqeIAQ
     - type: message
-      text: >
+      text: |
             Unser Skatepark ist klein aber fein. Aber ein bisschen größer könnte er schon sein..
             Wie würde ein perfekter Skatepark für dich aussehen? Zeichne deinen Skatepark und schicke uns einen Screenshot davon!
     - type: photo
