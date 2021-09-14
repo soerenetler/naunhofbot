@@ -102,9 +102,9 @@ frage_skatepark:
     - type: sticker
       id: CAACAgIAAxkBAAIup2E4bpIKXaKdYMUZdNn_8iNw-SN6AAJbEgACdiGpSVlyhlHJDDqeIAQ
     - type: message
-      text: |
-            Unser Skatepark ist klein und fein. Aber ein bisschen größer könnte er schon sein..
-            Wie würde ein perfekter Skatepark für dich aussehen? Zeichne deinen Skatepark und schicke uns einen Screenshot davon!
+      text: Unser Skatepark ist klein und fein. Aber ein bisschen größer könnte er schon sein...
+    - type: message
+      text: Wie würde ein perfekter Skatepark für dich aussehen? Zeichne deinen Skatepark und schicke uns einen Screenshot davon!
     - type: photo
       file: assets/Skatepark.png
     - type: message
@@ -241,10 +241,11 @@ frage_stadtgut2:
       text: Tut mir leid... keine der Antworten war richtig. 😇😇😇
     - type: message
       text: >
-            Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal.
-            Wir wollen, dass sich das ändert!
+            Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal. 
+            Dabei hat Naunhof gar nicht so viele weitere Veranstaltungsstätten. 
+            Wir fänden daher gut, wenn der Bürgersaal auch von jungen Menschen öfter genutzt werden würde.
     - type: message
-      text: Welche Veranstaltungen für Jugendliche sollten hier deiner Meinung nach stattfinden?
+      text: Welche Veranstaltungen für Jugendliche sollten hier stattfinden?
     - type: return
       state: FRAGE_STADTGUT2
 
@@ -280,7 +281,7 @@ weg_marktplatz:
 
 weg_marktplatz_navigation:
     - type: photo
-      file: "assets/Stadtgut.PNG"
+      file: "assets/Stadtgut.jpeg"
     - type: message
       text: 🧭 In diese Richtung geht's zum Marktplatz.
       InlineKeyboard:
@@ -354,7 +355,7 @@ weg_oase:
     - type: message
       text: "Jetzt hast du einen etwas längeren Streckenabschnitt vor dir: Die Leipziger Straße."
     - type: photo
-      file: "assets/Oase.png"
+      file: "assets/Oase.jpeg"
     - type: message
       text: "Gehe rechts am Rathaus vorbei und folge der Straße, bis du dieses Schild auf der rechten Straßenseite entdeckst:"
     - type: message
