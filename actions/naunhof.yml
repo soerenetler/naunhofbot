@@ -7,7 +7,7 @@ intro:
       parse_mode: MarkdownV2
       text: |
             *Herzlich Willkommen zur Jugend\-Stadtrallye Naunhof\.*
-            Mit dieser Route wollen wir euch auf einen Rundgang aus unserer Sicht mitnehmen \- aus der Perspektive junger Menschen\. Was gefällt uns an Naunhof\? Was gefällt uns an Naunhof und was fehlt hier? Und ganz wichtig\: Was muss verändert werden\, damit wir als junge Menschen hier gut leben können\.
+            Mit dieser Route wollen wir euch auf einen Rundgang aus unserer Sicht mitnehmen \- aus der Perspektive junger Menschen\. Was gefällt uns an Naunhof und was fehlt hier? Und ganz wichtig\: Was muss verändert werden\, damit wir als junge Menschen hier gut leben können\.
     - type: message
       text: Bevor wir losgehen, erzählt dir Maxie noch, was das Jugenforum macht. 📺
     - type: video
@@ -50,7 +50,7 @@ frage_bahnhof_aufloesung:
       func: eval_schaetzfrage_bahnhof
     - type: message
       text: >
-            Am Freitag fährt der letzte Zug von Leipzig nach Naunhof um 0:35 Uhr. Die nächste Verbindung fährt dann erst 5 Stunden später. 
+            Am Freitag fährt der letzte Zug von Leipzig um 1:33 Uhr nach Naunhof. Die nächste Verbindung fährt dann fast 5 Stunden später. 
     - type: message
       text: Wenn wir also feiern gehen, müssen wir die Nacht durchmachen oder schon richtig früh aufbrechen. 😪
       InlineKeyboard:
@@ -67,6 +67,8 @@ routen_auswahl:
       InlineKeyboard:
         - text: 🏙️ Cityroute
           data: "action:city_route_start"
+        - text: 🏝️ Seeroute
+          data: "action:see_route_start"
     - type: return
       state: ROUTEN_AUSWAHL
 
@@ -76,7 +78,7 @@ routen_auswahl_tipp:
 
 see_route_start:
     - type: message
-      text: Wunderbar, du hast dich für die See Route entschieden! Die Route ist leider noch nicht fertig :/
+      text: Gute Wahl! An unserem Grillensee ist es super.
       InlineKeyboard:
         - text: "🐾 zurück zur Routenauswahl"
           data:  'action:routen_auswahl'
@@ -101,7 +103,7 @@ frage_skatepark:
       id: CAACAgIAAxkBAAIup2E4bpIKXaKdYMUZdNn_8iNw-SN6AAJbEgACdiGpSVlyhlHJDDqeIAQ
     - type: message
       text: |
-            Unser Skatepark ist klein aber fein. Aber ein bisschen größer könnte er schon sein..
+            Unser Skatepark ist klein und fein. Aber ein bisschen größer könnte er schon sein..
             Wie würde ein perfekter Skatepark für dich aussehen? Zeichne deinen Skatepark und schicke uns einen Screenshot davon!
     - type: photo
       file: assets/Skatepark.png
@@ -189,7 +191,7 @@ cafe_stadtgut:
     - type: message
       text: >
             Im Stadtgut Naunhof findest du die Stadtbibliothek und das Begegenungszentrum.
-            Hier ist auch der Bürgersaal, den auch das Jugendforum nutzt, um sich zu treffen.
+            Hier ist auch der Bürgersaal, den das Jugendforum nutzt, um sich zu treffen.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:eis_stadtgut'
@@ -220,13 +222,13 @@ frage_stadtgut:
       text: >
             Bevor du weitergehst:
     - type: poll
-      question: Was könntest du dir vorstellen, was für Veranstaltungen hier für Jugendliche stattfinden?
+      question: Welche Veranstaltungen für Jugendliche finden deiner Meinung nach auch hier statt?
       poll_type: regular
       options:
-        - "Konzerte"
-        - "Kino"
-        - "Stand Up Comedy"
-        - "Poetry Slam"
+        - "🕺 Punkkonzert"
+        - "📽️ Kino"
+        - "🎭 Stand Up Comedy"
+        - "📜 Poetry Slam"
     - type: return
       state: FRAGE_STADTGUT
 
@@ -384,7 +386,7 @@ oase:
     - type: message
       text: >
             "Oase?" Ja, das ist keine Fata Morgana, sondern unser Jugendclub.
-            Hier hat Julia das sagen. Schau doch mal, ob sie da ist.
+            Hier hat Julia das Sagen. Schau doch mal, ob sie da ist.
             Drinnen wartet eine Erfrischung auf dich, bevor wir unsere Reise fortsetzen. 🥤🏝🐪
       InlineKeyboard:
         - text: "🐾 weiter"
@@ -394,17 +396,35 @@ stadtteile:
     - type: message
       text: '🐾'
     - type: message
-      text: "Im Schaukasten vor der Oase findest du eine Karte mit den Radwegen zu den Ortsteilen von Naunhof. Dazu gehören:"
+      text: |
+            Von hier aus startet auch eine tolle Radtour von Naunhof über Erdmannshain, Eicha, Albrechtshain und Fuchshain. Zu Naunhof gehören nämlich auch folgende Ortsteile:
+
+            ◾ Albrechtshain
+            ◾ Ammelshain
+            ◾ Eicha
+            ◾ Erdmannshain
+            ◾ Fuchshain
+            ◾ Lindhardt
       InlineKeyboard:
-          - text: "Radkarte"
-            url:  'https://www.outdooractive.com/de/radrouten/naunhof/radfahren-in-naunhof/2509388/'
-    - type: message
-      text: "Von hier aus lassen sich die Ortsteile auch bequem mit dem Rad erreichen."
-      InlineKeyboard:
+          - text: "🚴 Radtour 1"
+            data:  'action:radtour'
           - text: "🐾 weiter"
             data:  'action:weg_kita'
     - type: return
       state: STADTTEILE
+
+radtour:
+    - type: photo
+      file: assets/Tour1-Na-Erd-Ei-Alb-Fu.png
+      caption: Radweg 1
+    - type: audio
+      file: 'assets/audio/radweg_1.m4a'
+      title: "Radweg 1"
+      performer: "Jugenforum Naunhof"
+    - type: message
+      text: >
+            Schnapp dir doch bei Gelegenheit ein Rad und probier die Route mal aus.
+            In der weiteren Stadtrallye verstecken sich noch zwei weitere tolle Tipps für Radtouren.
 
 weg_kita:
     - type: message
@@ -412,7 +432,7 @@ weg_kita:
     - type: message
       text: "😴 Genug ausgeruht? "
     - type: message
-      text: "Unser Weg führt uns nun die Straße zurück, bis zum Schild zur Oase."
+      text: "Unser Weg führt uns nun die Straße zurück, bis zum Schild der Oase."
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:weg_kita2'
@@ -501,7 +521,7 @@ feuerwehr:
     - type: message
       text: '🐾'
     - type: message
-      text: Direkte neben dem Gymnasium siehst du die freiwillige Feuerwehr Naunhof. 🚒
+      text: Direkt neben dem Gymnasium siehst du die Freiwillige Feuerwehr Naunhof. 🚒
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:parthelandhalle'
@@ -566,7 +586,7 @@ waldbad_aufloesung:
     - type: message
       text: 'Du bist schon nah dran!'
     - type: message
-      text: Deine Schätzung liegt nur X Liter daneben.
+      text: Deine Schätzung liegt nur 3.200.000 Liter daneben.
     - type: message
       text: Du willst mehr Infos zum Waldbad? 
       InlineKeyboard:
@@ -618,11 +638,21 @@ frage_schlossturmplatz_tipp:
     - type: message
       text: 'Die Antwort habe ich nicht verstanden?! Schick mir bitte ein Emoji von deiner Lieblingsportart!'
 
+frage_schlossturmplatz_1:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: schlossturmplatz_emojis
+    - type: message
+      text: Für welche Sportarten denkst du, sollte man den Schlossturmplatz unbedingt pimpen?
+    - type: return
+      state: FRAGE_SCHLOSSTURMPLATZ_1
+
 frage_schlossturmplatz_aufloesung:
     - type: function
       func: write
       bucket: naunhofbot
-      folder: schlossturmplatz
+      folder: schlossturmplatz_pimpen
     - type: message
       text: "Bei uns im Jugendforum sind nicht alle sportlich aktiv, aber einen renovierten Sportplatz wünschen wir uns alle! 🏸⚽🏃‍♀️"
     - type: message
@@ -630,21 +660,86 @@ frage_schlossturmplatz_aufloesung:
       InlineKeyboard:
         - text: "Website"
           url:  https://www.ksb-ll.de/
+    - type: message
+      text: >
+            Du suchst noch eine Strecke zum Joggen oder Radfahren für eine kurze Bewegungseinheit?
+            Dann ist diese Info hier etwas für dich:
+      InlineKeyboard:
+        - text: "🚴 Radtour 2"
+          data:  action:radtour2
+    - typre: message
+      text: Sonst machen wir uns auf den Rückweg zum Bahnhof!
+      InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:ende'
     - type: return
       state: FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG
+
+radtour2:
+    - type: photo
+      file: assets/Tour2-Na-Am.png
+      caption: Radweg 1
+    - type: audio
+      file: 'assets/audio/radweg_2.m4a'
+      title: "Radweg 2"
+      performer: "Jugenforum Naunhof"
+
+weg_grundschule:
+  - type: message
+    text: '🐾'
+  - type: message
+    text: 'Navigation>>Grundschule'
+    InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:frage_grundschule'
+
+frage_grundschule:
+  - type: message
+    text: '🐾'
+  - type: message
+    text: >
+          Hier findest du alle Grundschüler*innen bis zur vierten Klasse.
+          Wie du siehst, wird die Grundschule gerade erweitert, weil es tendenziell mehr Kinder- und Jugendliche in Naunhof geben wird. 
+  - type: poll
+    question: "Siehst du den Spielplatz? Was meinst du, wie weit der nächste Spielplatz entfernt ist:"
+    poll_type: quiz
+    correct_answer_id: 1
+    options: 
+      - 3,5 km
+      - 2 km
+      - 1 km
+
+frage_grundschule_aufloesung:
+  - type: function
+    func: eval_quiz
+    correct_option_id: 1
+    correct_answer_text: "Du liegst richtig! 🎉"
+    wrong_answer_text: "Nicht ganz! Es sind etwas über 2 km."
+  - type: message
+    text: Einmal zum Spielplatz in Lindhardt und einmal zum Spielplatz in Ermannshain.
+  - type: message
+    text: Dafür dass es 10 Kindergärten in Naunhof gibt und jede Menge junge Familien hierher ziehen, ist das ganz schön wenig an Spielmöglichkeiten.
+    InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_bahnhof'
+
+weg_bahnhof:
+  - type: message
+    text: Navigation>>Bahnhof
+    InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:ende'
 
 ende:
   - type: message
     text: '🐾'
   - type: message
     text: >
+          Du bist wieder am Bahnhof, unserem Ausgangspunkt.
           Unsere Tour ist hier zu Ende.
-          Ich hoffe, du hattest viel Spaß und konntest Naunhof von einer neuen Seite kennenlernen.
   - type: message
     text: >
-          Sag uns gern auch deine Meinung zum Rundgang.
+          Wie hat dir die Route gefallen? Welcher Smiley trifft das am besten?
     InlineKeyboard:
       - text: "💛 Feedback geben"
         data: 'action:feedback_geben'
@@ -657,9 +752,11 @@ ende_ende:
   - type: sticker
     id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
   - type: message
-    text: Danke für dein Interesse! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
+    text: >
+          Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
+          Bei schönem Wetter lohnt sich das bestimmt.
   - type: return
-    state: END
+    state: ENDE_ENDE
 
 feedback_tipp:
     - type: message
@@ -677,9 +774,37 @@ ende_feedback:
   - type: sticker
     id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
   - type: message
-    text: Danke für dein Feedback! Mit /start geht's zurück an den Anfang, um eine andere Route zu gehen.
+    text: Danke für dein Feedback!
+  - type: message
+    text: >
+          Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
+          Bei schönem Wetter lohnt sich das bestimmt.
+    InlineKeyboard:
+      - text: 🏝️ Seeroute
+        data: "action:see_route_start"
+      - text: 😓 fix und fertig
+        data: "action:dank"
   - type: return
-    state: END
+    state: ENDE_ENDE
+
+dank:
+  - type: message
+    text: >
+          Wir danken dir für deinen vollen Einsatz!
+          Zusätzlich danken wir unseren Fördergeldgebenden
+  - type: photo
+    file: assets/Förderer Stadtrallye Jugendforum Naunhof.png
+  - type: message
+    text: >
+          Für diese Rallye hatten wir aber nicht nur finanziellen Support, sondern auch von vielen Naunhofer*innen vorab bei unseren Challenges. 
+          Ihr wollt wiessen, was Jugendliche und junge Menschen so zu Naunhof zu sagen haben?
+          Dann guckt mal hier drauf:
+  - type: photo
+    file: assets/Stadtrallye Ergebnisse Umfragen.png
+  - type: message
+    text: >
+          Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
+          https://de.padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n
 
 timeout:
   - type: message
