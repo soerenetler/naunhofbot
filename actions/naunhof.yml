@@ -501,11 +501,7 @@ gymnasium:
     - type: message
       text: >
             Das hier ist das Freie Gymnasium Naunhof, eine der zwei weiterführenden Schulen in Naunhof.
-            Lass dir von Schüler*innen der Oberschule und des Gymnasium von den Besonderheiten ihrer Schulen erzählen. 🔊
-    - type: audio
-      file: 'assets/audio/Oberschule.m4a'
-      title: "Oberschule Naunhof"
-      performer: "JuFo Naunhof"
+            Lass dir von Schüler*innen des Gymnasium von den Besonderheiten ihrer Schule erzählen. 🔊
     - type: audio
       file: 'assets/audio/Gymnasium.mp3'
       title: "Gymnasium Naunhof"
@@ -806,6 +802,135 @@ dank:
     text: >
           Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
           https://de.padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n
+
+touristeninformation:
+  - type: message
+    text: >
+          Noch stehst du am Bahnhof. Siehst du die Tourist*inneninformation?
+  - type: photo
+    file: assets/Postkarte.png
+  - type: message
+    text: Geh hinein und hole dir die Postkarte des Jugendforums, du wirst sie später noch brauchen.
+    InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:weg_kranwerk'
+
+weg_kranwerk:
+  - type: message
+    text: >
+          Jetzt hast du eine längere Wegstrecke vor dir.
+          [google Maps Ansicht mit Weg zum Krankwerk bzw. Navigation zum Kranwerk]
+    InlineKeyboard:
+        - text: "🐾 weiter"
+          data:  'action:kranwerk'
+
+kranwerk:
+  - type: message
+    text: Erste Station erreicht. Du stehst jetzt vorm Alten Kranwerk.
+  - type: message
+    text: |
+          Lunz mal rein!
+          Das Alte Krankwerk ist eine freie Initiative mit dem Anspruch, gesellschaftliche und kulturelle Angebote auszufüllen. Aus einer Industriebrache wurde in Eigenleistung und vor allem, mittels vorhandener Ressourcen ein überregional bekannter Ort zum fröhlichen Kultivieren und engagierter Freizeitgestaltung geschaffen.
+    InlineKeyboard:
+      - text: "🏗️ Kranwerk"
+        url:  'https://www.kranwerk.com'
+      - text: "🐾 weiter"
+        data:  'action:weg_oberschule'
+
+weg_oberschule:
+  - type: message
+    text: Geh wieder vor zur Hauptstraße und biege ab nach rechts. Folge der Wurzener Straße bis du rechts einen großen Parkplatz und dahinter ein Schulgebäude siehst.
+    InlineKeyboard:
+      - text: "🐾 weiter"
+        data:  'action:oberschule'
+  
+oberschule:
+  - type: message
+    text: >
+          Naunhof hat nicht nur ein Gymnasium, sondern auch eine Oberschule.
+          Ella beschreibt hier, wie sie ihre Schule erlebt - aus Sicht der 5 Klasse:
+  - type: audio
+    file: 'assets/audio/Oberschule.m4a'
+    title: "Oberschule Naunhof"
+    performer: "JuFo Naunhof"
+  - type: message
+    text: "Ab der Oberschule gibt es (auch) eine tolle Radtour. Vor allem für jene unter euch die gern fotografieren:"
+    InlineKeyboard:
+        - text: "🚴 Radtour 3"
+          data:  action:radtour3
+        - text: "🐾 weiter"
+          data:  'action:weg_neubaugebiet'
+
+radtour3:
+    - type: photo
+      file: assets/Tour3-Na-Li.png
+      caption: Radweg 3
+    - type: audio
+      file: 'assets/audio/radweg_3.m4a'
+      title: "Radweg 3"
+      performer: "Jugenforum Naunhof"
+
+weg_neubaugebiet:
+  - type: message
+    text: Für heute wollten wir aber an den See.
+  - type: message
+    text: Navigation von der Oberschule zum Neubaugebiet
+    InlineKeyboard:
+      - text: "🐾 weiter"
+        data: 'action:neubaugebiet'
+
+neubaugebiet:
+  - type: message
+    text: >
+          Schau mal nach links. Siehst du Naunhof wachsen? 
+          Was denkst du, wieviel Zuzug hat Naunhof?
+
+weg_see:
+  - type: message
+    text: >
+          Biege jetzt in den kleinen Waldweg hinter der Haltestelle ein. Rechts von dir liegt dann bald der See.
+          google! - Wann rechts zum See?
+    InlineKeyboard:
+      - text: "🐾 weiter"
+        data: 'action:see'
+
+see:
+  - type: message
+    text: |
+          Siehst du das Wasser?
+          Dann nichts wie hin!
+          Badetuch raus und Platz nehmen: Unser Grillensee. 
+          Du kannst hier chillen oder einfach auch eine Runde rundherum laufen. 
+          Die beste Liegefläche findest du unserer Meinung nach hier:
+    InlineKeyboard:
+      - text: "🐾 weiter"
+        data: 'action:chillen'
+
+chillen:
+  - type: message
+    text: Zeit, es sich gemütlich zu machen und ...
+  - type: message
+    text: ... die Postkarte rauszuholen und einem lieben Menschen eine Nachricht zukommen zu lassen.
+    InlineKeyboard:
+      - text: "🐾 weiter"
+        data: 'action:musik'
+
+musik:
+  - type: message
+    text: >
+          Wenn du dich jetzt so in Naunhof umguckst, 
+          Gibt es ein Lied, dass dir dabei in den Sinn kommt, was deinen Eindruck beschreibt? Wenn ja, welches ist das?
+  - type: message
+    text: |
+          Als kleine Inspiration:
+          Auf dem Wiesenkonzert, dass das Jugendforum 2021 organisiert hat, war dieser Künstler hören: https://www.youtube.com/watch?v=LzboGa0DSxo
+  - type: message
+    text: Wie schön Rany so einen Sommer-See-Tag versüßt! 😊
+    InlineKeyboard:
+      - text: "🐾 weiter"
+        data: 'action:rueckweg'
+
+rueckweg:
 
 timeout:
   - type: message
