@@ -1,131 +1,83 @@
-name_frage:
-  - type: message
-    text: 'Wie darf ich dich nennen?'
-  - type: return
-    state: NAME_AENDERN
-
-nicht_verstanden:
-  - type: message
-    text: Leider habe ich dich nicht verstanden. Versuche deine Eingabe anders zu formulieren oder nutze die hinterlegten Antwortbuttons.
-
-start_see_route:
-  - type: message
-    text: Leider ist die Seeroute noch nicht verfügbar.
-
-en_start_reiherberg_route:
-  - type: message
-    text: Klasse Wahl 👍 Auf der Reiherbergroute zeige ich dir mein Zuhause, den Reiherberg.
-  - type: message
-    text: Für diesen Weg brauchen wir etwa eine Stunde.
-    ReplyKeyboardMarkup:
-        - text: "Ja, ich bin bereit 🏁"
-        - text: "Ich würde doch lieber eine andere Route gehen 🤔"
-  - type: return
-    state: EN_REIHERBERGROUTE_BESTAETIGEN
-
-start_reiherberg_route:
-  - type: message
-    text: Klasse Wahl 👍 Auf der Reiherbergroute zeige ich dir mein Zuhause, den Reiherberg.
-  - type: message
-    text: Für diesen Weg brauchen wir etwa eine Stunde.
-    ReplyKeyboardMarkup:
-        - text: "Ja, ich bin bereit 🏁"
-        - text: "Ich würde doch lieber eine andere Route gehen 🤔"
-  - type: return
-    state: REIHERBERGROUTE_BESTAETIGEN
-
-welche_route:
-  - type: photo
-    file: assets/Infografik02.jpg
-  - type: message
-    text: Sehr gut 😊 Welche Route gehen wir heute?
-    ReplyKeyboardMarkup:
-        - text: "Reiherbergaufstieg ⛰️"
-        - text: "Heron Hill Climb 🇬🇧"
-        - text: "Seeroute 🌊"
-  - type: return
-    state: ROUTE_AUSWAEHLEN
-
-weg_zum_bahnhof:
-  - type: message
-    text: Kein Problem, ich schicke dir einfach den Standort, von dem aus wir losgehen.
-  - type: venue
-    latitude: 52.4090401
-    longitude: 12.9724552
-    address: Bahnhof Golm
-    title: Start der Rallye
-  - type: message
-    text: Tippe weiter, wenn du angekommen bist!
-    InlineKeyboard:
-      - text: "🐾 weiter"
-        data: 'action:welche_route'
-  - type: return
-    state: STARTPUNKT
-                               
-datenschutz:
-  - type: message
-    text: 'Cool, dass du da bist, {name}'
-  - type: message
-    text: Um unsere Stadteilführung weiter zu verbessern würden wir gerne ein paar Daten von dir sammeln.
-  - type: message
-    text: Ist das ok für dich? Mehr unter www.reiherbot.de/datenschutz
-    ReplyKeyboardMarkup:
-        - text: "Ja, klar 🌻"
-        - text: "Lieber nicht ⚔️"
-  - type: return
-    state: DATENSCHUTZ
-
-name_aendern:
-  - type: message
-    text: 'Ich nenne dich {name}, okay?'
-    ReplyKeyboardMarkup:
-        - text: "Das klingt besser 😊"
-        - text: "Ups, verschrieben 🙈"
-  - type: function
-    func: change_name
-  - type: return
-    state: NAME
-
 cancel:
   - type: message
     text: 'Bye! I hope we can talk again some day.'
   - type: function
     func: return_end
 
-start_name:
-  - type: function
-    func: entry_conversation
-  - type: function
-    func: default_data
-  - type: sticker
-    id: CAACAgIAAxkBAAIGbl8_fWbeUAx5dTF6v9o0gc1bgs9SAAJUAANBtVYMarf4xwiNAfobBA
-  - type: function
-    func: default_name
-  - type: message
-    text: 'Hi, ich bin Ronni der Reiher! Ich führe dich heute durch Golm.'
-  - type: message
-    text: Darf ich dich {name} nennen?
-    ReplyKeyboardMarkup:
-        - text: "Ja, gerne! 😎"
-        - text: "Nein, nenn mich lieber anders! 👻"
-  - type: return
-    state: NAME
-  
-name_startpunkt:
-  - type: function
-    func: change_data
-  - type: message
-    text: Super!
-  - type: message
-    text: Unsere Reise startet am Bahnhof Golm. Ich warte direkt vor dem orangen Bahnhofsgebäude auf dich. 🚉
-  - type: message
-    text: Bist du auch schon dort?
-    ReplyKeyboardMarkup:
-        - text: "schon da ⚓"
-        - text: "noch auf dem Weg 😱"
-  - type: return
-    state: STARTPUNKT
-
 log_update:
   - type: function
     func: pass_func
+
+intro:
+    - type: function
+      func: save_name
+    - type: sticker
+      id: CAACAgIAAxkBAAIupWE4bjZccpN7PrJDGRlIuONlMlpPAAL7EQACP3awSYv-Y0S1Syb2IAQ
+    - type: message
+      parse_mode: MarkdownV2
+      text: |
+            *Herzlich Willkommen zur Jugend\-Stadtrallye Naunhof\.*
+            Mit dieser Route wollen wir euch auf einen Rundgang aus unserer Sicht mitnehmen \- aus der Perspektive junger Menschen\. Was gefällt uns an Naunhof und was fehlt hier? Und ganz wichtig\: Was muss verändert werden\, damit wir als junge Menschen hier gut leben können\.
+    - type: message
+      text: Bevor wir losgehen, erzählt dir Maxie noch, was das Jugenforum macht. 📺
+    - type: video
+      file: assets/intro_video_small.mp4
+    - type: message
+      text: Mit dem 🐾 Weiter-Button kannst du immer zum nächsten Schritt springen.
+      InlineKeyboard:
+        - text: "👍 Facebook"
+          url:  'https://www.facebook.com/Jugendforum-Naunhof-100477228376229/'
+        - text: "📸 Instagram"
+          url: "https://www.instagram.com/jugendforum_naunhof"
+        - text: "🐾 weiter"
+          data: 'action:frage_bahnhof'
+    - type: return
+      state: INTRO
+
+frage_bahnhof:
+    - type: message
+      text: '🐾'
+    - type: message
+      parse_mode: MarkdownV2
+      text: |
+            *Wir starten am Bahnhof Naunhof\.*
+            Der wurde schon 1887 eröffnet und bietet seitdem eine gute Anbindung nach Grimma oder Leipzig\. Nur Nachts ist das mit den Verbindungen so eine Sache \.\.\. 
+    - type: message
+      text: Wann denkst du kommt der letzte Zug in Naunhof an?🚂
+    - type: return
+      state: FRAGE_BAHNHOF
+
+frage_bahnhof_tipp:
+    - type: message
+      text: 'Bitte schick mir die Uhrzeit im Format hh:mm damit ich es verstehe.'
+
+frage_bahnhof_aufloesung:
+    - type: function
+      func: write
+      bucket: naunhofbot
+      folder: bahnhof
+    - type: function
+      func: eval_schaetzfrage_bahnhof
+    - type: message
+      text: >
+            Am Freitag fährt der letzte Zug von Leipzig um 1:33 Uhr nach Naunhof. Die nächste Verbindung fährt dann fast 5 Stunden später. 
+    - type: message
+      text: Wenn wir also feiern gehen, müssen wir die Nacht durchmachen oder schon richtig früh aufbrechen. 😪
+      InlineKeyboard:
+        - text: "🐾 weiter"
+          data: 'action:routen_auswahl'
+    - type: return
+      state: FRAGE_BAHNHOF_AUFLOESUNG
+
+routen_auswahl:
+    - type: message
+      text: '🐾'
+    - type: message
+      text: "Von hier aus hast du die Qual der Wahl:"
+      InlineKeyboard:
+        - text: 🏙️ Cityroute
+          data: "action:city_route_start"
+        - text: 🏝️ Seeroute
+          data: "action:see_route_start"
+    - type: return
+      state: ROUTEN_AUSWAHL
