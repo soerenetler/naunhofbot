@@ -819,7 +819,11 @@ weg_kranwerk:
   - type: message
     text: >
           Jetzt hast du eine längere Wegstrecke vor dir.
-          [google Maps Ansicht mit Weg zum Krankwerk bzw. Navigation zum Kranwerk]
+  - type: venue
+    latitude: 51.278182
+    longitude: 12.589196
+    address: 🏗️ Kranwerk
+    title: Dein nächstes Ziel 📌
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:kranwerk'
@@ -873,6 +877,11 @@ radtour3:
 weg_neubaugebiet:
   - type: message
     text: Für heute wollten wir aber an den See.
+  - type: venue
+    latitude: 51.278182
+    longitude: 12.589196
+    address: Neubaugbiet
+    title: Dein nächstes Ziel 📌
   - type: message
     text: Navigation von der Oberschule zum Neubaugebiet
     InlineKeyboard:
@@ -931,6 +940,25 @@ musik:
         data: 'action:rueckweg'
 
 rueckweg:
+  - type: message
+    text: Du bist fertig zu baden und zu chillen?
+  - type: venue
+    latitude: 51.278182
+    longitude: 12.589196
+    address: Bahnhof Naunhof
+    title: Dein nächstes Ziel 📌
+  - type: message
+    text: Dann mach dich auf den Rückweg.
+    InlineKeyboard:
+      - text: "🐾 weiter"
+        data: 'action:postkarte_verschicken'
+
+postkarte_verschicken:
+  - type: message
+    text: Vergiss nicht deine Postkarte mit einer Briefmarke zu versehen uns einzustecken!
+    InlineKeyboard:
+      - text: "🐾 weiter"
+        data: 'action:ende'
 
 timeout:
   - type: message
