@@ -613,6 +613,8 @@ weg_grundschule:
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_grundschule'
+  - type: return
+    state: WEG_GRUNDSCHULE
 
 frage_grundschule:
   - type: message
@@ -629,6 +631,8 @@ frage_grundschule:
       - 3,5 km
       - 2 km
       - 1 km
+  - type: return
+    state: FRAGE_GRUNDSCHULE
 
 frage_grundschule_aufloesung:
   - type: function
@@ -643,6 +647,8 @@ frage_grundschule_aufloesung:
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:weg_bahnhof'
+  - type: return
+    state: FRAGE_GRUNDSCHULE_AUFLOESUNG
 
 weg_bahnhof:
   - type: message
@@ -650,6 +656,8 @@ weg_bahnhof:
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:ende'
+  - type: return
+    state: WEG_BAHNHOF
 
 ende:
   - type: message
@@ -726,6 +734,8 @@ dank:
     text: >
           Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
           https://de.padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n
+  - type: return
+    state: DANK
 
 
 timeout:
