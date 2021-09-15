@@ -39,8 +39,8 @@ def eval_schaetzfrage_bahnhof(update, context):
 
     schaetzung_value = schaetzung_hour*60+schaetzung_minute
 
-    echter_hour = 0
-    echter_minute = 59
+    echter_hour = 1
+    echter_minute = 33
     echter_value = echter_hour*60 + echter_minute
     
     dif_value = echter_value-schaetzung_value

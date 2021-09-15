@@ -385,8 +385,10 @@ oase:
     - type: message
       text: '🐾'
     - type: message
+      text: Oase?
+    - type: message
       text: >
-            "Oase?" Ja, das ist keine Fata Morgana, sondern unser Jugendclub.
+            Ja, das ist keine Fata Morgana, sondern unser Jugendclub.
             Hier hat Julia das Sagen. Schau doch mal, ob sie da ist.
             Drinnen wartet eine Erfrischung auf dich, bevor wir unsere Reise fortsetzen. 🥤🏝🐪
       InlineKeyboard:
@@ -426,6 +428,9 @@ radtour:
       text: >
             Schnapp dir doch bei Gelegenheit ein Rad und probier die Route mal aus.
             In der weiteren Stadtrallye verstecken sich noch zwei weitere tolle Tipps für Radtouren.
+      InlineKeyboard:
+          - text: "🐾 weiter"
+            data:  'action:weg_kita'
 
 weg_kita:
     - type: message
