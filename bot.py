@@ -62,7 +62,7 @@ if __name__ == '__main__':
     cqh = callback_query_handler({**cityrouteActions})
 
     prechecks = [CommandHandler('cancel', generalActions["cancel"]),
-                 CommandHandler('start', generalActions["start_name"]),
+                 CommandHandler('start', generalActions["intro"]),
                  CallbackQueryHandler(cqh)]
 
     conv_handler = ConversationHandler(
