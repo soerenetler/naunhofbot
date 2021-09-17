@@ -1,13 +1,4 @@
-from telegram import (ParseMode, InputFile, InputMediaPhoto, ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup, Poll, Update, CallbackQuery)
-from telegram.ext import CallbackContext, ConversationHandler
-from PIL import Image
-import re
-
-import base64
-from io import BytesIO
-import yaml
-
-from actions import utils
+from telegram import ReplyKeyboardRemove
 
 import logging
 
