@@ -43,6 +43,21 @@ def eval_schaetzfrage_kitas(update, context):
                                   reply_markup=ReplyKeyboardRemove())
 
 
+def eval_schaetzfrage_waldbad(update, context):
+    import re
+
+    schaetzung = int(re.findall(r"\d{1,}", update.message.text)[0])
+    echter_wert = 3200000 
+    if schaetzung == echter_wert:
+        update.message.reply_text('Richtig!',
+                                  reply_markup=ReplyKeyboardRemove())
+
+    differenz = schaetzung - echter_wert
+    if differenz != 0:
+        update.message.reply_text('Deine Schätzung liegt nur {} Liter daneben.'.format(abs(differenz)),
+                                  reply_markup=ReplyKeyboardRemove())
+
 action_functions = {"eval_quiz": eval_quiz,
-                    "eval_schaetzfrage_kitas": eval_schaetzfrage_kitas
+                    "eval_schaetzfrage_kitas": eval_schaetzfrage_kitas,
+                    "eval_schaetzfrage_waldbad": eval_schaetzfrage_waldbad
                     }

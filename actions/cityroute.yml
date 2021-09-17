@@ -493,7 +493,7 @@ waldbad:
     - type: message
       text: "Tata! Unser Waldbad. Im Sommer kühlt es uns ab, im Winter ist es zwar geschlossen, aber der Wald drumherum ist auch in der kalten Jahreszeit einen Spaziergang wert."
     - type: message
-      text: Rate mal, wieviel Liter das Becken des Waldbades fasst. Du willst mehr Infos zum Waldbad?
+      text: Rate mal, wieviel Liter das Becken des Waldbades fasst.
     - type: return
       state: WALDBAD
 
@@ -513,7 +513,7 @@ waldbad_aufloesung:
     - type: message
       text: Du willst mehr Infos zum Waldbad? 
       InlineKeyboard:
-        - text: "Website"
+        - text: "🌐 Website"
           url:  https://www.naunhof.de/verzeichnis/visitenkarte.php?mandat=189888
         - text: "🐾 weiter"
           data:  'action:parthe'
