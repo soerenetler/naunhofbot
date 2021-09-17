@@ -61,7 +61,7 @@ if __name__ == '__main__':
     generalActions = read_action_yaml(
         "actions/general.yml", action_functions={**generalActions.action_functions, **writeActions.action_functions})
     seerouteActions = read_action_yaml(
-        "actions/seeroute.yml", action_functions={**writeActions.action_functions, **writeActions.action_functions})
+        "actions/seeroute.yml", action_functions={**writeActions.action_functions})
 
     cqh = callback_query_handler({**cityrouteActions, **generalActions, **seerouteActions})
 
@@ -81,6 +81,7 @@ if __name__ == '__main__':
 
             **read_state_yml("states/general.yml", actions={**cityrouteActions, **generalActions, **seerouteActions}, prechecks=prechecks),
             **read_state_yml("states/cityroute.yml", actions={**cityrouteActions}, prechecks=prechecks),
+            **read_state_yml("states/seeroute.yml", actions={**seerouteActions}, prechecks=prechecks),
 
             ConversationHandler.TIMEOUT: [TypeHandler(Update, cityrouteActions["timeout"])],
         },

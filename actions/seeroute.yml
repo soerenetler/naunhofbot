@@ -4,6 +4,8 @@ see_route_start:
       InlineKeyboard:
         - text: "🐾 zurück zur Routenauswahl"
           data:  'action:routen_auswahl'
+    - type: return
+      state: SEE_ROUTE_START
 
 touristeninformation:
   - type: message
@@ -16,6 +18,8 @@ touristeninformation:
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:weg_kranwerk'
+  - type: return
+    state: TOURISTENINFORMATION
 
 weg_kranwerk:
   - type: message
@@ -29,6 +33,8 @@ weg_kranwerk:
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:kranwerk'
+  - type: return
+    state: WEG_KRANWERK
 
 kranwerk:
   - type: message
@@ -42,6 +48,8 @@ kranwerk:
         url:  'https://www.kranwerk.com'
       - text: "🐾 weiter"
         data:  'action:weg_oberschule'
+  - type: return
+    state: KRANWERK
 
 weg_oberschule:
   - type: message
@@ -49,6 +57,8 @@ weg_oberschule:
     InlineKeyboard:
       - text: "🐾 weiter"
         data:  'action:oberschule'
+  - type: return
+    state: WEG_OBERSCHULE
   
 oberschule:
   - type: message
@@ -66,6 +76,8 @@ oberschule:
           data:  action:radtour3
         - text: "🐾 weiter"
           data:  'action:weg_neubaugebiet'
+  - type: return
+    state: OBERSCHULE
 
 radtour3:
     - type: photo
@@ -89,12 +101,20 @@ weg_neubaugebiet:
     InlineKeyboard:
       - text: "🐾 weiter"
         data: 'action:neubaugebiet'
+  - type: return
+    state: WEG_NEUBAUGEBIET
 
 neubaugebiet:
   - type: message
     text: >
           Schau mal nach links. Siehst du Naunhof wachsen? 
           Was denkst du, wieviel Zuzug hat Naunhof?
+  - type: return
+    state: NEUBAUGEBIET
+
+neubaugebiet_tipp:
+    - type: message
+      text: 'Wie viele Familien kommen neu nach Naunhof? Schick mir einfach eine Zahl!'
 
 weg_see:
   - type: message
@@ -104,6 +124,8 @@ weg_see:
     InlineKeyboard:
       - text: "🐾 weiter"
         data: 'action:see'
+  - type: return
+    state: WEG_SEE
 
 see:
   - type: message
@@ -116,6 +138,8 @@ see:
     InlineKeyboard:
       - text: "🐾 weiter"
         data: 'action:chillen'
+  - type: return
+    state: SEE
 
 chillen:
   - type: message
@@ -125,6 +149,8 @@ chillen:
     InlineKeyboard:
       - text: "🐾 weiter"
         data: 'action:musik'
+  - type: return
+    state: CHILLEN
 
 musik:
   - type: message
@@ -137,9 +163,12 @@ musik:
           Auf dem Wiesenkonzert, dass das Jugendforum 2021 organisiert hat, war dieser Künstler hören: https://www.youtube.com/watch?v=LzboGa0DSxo
   - type: message
     text: Wie schön Rany so einen Sommer-See-Tag versüßt! 😊
-    InlineKeyboard:
-      - text: "🐾 weiter"
-        data: 'action:rueckweg'
+  - type: return
+    state: MUSIK
+
+musik_tipp:
+  - type: message
+    text: Schick mir einfach den Namen des Liedes oder einen Youtube-Link.
 
 rueckweg:
   - type: message
@@ -154,10 +183,97 @@ rueckweg:
     InlineKeyboard:
       - text: "🐾 weiter"
         data: 'action:postkarte_verschicken'
+  - type: return
+    state: RUECKWEG
 
 postkarte_verschicken:
   - type: message
     text: Vergiss nicht deine Postkarte mit einer Briefmarke zu versehen uns einzustecken!
     InlineKeyboard:
       - text: "🐾 weiter"
-        data: 'action:ende'
+        data: 'action:see_frage_feedback'
+  - type: return
+    state: POSTKARTE_VERSCHICKEN
+  
+see_frage_feedback:
+  - type: message
+    text: '🐾'
+  - type: message
+    text: >
+          Du bist wieder am Bahnhof, unserem Ausgangspunkt.
+          Unsere Tour ist hier zu Ende.
+  - type: message
+    text: >
+          Wie hat dir die Route gefallen? Welcher Smiley trifft das am besten?
+    InlineKeyboard:
+      - text: "💛 Feedback geben"
+        data: 'action:see_feedback_geben'
+      - text: "↪️ überspringen"
+        data: 'action:see_ende'
+  - type: return
+    state: SEE_FRAGE_FEEDBACK
+
+see_feedback_tipp:
+    - type: message
+      text: Ich bin gespannt, wie es dir gefallen hat. Du kannst mir dein Feedback als Text- oder Sprachnachricht schicken.
+
+see_feedback_geben:
+  - type: message
+    text: Schreib einfach dein Feedback in den Chat oder sende uns eine Sprachnachricht.
+
+see_ende:
+  - type: sticker
+    id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
+  - type: message
+    text: >
+          Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
+          Bei schönem Wetter lohnt sich das bestimmt.
+    InlineKeyboard:
+      - text: 🏝️ Seeroute
+        data: "action:see_route_start"
+      - text: 😓 fix und fertig
+        data: "action:see_dank"
+  - type: return
+    state: ENDE
+
+see_ende_feedback:
+  - type: function
+    func: write
+    bucket: naunhofbot
+    folder: feedback
+  - type: sticker
+    id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
+  - type: message
+    text: Danke für dein Feedback!
+  - type: message
+    text: >
+          Du hast noch Reserven? Dann nimm doch noch unsere zweite Route durch die Stadt in Angriff! 
+          Bei schönem Wetter lohnt sich das bestimmt.
+    InlineKeyboard:
+      - text: 🏙️ Cityroute
+        data: "action:city_route_start"
+      - text: 😓 fix und fertig
+        data: "action:see_dank"
+  - type: return
+    state: SEE_ENDE
+
+see_dank:
+  - type: message
+    text: >
+          Wir danken dir für deinen vollen Einsatz!
+          Zusätzlich danken wir unseren Fördergeldgebenden
+  - type: photo
+    file: assets/Förderer Stadtrallye Jugendforum Naunhof.png
+  - type: message
+    text: >
+          Für diese Rallye hatten wir aber nicht nur finanziellen Support, sondern auch von vielen Naunhofer*innen vorab bei unseren Challenges. 
+          Ihr wollt wiessen, was Jugendliche und junge Menschen so zu Naunhof zu sagen haben?
+          Dann guckt mal hier drauf:
+  - type: photo
+    file: assets/Stadtrallye Ergebnisse Umfragen.png
+  - type: message
+    text: >
+          Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
+          https://de.padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n
+  - type: return
+    state: SEE_DANK

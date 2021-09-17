@@ -1,0 +1,153 @@
+SEE_ROUTE_START:
+  - handler: CommandHandler
+    command: weiter
+    action: touristeninformation
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+TOURISTENINFORMATION:
+  - handler: CommandHandler
+    command: weiter
+    action: weg_kranwerk
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+WEG_KRANWERK:
+  - handler: CommandHandler
+    command: weiter
+    action: kranwerk
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+KRANWERK:
+  - handler: CommandHandler
+    command: weiter
+    action: weg_oberschule
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+WEG_OBERSCHULE:
+  - handler: CommandHandler
+    command: weiter
+    action: oberschule
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+OBERSCHULE:
+  - handler: CommandHandler
+    command: weiter
+    action: weg_neubaugebiet
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+WEG_NEUBAUGEBIET:
+  - handler: CommandHandler
+    command: weiter
+    action: neubaugebiet
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+NEUBAUGEBIET:
+  - handler: MessageHandler
+    filter: text
+    action: weg_see
+
+  - handler: TypeHandler
+    type: Update
+    action: neubaugebiet_tipp
+
+WEG_SEE:
+  - handler: CommandHandler
+    command: weiter
+    action: see
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+SEE:
+  - handler: CommandHandler
+    command: weiter
+    action: chillen
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+CHILLEN:
+  - handler: CommandHandler
+    command: weiter
+    action: musik
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+MUSIK:
+  - handler: MessageHandler
+    filter: text
+    action: rueckweg
+
+  - handler: TypeHandler
+    type: Update
+    action: musik_tipp
+
+RUECKWEG:
+  - handler: CommandHandler
+    command: weiter
+    action: postkarte_verschicken
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+POSTKARTE_VERSCHICKEN:
+  - handler: CommandHandler
+    command: weiter
+    action: postkarte_verschicken
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+SEE_FRAGE_FEEDBACK:
+  - handler: MessageHandler
+    filter: text
+    action: see_ende_feedback
+  - handler: MessageHandler
+    filter: photo
+    action: see_ende_feedback
+  - handler: MessageHandler
+    filter: voice
+    action: see_ende_feedback
+
+  - handler: CommandHandler
+    command: weiter
+    action: see_ende
+
+  - handler: TypeHandler
+    type: Update
+    action: see_feedback_tipp
+
+SEE_ENDE:
+  - handler: CommandHandler
+    command: weiter
+    action: see_dank
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp

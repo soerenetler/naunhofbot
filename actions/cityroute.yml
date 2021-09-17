@@ -682,7 +682,7 @@ frage_feedback:
       - text: "💛 Feedback geben"
         data: 'action:feedback_geben'
       - text: "↪️ überspringen"
-        data: 'action:ende_ende'
+        data: 'action:ende'
   - type: return
     state: FRAGE_FEEDBACK
 
