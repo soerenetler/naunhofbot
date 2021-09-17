@@ -277,3 +277,13 @@ see_dank:
           https://de.padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n
   - type: return
     state: SEE_DANK
+
+timeout:
+  - type: message
+    text: Du warst seit einer ganzen Weile nicht aktiv. Mit /start kannst du eine neue Tour beginnen.
+  - type: return
+    state: END
+
+weiter_tipp:
+  - type: message
+    text: "Ich habe deine Eingabe nicht verstanden: Weiter kommst du mit /weiter oder einem klick of den Button"
