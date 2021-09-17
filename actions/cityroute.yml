@@ -599,7 +599,7 @@ frage_schlossturmplatz_aufloesung:
       text: Sonst machen wir uns auf den Rückweg zum Bahnhof!
       InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:ende'
+          data:  'action:weg_grundschule'
     - type: return
       state: FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG
 
