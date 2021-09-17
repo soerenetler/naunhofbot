@@ -16,10 +16,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-def save_name(update, context):
-    context.user_data["name"] = update.message.from_user.first_name
-    context.user_data["daten"] = True
-
 def eval_schaetzfrage_bahnhof(update, context):
     update.message.reply_text("Let's seee",
             reply_markup=ReplyKeyboardRemove())
@@ -67,6 +63,6 @@ def eval_quiz(update, context, correct_option_ids, corret_answer_text, wrong_ans
                                 reply_markup=ReplyKeyboardRemove())
 
 
-action_functions = {"save_name": save_name,
+action_functions = {"eval_quiz": eval_quiz,
                     "eval_schaetzfrage_bahnhof": eval_schaetzfrage_bahnhof
                     }

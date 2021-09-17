@@ -12,6 +12,9 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
+def save_name(update, context):
+    context.user_data["name"] = update.message.from_user.first_name
+    context.user_data["daten"] = True
 
 @log(logger)
 def log_update(update: Update, context: CallbackContext):
@@ -50,7 +53,8 @@ def change_name(update: Update, context: CallbackContext):
 def pass_func(update: Update, context: CallbackContext):
     pass
 
-action_functions = {"change_name": change_name,
+action_functions = {"save_name": save_name,
+                    "change_name": change_name,
                     "change_data": change_data,
                     "default_name": default_name,
                     "default_data": default_data,
