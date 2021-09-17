@@ -538,8 +538,9 @@ weg_schlossturmplatz:
       text: '🐾'
     - type: message
       text: >
-            "Unser Weg führt uns links am Waldbad vorbei. Du kannst hier durch den Zaun gucken, um das Waldbad von innen zu sehen.
-            🕵️‍♀️ Folge dem Weg, bis du an den Sportplatz kommst. "
+            Unser Weg führt uns links am Waldbad vorbei. Du kannst hier durch den Zaun gucken, um das Waldbad von innen zu sehen. 🕵️‍♀️
+    - type: message
+      text: Folge dem Weg, bis du an den Sportplatz kommst.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_schlossturmplatz'
@@ -594,7 +595,7 @@ frage_schlossturmplatz_aufloesung:
       InlineKeyboard:
         - text: "🚴 Radtour 2"
           data:  action:radtour2
-    - typre: message
+    - type: message
       text: Sonst machen wir uns auf den Rückweg zum Bahnhof!
       InlineKeyboard:
         - text: "🐾 weiter"
