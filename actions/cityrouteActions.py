@@ -20,11 +20,10 @@ def eval_quiz(update, context, correct_option_ids, corret_answer_text, wrong_ans
     update = update["poll_answer"]
     
     if update.option_ids == [correct_option_ids]:
-        user = context.user_data["name"] 
-        update.user.send_message('Richtig, {user} 🎉'.format(name=context.user_data["name"]),
+        update.user.send_message(corret_answer_text.format(name=context.user_data["name"]),
                                 reply_markup=ReplyKeyboardRemove())
     else:
-        update.user.send_message('Nicht ganz!'.format(name=context.user_data["name"]),
+        update.user.send_message(wrong_answer_text.format(name=context.user_data["name"]),
                                 reply_markup=ReplyKeyboardRemove())
 
 
