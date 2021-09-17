@@ -1,0 +1,39 @@
+INTRO:
+  - handler: CommandHandler
+    command: weiter
+    action: frage_bahnhof
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+FRAGE_BAHNHOF:
+  - handler: MessageHandler
+    filter: uhrzeit
+    action: frage_bahnhof_aufloesung
+
+  - handler: TypeHandler
+    type: Update
+    action: frage_bahnhof_tipp
+
+FRAGE_BAHNHOF_AUFLOESUNG:
+  - handler: CommandHandler
+    command: weiter
+    action: routen_auswahl
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+ROUTEN_AUSWAHL:
+  - handler: CommandHandler
+    command: city
+    action: city_route_start
+
+  - handler: CommandHandler
+    command: see
+    action: see_route_start
+
+  - handler: TypeHandler
+    type: Update
+    action: routen_auswahl_tipp
