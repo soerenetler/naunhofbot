@@ -59,9 +59,9 @@ if __name__ == '__main__':
     cityrouteActions = read_action_yaml(
         "actions/cityroute.yml", action_functions={**cityrouteActions.action_functions, **writeActions.action_functions})
     generalActions = read_action_yaml(
-        "actions/general.yml", action_functions={**generalActions.action_functions})
+        "actions/general.yml", action_functions={**generalActions.action_functions, **writeActions.action_functions})
     seerouteActions = read_action_yaml(
-        "actions/seeroute.yml", action_functions={**writeActions.action_functions})
+        "actions/seeroute.yml", action_functions={**writeActions.action_functions, **writeActions.action_functions})
 
     cqh = callback_query_handler({**cityrouteActions, **generalActions, **seerouteActions})
 
