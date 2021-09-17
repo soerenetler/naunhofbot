@@ -295,22 +295,72 @@ FRAGE_SCHLOSSTURMPLATZ:
   - handler: MessageHandler
     filter: regex
     regex: EMOJI_PATTERN
-    action: frage_schlossturmplatz_aufloesung
+    action: frage_schlossturmplatz_1
 
   - handler: TypeHandler
     type: Update
     action: frage_schlossturmplatz_tipp
 
+FRAGE_SCHLOSSTURMPLATZ_1:
+  - handler: MessageHandler
+    filter: text
+    action: frage_schlossturmplatz_aufloesung
+  - handler: MessageHandler
+    filter: photo
+    action: frage_schlossturmplatz_aufloesung
+  - handler: MessageHandler
+    filter: voice
+    action: frage_schlossturmplatz_aufloesung
+
+  - handler: TypeHandler
+    type: Update
+    action: frage_schlossturmplatz_1_tipp
+
 FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG:
   - handler: CommandHandler
     command: weiter
-    action: ende
+    action: weg_grundschule
 
   - handler: TypeHandler
     type: Update
     action: weiter_tipp
 
-FEEDBACK:
+WEG_GRUNDSCHULE:
+  - handler: CommandHandler
+    command: weiter
+    action: frage_grundschule
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+FRAGE_GRUNDSCHULE:
+  - handler: PollAnswerHandler
+    action: frage_grundschule_aufloesung
+
+  - handler: TypeHandler
+    type: Update
+    action: frage_grundschule_tipp
+
+FRAGE_GRUNDSCHULE_AUFLOESUNG:
+  - handler: CommandHandler
+    command: weiter
+    action: weg_bahnhof
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+WEG_BAHNHOF:
+  - handler: CommandHandler
+    command: weiter
+    action: frage_feedback
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+FRAGE_FEEDBACK:
   - handler: MessageHandler
     filter: text
     action: ende_feedback
@@ -323,8 +373,17 @@ FEEDBACK:
 
   - handler: CommandHandler
     command: weiter
-    action: ende_feedback
+    action: ende
 
   - handler: TypeHandler
     type: Update
     action: feedback_tipp
+
+ENDE:
+  - handler: CommandHandler
+    command: weiter
+    action: dank
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp

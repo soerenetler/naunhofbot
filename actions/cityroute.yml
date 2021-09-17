@@ -569,6 +569,10 @@ frage_schlossturmplatz_1:
     - type: return
       state: FRAGE_SCHLOSSTURMPLATZ_1
 
+frage_schlossturmplatz_1_tipp:
+    - type: message
+      text: 'Du kannst mir deine Ideen als Textnachricht, Sprachnachricht oder auch als Foto schicken.'
+
 frage_schlossturmplatz_aufloesung:
     - type: function
       func: write
@@ -634,6 +638,10 @@ frage_grundschule:
   - type: return
     state: FRAGE_GRUNDSCHULE
 
+frage_grundschule_tipp:
+    - type: message
+      text: 'Das habe ich nicht verstanden. Wenn du das Quiz beantwortest geht es automatisch weiter.'
+
 frage_grundschule_aufloesung:
   - type: function
     func: eval_quiz
@@ -659,7 +667,7 @@ weg_bahnhof:
   - type: return
     state: WEG_BAHNHOF
 
-ende:
+frage_feedback:
   - type: message
     text: '🐾'
   - type: message
@@ -675,25 +683,30 @@ ende:
       - text: "↪️ überspringen"
         data: 'action:ende_ende'
   - type: return
-    state: FEEDBACK
+    state: FRAGE_FEEDBACK
 
-ende_ende:
+feedback_tipp:
+    - type: message
+      text: Ich bin gespannt, wie es dir gefallen hat. Du kannst mir dein Feedback als Text- oder Sprachnachricht schicken.
+
+feedback_geben:
+  - type: message
+    text: Schreib einfach dein Feedback in den Chat oder sende uns eine Sprachnachricht.
+
+ende:
   - type: sticker
     id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
   - type: message
     text: >
           Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
           Bei schönem Wetter lohnt sich das bestimmt.
+    InlineKeyboard:
+      - text: 🏝️ Seeroute
+        data: "action:see_route_start"
+      - text: 😓 fix und fertig
+        data: "action:dank"
   - type: return
-    state: ENDE_ENDE
-
-feedback_tipp:
-    - type: message
-      text: Ich bin gespannt, wie es dir gefallen hat. Du kannst mir dein Feedbakc als Text- oder Sprachnachricht schicken.
-
-feedback_geben:
-  - type: message
-    text: Schreib einfach dein Feedback in den Chat oder sende uns eine Sprachnachricht.
+    state: ENDE
 
 ende_feedback:
   - type: function
@@ -714,7 +727,7 @@ ende_feedback:
       - text: 😓 fix und fertig
         data: "action:dank"
   - type: return
-    state: ENDE_ENDE
+    state: ENDE
 
 dank:
   - type: message
