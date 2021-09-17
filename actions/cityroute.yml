@@ -631,7 +631,7 @@ frage_grundschule:
   - type: poll
     question: "Siehst du den Spielplatz? Was meinst du, wie weit der nächste Spielplatz entfernt ist:"
     poll_type: quiz
-    correct_answer_id: 1
+    correct_option_id: 1
     options: 
       - 3,5 km
       - 2 km
