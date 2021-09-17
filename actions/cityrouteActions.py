@@ -8,11 +8,11 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 
-def eval_quiz(update, context, correct_option_id, corret_answer_text, wrong_answer_text):
+def eval_quiz(update, context, correct_option_id, correct_answer_text, wrong_answer_text):
     update = update["poll_answer"]
 
     if update.option_ids == [correct_option_id]:
-        update.user.send_message(corret_answer_text.format(name=context.user_data["name"]),
+        update.user.send_message(correct_answer_text.format(name=context.user_data["name"]),
                                  reply_markup=ReplyKeyboardRemove())
     else:
         update.user.send_message(wrong_answer_text.format(name=context.user_data["name"]),
