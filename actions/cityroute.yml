@@ -506,10 +506,8 @@ waldbad_aufloesung:
       func: write
       bucket: naunhofbot
       folder: waldbad
-    - type: message
-      text: 'Du bist schon nah dran!'
-    - type: message
-      text: Deine Schätzung liegt nur 3.200.000 Liter daneben.
+    - type: function
+      func: eval_schaetzfrage_waldbad
     - type: message
       text: Du willst mehr Infos zum Waldbad? 
       InlineKeyboard:
