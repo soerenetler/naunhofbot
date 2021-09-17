@@ -321,21 +321,21 @@ stadtteile:
       text: |
             Von hier aus startet auch eine tolle Radtour von Naunhof über Erdmannshain, Eicha, Albrechtshain und Fuchshain. Zu Naunhof gehören nämlich auch folgende Ortsteile:
 
-            ◾ Albrechtshain
-            ◾ Ammelshain
-            ◾ Eicha
-            ◾ Erdmannshain
-            ◾ Fuchshain
-            ◾ Lindhardt
+            ▪️ Albrechtshain
+            ▪️ Ammelshain
+            ▪️ Eicha
+            ▪️ Erdmannshain
+            ▪️ Fuchshain
+            ▪️ Lindhardt
       InlineKeyboard:
           - text: "🚴 Radtour 1"
-            data:  'action:radtour'
+            data:  'action:radtour1'
           - text: "🐾 weiter"
             data:  'action:weg_kita'
     - type: return
       state: STADTTEILE
 
-radtour:
+radtour1:
     - type: photo
       file: assets/Tour1-Na-Erd-Ei-Alb-Fu.png
       caption: Radweg 1
@@ -395,8 +395,8 @@ frage_kita_aufloesung:
       func: write
       bucket: naunhofbot
       folder: kita
-    - type: message
-      text: Du bist nah dran!
+    - type: function
+      func: eval_schaetzfrage_kitas
     - type: message
       text: >
             Insgesamt hat Naunhof 10 Kitas.

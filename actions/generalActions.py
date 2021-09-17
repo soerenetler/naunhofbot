@@ -37,9 +37,6 @@ def entry_conversation(update: Update, context: CallbackContext):
 
 
 def eval_schaetzfrage_bahnhof(update, context):
-    update.message.reply_text("Let's seee",
-            reply_markup=ReplyKeyboardRemove())
-
     from ctparse import ctparse
 
     parse = ctparse(update.message.text, timeout=1).resolution
