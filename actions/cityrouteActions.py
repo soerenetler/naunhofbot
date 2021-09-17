@@ -32,13 +32,13 @@ def eval_schaetzfrage_kitas(update, context):
     if differenz == -1:
         update.message.reply_text('Es ist eine Kita mehr, als du geschätzt hast.',
                                   reply_markup=ReplyKeyboardRemove())
-    elif differenz > -1:
+    elif differenz < -1:
         update.message.reply_text('Es sind {} Kitas mehr, als du geschätzt hast.'.format(abs(differenz)),
                                   reply_markup=ReplyKeyboardRemove())
     elif differenz == 1:
         update.message.reply_text('Es ist eine Kita weniger, als du geschätzt hast.',
                                   reply_markup=ReplyKeyboardRemove())
-    elif differenz < 1:
+    elif differenz > 1:
         update.message.reply_text('Es sind {} Kitas weniger, als du geschätzt hast.'.format(abs(differenz)),
                                   reply_markup=ReplyKeyboardRemove())
 
