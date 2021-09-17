@@ -425,13 +425,12 @@ gymnasium:
     - type: message
       text: >
             Das hier ist das Freie Gymnasium Naunhof, eine der zwei weiterführenden Schulen in Naunhof.
-            Lass dir von Schüler*innen des Gymnasium von den Besonderheiten ihrer Schule erzählen. 🔊
     - type: audio
       file: 'assets/audio/Gymnasium.mp3'
       title: "Gymnasium Naunhof"
       performer: "JuFo Naunhof"
     - type: message
-      text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice.
+      text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice. 🔊
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:feuerwehr'
@@ -443,6 +442,9 @@ feuerwehr:
       text: '🐾'
     - type: message
       text: Direkt neben dem Gymnasium siehst du die Freiwillige Feuerwehr Naunhof. 🚒
+    - type: message
+      parse_mode: MarkdownV2
+      text: Du willst mehr über die Freiwillige Feuerwehr wissen\? Dann schau mal [🌐 hier](https://www.naunhof.de/seite/357277/feuerwehr.html) vorbei\.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:parthelandhalle'
