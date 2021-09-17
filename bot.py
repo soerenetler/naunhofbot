@@ -60,6 +60,10 @@ if __name__ == '__main__':
         "actions/cityroute.yml", action_functions={**cityrouteActions.action_functions, **writeActions.action_functions})
     generalActions = read_action_yaml(
         "actions/general.yml", action_functions=generalActions.action_functions)
+    seerouteActions = read_action_yaml(
+        "actions/seeroute.yml", action_functions={**writeActions.action_functions})
+
+
     cqh = callback_query_handler({**cityrouteActions})
 
     prechecks = [CommandHandler('cancel', generalActions["cancel"]),
@@ -76,7 +80,7 @@ if __name__ == '__main__':
 
         states={
 
-            **read_state_yml("states/general.yml", actions={**cityrouteActions, **generalActions}, prechecks=prechecks),
+            **read_state_yml("states/general.yml", actions={**cityrouteActions, **generalActions, **seerouteActions}, prechecks=prechecks),
             **read_state_yml("states/cityroute.yml", actions={**cityrouteActions}, prechecks=prechecks),
 
             ConversationHandler.TIMEOUT: [TypeHandler(Update, cityrouteActions["timeout"])],
