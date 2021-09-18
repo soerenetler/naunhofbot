@@ -2,8 +2,8 @@ see_route_start:
     - type: message
       text: Gute Wahl! An unserem Grillensee ist es super.
       InlineKeyboard:
-        - text: "🐾 zurück zur Routenauswahl"
-          data:  'action:routen_auswahl'
+        - text: "🐾 weiter"
+          data:  'action:touristeninformation'
     - type: return
       state: SEE_ROUTE_START
 
