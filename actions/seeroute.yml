@@ -293,7 +293,7 @@ see_dank:
     file: assets/Stadtrallye Ergebnisse Umfragen.png
   - type: message
     text: >
-          Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
+          📬 Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
           https://de.padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n
   - type: return
     state: SEE_DANK

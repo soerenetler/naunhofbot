@@ -491,7 +491,9 @@ waldbad:
     - type: message
       text: '🐾'
     - type: message
-      text: "Tata! Unser Waldbad. Im Sommer kühlt es uns ab, im Winter ist es zwar geschlossen, aber der Wald drumherum ist auch in der kalten Jahreszeit einen Spaziergang wert."
+      text: "Tada! Unser Waldbad."
+    - type: message
+      text: Im Sommer kühlt es uns ab, im Winter ist es zwar geschlossen, aber der Wald drumherum ist auch in der kalten Jahreszeit einen Spaziergang wert.
     - type: message
       text: Rate mal, wieviel Liter das Becken des Waldbades fasst.
     - type: return
