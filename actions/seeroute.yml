@@ -22,14 +22,14 @@ touristeninformation:
     state: TOURISTENINFORMATION
 
 weg_kranwerk:
-  - type: message
-    text: >
-          Jetzt hast du eine längere Wegstrecke vor dir.
   - type: venue
     latitude: 51.278182
     longitude: 12.589196
     address: 🏗️ Kranwerk
     title: Dein nächstes Ziel 📌
+  - type: message
+    text: >
+          Jetzt hast du eine längere Wegstrecke vor dir.
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:kranwerk'
@@ -37,6 +37,8 @@ weg_kranwerk:
     state: WEG_KRANWERK
 
 kranwerk:
+  - type: message
+    text: 🐾
   - type: message
     text: Erste Station erreicht. Du stehst jetzt vorm Alten Kranwerk.
   - type: message
@@ -53,6 +55,8 @@ kranwerk:
 
 weg_oberschule:
   - type: message
+    text: 🐾
+  - type: message
     text: Geh wieder vor zur Hauptstraße und biege ab nach rechts. Folge der Wurzener Straße bis du rechts einen großen Parkplatz und dahinter ein Schulgebäude siehst.
     InlineKeyboard:
       - text: "🐾 weiter"
@@ -61,6 +65,8 @@ weg_oberschule:
     state: WEG_OBERSCHULE
   
 oberschule:
+  - type: message
+    text: 🐾
   - type: message
     text: >
           Naunhof hat nicht nur ein Gymnasium, sondern auch eine Oberschule.
@@ -90,6 +96,8 @@ radtour3:
 
 weg_neubaugebiet:
   - type: message
+    text: 🐾
+  - type: message
     text: Für heute wollten wir aber an den See.
   - type: venue
     latitude: 51.278182
@@ -106,6 +114,8 @@ weg_neubaugebiet:
 
 neubaugebiet:
   - type: message
+    text: 🐾
+  - type: message
     text: >
           Schau mal nach links. Siehst du Naunhof wachsen? 
           Was denkst du, wieviel Zuzug hat Naunhof?
@@ -118,6 +128,8 @@ neubaugebiet_tipp:
 
 weg_see:
   - type: message
+    text: 🐾
+  - type: message
     text: >
           Biege jetzt in den kleinen Waldweg hinter der Haltestelle ein. Rechts von dir liegt dann bald der See.
           google! - Wann rechts zum See?
@@ -128,6 +140,8 @@ weg_see:
     state: WEG_SEE
 
 see:
+  - type: message
+    text: 🐾
   - type: message
     text: |
           Siehst du das Wasser?
@@ -143,6 +157,8 @@ see:
 
 chillen:
   - type: message
+    text: 🐾
+  - type: message
     text: Zeit, es sich gemütlich zu machen und ...
   - type: message
     text: ... die Postkarte rauszuholen und einem lieben Menschen eine Nachricht zukommen zu lassen.
@@ -153,6 +169,8 @@ chillen:
     state: CHILLEN
 
 musik:
+  - type: message
+    text: 🐾
   - type: message
     text: >
           Wenn du dich jetzt so in Naunhof umguckst, 
@@ -187,6 +205,8 @@ rueckweg:
     state: RUECKWEG
 
 postkarte_verschicken:
+  - type: message
+    text: 🐾
   - type: message
     text: Vergiss nicht deine Postkarte mit einer Briefmarke zu versehen uns einzustecken!
     InlineKeyboard:
