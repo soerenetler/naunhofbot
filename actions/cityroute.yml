@@ -664,7 +664,7 @@ weg_bahnhof:
     text: Navigation>>Bahnhof
     InlineKeyboard:
         - text: "🐾 weiter"
-          data:  'action:ende'
+          data:  'action:frage_feedback'
   - type: return
     state: WEG_BAHNHOF
 
