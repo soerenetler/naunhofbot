@@ -16,20 +16,22 @@ intro:
     - type: message
       parse_mode: MarkdownV2
       text: |
-            *Herzlich Willkommen zur Jugend\-Stadtrallye Naunhof\.*
-            Mit dieser Route wollen wir euch auf einen Rundgang aus unserer Sicht mitnehmen \- aus der Perspektive junger Menschen\. Was gefällt uns an Naunhof und was fehlt hier? Und ganz wichtig\: Was muss verändert werden\, damit wir als junge Menschen hier gut leben können\.
+            *👋 Herzlich Willkommen zur Jugend\-Stadtrallye Naunhof\.*
+            Wir wollen dich auf einen Rundgang aus unserer Sicht mitnehmen \- aus der Perspektive junger Menschen\. 
+    - type: message
+      text: "Was gefällt uns und was fehlt hier? Was muss verändert werden, damit wir als junge Menschen hier gut leben können?"
     - type: message
       text: Bevor wir losgehen, erzählt dir Maxie noch, was das Jugenforum macht. 📺
     - type: video
       file: assets/intro_video_small.mp4
     - type: message
-      text: Mit dem 🐾 Weiter-Button kannst du immer zum nächsten Schritt springen.
+      text: Los geht's auf unsere Tour durch Naunhof!
       InlineKeyboard:
         - text: "👍 Facebook"
           url:  'https://www.facebook.com/Jugendforum-Naunhof-100477228376229/'
         - text: "📸 Instagram"
           url: "https://www.instagram.com/jugendforum_naunhof"
-        - text: "🐾 weiter"
+        - text: "🐾 Los geht's!"
           data: 'action:frage_bahnhof'
     - type: return
       state: INTRO
@@ -40,10 +42,10 @@ frage_bahnhof:
     - type: message
       parse_mode: MarkdownV2
       text: |
-            *Wir starten am Bahnhof Naunhof\.*
+            *Wir starten am Bahnhof\.*
             Der wurde schon 1887 eröffnet und bietet seitdem eine gute Anbindung nach Grimma oder Leipzig\. Nur Nachts ist das mit den Verbindungen so eine Sache \.\.\. 
     - type: message
-      text: Wann denkst du kommt der letzte Zug in Naunhof an?🚂
+      text: Wann denkst du fährt freitags der letzte Zug aus Leipzig nach Naunhof ab? 🚂
     - type: return
       state: FRAGE_BAHNHOF
 
@@ -63,8 +65,10 @@ frage_bahnhof_aufloesung:
             Am Freitag fährt der letzte Zug von Leipzig um 1:33 Uhr nach Naunhof. Die nächste Verbindung fährt dann fast 5 Stunden später. 
     - type: message
       text: Wenn wir also feiern gehen, müssen wir die Nacht durchmachen oder schon richtig früh aufbrechen. 😪
+    - type: message
+      text: 🚉 Wir wünschen uns einen Nachtzug, der uns vor dem nächsten Morgen nach Hause bringt.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data: 'action:routen_auswahl'
     - type: return
       state: FRAGE_BAHNHOF_AUFLOESUNG
@@ -73,7 +77,12 @@ routen_auswahl:
     - type: message
       text: '🐾'
     - type: message
-      text: "Von hier aus hast du die Qual der Wahl:"
+      text:  |
+            Wir haben zwei Routen für dich vorbereitet:
+            🏙️ Die Cityroute führt dich über unseren Jugendclub bis zum Waldbad.
+            🏝️ Die Seeroute ist etwas kürzer und führt dich über die Oberschule bis zum Grillensee."
+    - type: message
+      text: Welche Route möchtest du gehen?
       InlineKeyboard:
         - text: 🏙️ Cityroute
           data: "action:city_route_start"

@@ -126,17 +126,26 @@ FRAGE_MARKTPLATZ:
 FRAGE_MARKTPLATZ2:
   - handler: MessageHandler
     filter: text
-    action: rathaus
+    action: frage_marktplatz2_aufloesung
   - handler: MessageHandler
     filter: photo
-    action: rathaus
+    action: frage_marktplatz2_aufloesung
   - handler: MessageHandler
     filter: voice
-    action: rathaus
+    action: frage_marktplatz2_aufloesung
 
   - handler: TypeHandler
     type: Update
     action: frage_marktplatz2_tipp
+
+FRAGE_MARKTPLATZ2_AUFLOESUNG:
+  - handler: CommandHandler
+    command: weiter
+    action: rathaus
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
 
 RATHAUS:
   - handler: CommandHandler
@@ -265,15 +274,6 @@ WALDBAD:
     action: waldbad_tipp
 
 WALDBAD_AUFLOESUNG:
-  - handler: CommandHandler
-    command: weiter
-    action: parthe
-
-  - handler: TypeHandler
-    type: Update
-    action: weiter_tipp
-
-PARTHE:
   - handler: CommandHandler
     command: weiter
     action: weg_schlossturmplatz

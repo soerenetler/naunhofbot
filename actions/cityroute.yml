@@ -1,6 +1,6 @@
 routen_auswahl_tipp:
     - type: message
-      text: 'Deine Auswahl habe ich nicht verstanden. Du kannst auf die Buttons klicken oder mit /city die Route auswählen.'
+      text: 'Deine Auswahl habe ich nicht verstanden. Du kannst auf die Buttons klicken oder mit /city und /see die Routen auswählen.'
 
 city_route_start:
     - type: message
@@ -10,7 +10,7 @@ city_route_start:
             Dein nächstes Ziel ist gar nicht weit weg.
             Folge der Ladestraße entlang der Bahnschienen, bis du zu einem kleinen Skatepark rechts von dir kommst.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Gefunden"
           data:  'action:frage_skatepark'
     - type: return
       state: WEG_SKATEPARK
@@ -53,10 +53,8 @@ frage_skatepark_aufloesung:
       folder: skatepark
     - type: message
       text: Danke! 😎
-    - type: message
-      text: Wir werden die besten Ideen sammeln und uns für deine Wünsche einsetzen!
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_parkplatz'
     - type: return
       state: FRAGE_SKATEPARK_AUFLOESUNG
@@ -72,16 +70,18 @@ weg_parkplatz:
       InlineKeyboard:
         - text: 🧭 Wo muss ich hin?
           data: 'action:weg_stadtgut_navigation'
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_stadtgut'
     - type: return
       state: WEG_PARKPLATZ
 
 weg_stadtgut_navigation:
+    - type: sticker
+      id: CAACAgIAAxkBAAIup2E4bpIKXaKdYMUZdNn_8iNw-SN6AAJbEgACdiGpSVlyhlHJDDqeIAQ
     - type: message
-      text: 🧭 Du bist richtig, wenn links von dir das Star Dönerhaus und rechts von dir die Löwen Apotheke liegt.
+      text: 🧭 Du hast dein Ziel erreicht, wenn du links von dir das Star Dönerhaus und rechts die Löwen Apotheke siehst.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Bin da!"
           data:  'action:weg_stadtgut'
 
 weg_stadtgut:
@@ -99,7 +99,7 @@ weg_stadtgut:
     - type: message
       text: 🔍 Diese Karte kann dir bei der Orientierung helfen.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:cafe_stadtgut'
     - type: return
       state: WEG_STADTGUT
@@ -109,10 +109,10 @@ cafe_stadtgut:
       text: '🐾'
     - type: message
       text: >
-            Im Stadtgut Naunhof findest du die Stadtbibliothek und das Begegenungszentrum.
+            Im Stadtgut Naunhof findest du die 📚 Stadtbibliothek und das 🤝 Begegnungszentrum.
             Hier ist auch der Bürgersaal, den das Jugendforum nutzt, um sich zu treffen.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:eis_stadtgut'
     - type: return
       state: CAFE_STADTGUT
@@ -129,7 +129,7 @@ eis_stadtgut:
     - type: message
       text: 🍨🍧🍦
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:frage_stadtgut'
     - type: return
       state: EIS_STADTGUT
@@ -141,7 +141,7 @@ frage_stadtgut:
       text: >
             Bevor du weitergehst:
     - type: poll
-      question: Welche Veranstaltungen für Jugendliche finden deiner Meinung nach auch hier statt?
+      question: Welche Veranstaltungen für Jugendliche finden hier statt?
       poll_type: regular
       options:
         - "🕺 Punkkonzert"
@@ -153,18 +153,17 @@ frage_stadtgut:
 
 frage_stadtgut_tipp:
     - type: message
-      text: 'Das habe ich nicht verstanden. Wenn du das Quiz beantwortest geht es automatisch weiter.'
+      text: 'Das habe ich nicht verstanden. Wenn du das Quiz beantwortest, geht es automatisch weiter.'
 
 frage_stadtgut2:
     - type: message
       text: Tut mir leid... keine der Antworten war richtig. 😇😇😇
     - type: message
-      text: >
-            Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal. 
-            Dabei hat Naunhof gar nicht so viele weitere Veranstaltungsstätten. 
-            Wir fänden daher gut, wenn der Bürgersaal auch von jungen Menschen öfter genutzt werden würde.
+      text: Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal.
     - type: message
-      text: Welche Veranstaltungen für Jugendliche sollten hier stattfinden?
+      text: 🕺 Wir fänden daher gut, wenn auch jungen Menschen den Bürgersaal öfter nutzt würde.
+    - type: message
+      text: Welche Veranstaltungen für Jugendliche könntest du dir hier vorstellen?
     - type: return
       state: FRAGE_STADTGUT2
 
@@ -178,34 +177,26 @@ frage_stadtgut2_aufloesung:
       bucket: naunhofbot
       folder: stadtgut
     - type: message
-      text: Wir werden alle Ideen sammeln und versuchen, die häufigsten Vorschläge in die Tat umzusetzen.
+      text: Unsere Vorschläge hast du ja schon oben gesehen. Wir werden alle Ideen sammeln, um den Ort auch für junge Menschen zu beleben.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_marktplatz'
     - type: return
       state: FRAGE_STADTGUT2_AUFLOESUNG
 
 weg_marktplatz:
     - type: message
-      text: >
-            Jetzt gehst du vorn aus dem Stadtgut raus, an der Litfaßsäule 💈 vorbei, auf die Hauptstraße.
-            Die überquerst du und stehst direkt auf dem Marktplatz.
-      InlineKeyboard:
-        - text: "🧭 Wo muss ich hin?"
-          data: 'action:weg_marktplatz_navigation'
-        - text: "🐾 weiter"
-          data: 'action:frage_marktplatz'
-    - type: return
-      state: WEG_MARKTPLATZ
-
-weg_marktplatz_navigation:
+      text: '🐾'
     - type: photo
       file: "assets/Stadtgut.jpeg"
     - type: message
-      text: 🧭 In diese Richtung geht's zum Marktplatz.
+      text: >
+            Jetzt gehst du vorn aus dem Stadtgut raus, an der Litfaßsäule 💈 vorbei, auf den Marktplatz.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data: 'action:frage_marktplatz'
+    - type: return
+      state: WEG_MARKTPLATZ
 
 frage_marktplatz:
     - type: message
@@ -245,17 +236,15 @@ frage_marktplatz2_aufloesung:
       bucket: naunhofbot
       folder: marktplatz2
     - type: message
-      text: Uns ist auch aufgefallen, dass es hier im Sommer keine schattigen Bänke gibt. ⛱
-    - type: message
-      text: "Du ahnst es schon: Wir sammeln die Ideen und geben sie an die Stadt weiter."
+      text: ⛱ Wir wünschen uns einen grüneren Marktplatz mit schattigeren Bänken für den Sommer.
     - type: return
       state: FRAGE_MARKTPLATZ2_AUFLOESUNG
 
 rathaus:
     - type: message
-      text: >
-            Hier am Marktplatz steht auch das Rathaus mit der Stadtverwaltung.
-            Wir haben für dich die Bürgermeisterin gefragt, was eine Stadtverwaltung und eine Bürgermeisterin so machen und welche Visionen sie für Jugendbeteiligung hat.
+      text: Hier am Marktplatz steht auch das Rathaus mit der Stadtverwaltung.
+    - type: message
+      text: 🎤 Wir haben für dich die Bürgermeisterin gefragt, welche Visionen sie für Jugendbeteiligung hat.
     - type: audio
       file: 'assets/audio/Oberschule.m4a'
       title: "Visionen für die Jugendbeteiligung"
@@ -263,7 +252,7 @@ rathaus:
     - type: message
       text: ✨✨✨
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_oase'
     - type: return
       state: RATHAUS
@@ -273,19 +262,33 @@ weg_oase:
       text: '🐾'
     - type: message
       text: "Jetzt hast du einen etwas längeren Streckenabschnitt vor dir: Die Leipziger Straße."
+    - type: message
+      text: "Gehe rechts am Rathaus vorbei und folge der Straße, bis du dieses Schild auf der rechten Straßenseite entdeckst:"
     - type: photo
       file: "assets/Oase.jpeg"
     - type: message
-      text: "Gehe rechts am Rathaus vorbei und folge der Straße, bis du dieses Schild auf der rechten Straßenseite entdeckst:"
-    - type: message
-      text: Hör dir doch einfach Podcast Talk & Tools zu Jugendbeteiligung auf dem Weg an.
+      text: Hör dir doch auf dem Weg den Podcast Talk & Tools zu Jugendbeteiligung an.
       InlineKeyboard:
         - text: Podcast
           url:  'https://open.spotify.com/episode/2P3T5Vfb7vy85Gv1FiqBq9?si=Vy_cMtA1T3uNl8yeS-lfcQ&utm_source=whatsapp&dl_branch=1'
-        - text: "🐾 weiter"
+        - text: 🧭 Wo muss ich hin?
+          data:  'action:weg_oase_navigation'
+        - text: "🐾 Weiter"
           data:  'action:weg_oase2'
     - type: return
       state: WEG_OASE
+
+weg_oase_navigation:
+    - type: venue
+      latitude: 51.277415
+      longitude: 12.583853
+      address: 🪧 Abzweig zur Oase
+      title: Dein nächstes Ziel 📌
+    - type: message
+      text: Hör dir doch auf dem Weg den Podcast Talk & Tools zu Jugendbeteiligung an.
+      InlineKeyboard:
+        - text: "🐾 Weiter"
+          data:  'action:weg_oase2'
 
 weg_oase2:
     - type: message
@@ -293,9 +296,9 @@ weg_oase2:
     - type: message
       text: >
             Du musst dich nur noch ein Stück des Weges kämpfen.
-            Biege hinter dem Schild nach rechts in die Parthestraße ab und folge ihr, bis du auf der linken Seite die Oase findest. 🏝
+            Biege hinter dem Schild in die Parthestraße und folge ihr, bis du auf der rechten Seite die Oase findest. 🏝
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:oase'
     - type: return
       state: WEG_OASE2
@@ -307,11 +310,13 @@ oase:
       text: Oase?
     - type: message
       text: >
-            Ja, das ist keine Fata Morgana, sondern unser Jugendclub.
-            Hier hat Julia das Sagen. Schau doch mal, ob sie da ist.
-            Drinnen wartet eine Erfrischung auf dich, bevor wir unsere Reise fortsetzen. 🥤🏝🐪
+            Ja, das ist keine Fata Morgana, sondern unser Jugendclub. 🐪
+            Hier hat Julia das Sagen. Schau doch mal, ob sie da ist. 
+    - type: message
+      text: >
+            🥤 Drinnen wartet eine Erfrischung auf dich, bevor wir unsere Reise fortsetzen.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:stadtteile'
 
 stadtteile:
@@ -319,7 +324,11 @@ stadtteile:
       text: '🐾'
     - type: message
       text: |
-            Von hier aus startet auch eine tolle Radtour von Naunhof über Erdmannshain, Eicha, Albrechtshain und Fuchshain. Zu Naunhof gehören nämlich auch folgende Ortsteile:
+            Von hier aus startet auch eine tolle 🚴 Radtour über Erdmannshain, Eicha, Albrechtshain und Fuchshain.
+            
+    - type: message
+      text: |
+            Zu Naunhof gehören nämlich auch folgende Ortsteile:
 
             ▪️ Albrechtshain
             ▪️ Ammelshain
@@ -330,7 +339,7 @@ stadtteile:
       InlineKeyboard:
           - text: "🚴 Radtour 1"
             data:  'action:radtour1'
-          - text: "🐾 weiter"
+          - text: "🐾 Weiter"
             data:  'action:weg_kita'
     - type: return
       state: STADTTEILE
@@ -348,7 +357,7 @@ radtour1:
             Schnapp dir doch bei Gelegenheit ein Rad und probier die Route mal aus.
             In der weiteren Stadtrallye verstecken sich noch zwei weitere tolle Tipps für Radtouren.
       InlineKeyboard:
-          - text: "🐾 weiter"
+          - text: "🐾 Weiter"
             data:  'action:weg_kita'
 
 weg_kita:
@@ -359,7 +368,7 @@ weg_kita:
     - type: message
       text: "Unser Weg führt uns nun die Straße zurück, bis zum Schild der Oase."
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_kita2'
     - type: return
       state: WEG_KITA
@@ -371,9 +380,11 @@ weg_kita2:
       text: >
             Du stehst vermutlich kurz vor einer kleinen Brücke.
             Überquere sie und biege direkt dahinter rechts ab.
+    - type: message
+      text: >
             Der Wiesenstraße kannst du dann folgen, bis du auf der linken Seite einen Kindergarten entdeckst.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:frage_kita'
     - type: return
       state: WEG_KITA2
@@ -382,7 +393,9 @@ frage_kita:
     - type: message
       text: '🐾'
     - type: message
-      text: "Hier befindet sich KiTa Zwergenland. Was meinst du, wie viele Kitas hat Naunhof?"
+      text: "Hier befindet sich KiTa Zwergenland. 🌱"
+    - type: message
+      text: Was schäzt du, wie viele Kitas hat Naunhof?
     - type: return
       state: FRAGE_KITA
 
@@ -400,10 +413,12 @@ frage_kita_aufloesung:
     - type: message
       text: >
             Insgesamt hat Naunhof 10 Kitas.
-            Und es werden immer mehr, denn viele junge Familien ziehen nach Naunhof.
-            Das freut uns besonders - alles neue potenzielle Mitglieder fürs Jugendforum 😉
+            Und es werden immer mehr, denn viele junge Familien ziehen hierher.
+    - type: message
+      text: >
+            Das freut uns besonders - alles potenzielle Mitglieder fürs Jugendforum 😉
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_gymnasium'
     - type: return
       state: FRAGE_KITA_AUFLOESUNG
@@ -414,7 +429,7 @@ weg_gymnasium:
     - type: message
       text: Gehe weiter entlang der Straße, bis du auf der rechten Seite einen Sportplatz siehst. 🏀
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:gymnasium'
     - type: return
       state: WEG_GYMNASIUM
@@ -432,7 +447,7 @@ gymnasium:
     - type: message
       text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice. 🔊
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:feuerwehr'
     - type: return
       state: GYMNASIUM
@@ -446,7 +461,7 @@ feuerwehr:
       parse_mode: MarkdownV2
       text: Du willst mehr über die Freiwillige Feuerwehr wissen\? Dann schau mal [🌐 hier](https://www.naunhof.de/seite/357277/feuerwehr.html) vorbei\.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:parthelandhalle'
     - type: return
       state: FEUERWEHR
@@ -457,7 +472,7 @@ weg_parthelandhalle:
     - type: message
       text: "Lauf jetzt einfach weiter bis zum nächsten Gebäude."
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:parthelandhalle'
     - type: return
       state: WEG_PARTHELANDHALLE
@@ -466,9 +481,11 @@ parthelandhalle:
     - type: message
       text: '🐾'
     - type: message
-      text: "<<TEXT PARTHELANDHALLE>>"
+      text: >
+            Als wir geboren wurden, gab es hier weder die Feuerwehr, noch das Gymnasium oder die Parthelandhalle. 
+            Die Parthelandhalle wurde erst 2003 gebaut, vorher war hier eine Merino-Spinnerei. 🐑
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_waldbad'
     - type: return
       state: PARTHELANDHALLE
@@ -481,7 +498,7 @@ weg_waldbad:
             Wenn du in dieser Route schon eins gelernt hast, dann, dass wir über Parkplätze immer quer drübergehen.
             Mach das auch bei diesem Parkplatz, um zum Waldbad zu gelangen. 🏞
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:waldbad'
     - type: return
       state: WEG_WALDBAD
@@ -511,27 +528,13 @@ waldbad_aufloesung:
     - type: function
       func: eval_schaetzfrage_waldbad
     - type: message
-      text: Du willst mehr Infos zum Waldbad? 
-      InlineKeyboard:
-        - text: "🌐 Website"
-          url:  https://www.naunhof.de/verzeichnis/visitenkarte.php?mandat=189888
-        - text: "🐾 weiter"
-          data:  'action:parthe'
-    - type: return
-      state: WALDBAD_AUFLOESUNG
-
-parthe:
-    - type: message
-      text: '🐾'
-    - type: message
-      text: >
-            Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders.
+      text: Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders.
             Das ist auch schlecht für den Wald drumherum und die Seen, für die Naunhof bekannt ist.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_schlossturmplatz'
     - type: return
-      state: PARTHE
+      state: WALDBAD_AUFLOESUNG
 
 weg_schlossturmplatz:
     - type: message
@@ -582,16 +585,16 @@ frage_schlossturmplatz_aufloesung:
       bucket: naunhofbot
       folder: schlossturmplatz_pimpen
     - type: message
-      text: "Bei uns im Jugendforum sind nicht alle sportlich aktiv, aber einen renovierten Sportplatz wünschen wir uns alle! 🏸⚽🏃‍♀️"
+      text: "⚽ Bei uns im Jugendforum sind nicht alle sportlich aktiv, aber einen renovierten Sportplatz wünschen wir uns alle! 🏸🏃‍♀️"
     - type: message
       text: "Was es sonst noch für Sportperspektiven in Naunhof gibt, erfährst du jetzt vom Kreissportbund, der seinen Sitz auch in Naunhof hat:"
       InlineKeyboard:
         - text: "Website"
           url:  https://www.ksb-ll.de/
     - type: message
-      text: >
-            Du suchst noch eine Strecke zum Joggen oder Radfahren für eine kurze Bewegungseinheit?
-            Dann ist diese Info hier etwas für dich:
+      text: |
+            Du suchst noch eine Strecke zum Joggen oder Radfahren?
+            Dann haben wir hier noch eine zweite Radtour für dich:
       InlineKeyboard:
         - text: "🚴 Radtour 2"
           data:  action:radtour2
@@ -615,8 +618,13 @@ radtour2:
 weg_grundschule:
   - type: message
     text: '🐾'
+  - type: venue
+    latitude: 51.276932
+    longitude: 12.590462
+    address: Grundschule
+    title: Dein nächstes Ziel 📌
   - type: message
-    text: 'Navigation>>Grundschule'
+    text: Wir machen auf dem Rückweg zum Bahnhof noch einen Zwischenstopp an der Grundschule.
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_grundschule'
@@ -629,7 +637,7 @@ frage_grundschule:
   - type: message
     text: >
           Hier findest du alle Grundschüler*innen bis zur vierten Klasse.
-          Wie du siehst, wird die Grundschule gerade erweitert, weil es tendenziell mehr Kinder- und Jugendliche in Naunhof geben wird. 
+          Wie du siehst, wird die Grundschule gerade erweitert, weil es hier immer mehr Kinder- und Jugendliche geben wird. 
   - type: poll
     question: "Siehst du den Spielplatz? Was meinst du, wie weit der nächste Spielplatz entfernt ist:"
     poll_type: quiz
@@ -654,7 +662,7 @@ frage_grundschule_aufloesung:
   - type: message
     text: Einmal zum Spielplatz in Lindhardt und einmal zum Spielplatz in Ermannshain.
   - type: message
-    text: Dafür dass es 10 Kindergärten in Naunhof gibt und jede Menge junge Familien hierher ziehen, ist das ganz schön wenig an Spielmöglichkeiten.
+    text: Dafür, dass es 10 Kindergärten in Naunhof gibt und jede Menge junge Familien hierher ziehen, ist das ganz schön wenig an Spielmöglichkeiten.
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:weg_bahnhof'
@@ -663,7 +671,14 @@ frage_grundschule_aufloesung:
 
 weg_bahnhof:
   - type: message
-    text: Navigation>>Bahnhof
+    text: Das war der letzte Zwischenstopp auf unserem Rundgang.
+  - type: venue
+    latitude: 51.27694
+    longitude: 12.594233
+    address: Bahnhof
+    title: Dein nächstes Ziel 📌
+  - type: message
+    text: Am Bahnhof sehen wir uns dann noch letztes Mal.
     InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_feedback'
@@ -734,25 +749,32 @@ ende_feedback:
 
 dank:
   - type: message
-    text: >
-          Wir danken dir für deinen vollen Einsatz!
-          Zusätzlich danken wir unseren Fördergeldgebenden
-  - type: photo
-    file: assets/Förderer Stadtrallye Jugendforum Naunhof.png
+    text: '🐾'
   - type: message
     text: >
-          Für diese Rallye hatten wir aber nicht nur finanziellen Support, sondern auch von vielen Naunhofer*innen vorab bei unseren Challenges. 
-          Ihr wollt wiessen, was Jugendliche und junge Menschen so zu Naunhof zu sagen haben?
-          Dann guckt mal hier drauf:
-  - type: photo
-    file: assets/Stadtrallye Ergebnisse Umfragen.png
+          Schön, dass du mitgemacht hast!
+  - type: message
+    text: >
+          Viele junge Naunhofer*innen haben vorab bei unseren Challenges teilgenommen und diese Route gestaltet. 
+  - type: message
+    text: | 
+          Dabei haben wir folgende Wünsche herausgearbeitet:
+          🚉 Einen Nachtzug aus Leipzig!
+          🛹 Mehr Platz für unseren Skatepark!
+          🕺 Junge Menschen im Bürgersaal!
+          ⛱ Einen grüneren Marktplatz!
+          ⚽ Einen renovierten Sportplatz!
+          👪 Mehr Spielplätze für Kinder!
   - type: message
     text: >
           Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
           https://de.padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n
+  - type: message
+    text: Zusätzlich danken wir unseren Fördergeldgebenden
+  - type: photo
+    file: assets/Förderer Stadtrallye Jugendforum Naunhof.png
   - type: return
     state: DANK
-
 
 timeout:
   - type: message
