@@ -601,7 +601,7 @@ frage_schlossturmplatz_aufloesung:
     - type: message
       text: Sonst machen wir uns auf den Rückweg zum Bahnhof!
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_grundschule'
     - type: return
       state: FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG
@@ -626,7 +626,7 @@ weg_grundschule:
   - type: message
     text: Wir machen auf dem Rückweg zum Bahnhof noch einen Zwischenstopp an der Grundschule.
     InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:frage_grundschule'
   - type: return
     state: WEG_GRUNDSCHULE
@@ -664,7 +664,7 @@ frage_grundschule_aufloesung:
   - type: message
     text: Dafür, dass es 10 Kindergärten in Naunhof gibt und jede Menge junge Familien hierher ziehen, ist das ganz schön wenig an Spielmöglichkeiten.
     InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_bahnhof'
   - type: return
     state: FRAGE_GRUNDSCHULE_AUFLOESUNG
@@ -680,7 +680,7 @@ weg_bahnhof:
   - type: message
     text: Am Bahnhof sehen wir uns dann noch letztes Mal.
     InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:frage_feedback'
   - type: return
     state: WEG_BAHNHOF
