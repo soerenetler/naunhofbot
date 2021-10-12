@@ -78,7 +78,7 @@ frage_skatepark_2_tipp:
     - type: message
       text: 'Ups, ich habe die Eingabe nicht verstanden. Du kannst eine Nachricht oder ein Foto schicken. Eine Sprachnachricht geht auch.'
 
-frage_skatepark2_aufloesung:
+frage_skatepark_2_aufloesung:
     - type: function
       func: write
       bucket: naunhofbot
@@ -89,7 +89,7 @@ frage_skatepark2_aufloesung:
         - text: "🐾 Weiter"
           data:  'action:weg_parkplatz'
     - type: return
-      state: FRAGE_SKATEPARK_AUFLOESUNG
+      state: FRAGE_SKATEPARK_2_AUFLOESUNG
 
 weg_parkplatz:
     - type: message

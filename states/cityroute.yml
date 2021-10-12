@@ -18,19 +18,19 @@ FRAGE_SKATEPARK:
 FRAGE_SKATEPARK_2:
   - handler: MessageHandler
     filter: text
-    action: frage_skatepark_aufloesung
+    action: frage_skatepark_2_aufloesung
   - handler: MessageHandler
     filter: photo
-    action: frage_skatepark_aufloesung
+    action: frage_skatepark_2_aufloesung
   - handler: MessageHandler
     filter: voice
-    action: frage_skatepark_aufloesung
+    action: frage_skatepark_2_aufloesung
 
   - handler: TypeHandler
     type: Update
     action: frage_skatepark_2_tipp
 
-FRAGE_SKATEPARK_AUFLOESUNG:
+FRAGE_SKATEPARK_2_AUFLOESUNG:
   - handler: CommandHandler
     command: weiter
     action: weg_parkplatz
