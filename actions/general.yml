@@ -80,7 +80,7 @@ routen_auswahl:
       text:  |
             Wir haben zwei Routen für dich vorbereitet:
             🏙️ Die Cityroute führt dich über unseren Jugendclub bis zum Waldbad.
-            🏝️ Die Seeroute ist etwas kürzer und führt dich über die Oberschule bis zum Grillensee."
+            🏝️ Die Seeroute ist etwas kürzer und führt dich über die Oberschule bis zum Grillensee.
     - type: message
       text: Welche Route möchtest du gehen?
       InlineKeyboard:

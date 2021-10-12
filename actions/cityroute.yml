@@ -25,7 +25,7 @@ frage_skatepark:
     - type: poll
       question: "Was gibt es nicht in unserem Skatepark?"
       poll_type: quiz
-      correct_option_id: 2
+      correct_option_id: 1
       options: 
         - Quarterpipe
         - Bowl
