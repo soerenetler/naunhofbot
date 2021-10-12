@@ -6,8 +6,16 @@ WEG_SKATEPARK:
   - handler: TypeHandler
     type: Update
     action: weiter_tipp
- 
+
 FRAGE_SKATEPARK:
+  - handler: PollAnswerHandler
+    action: frage_skatepark_2
+
+  - handler: TypeHandler
+    type: Update
+    action: frage_skatepark_tipp
+ 
+FRAGE_SKATEPARK_2:
   - handler: MessageHandler
     filter: text
     action: frage_skatepark_aufloesung
@@ -20,7 +28,7 @@ FRAGE_SKATEPARK:
 
   - handler: TypeHandler
     type: Update
-    action: frage_skatepark_tipp
+    action: frage_skatepark_2_tipp
 
 FRAGE_SKATEPARK_AUFLOESUNG:
   - handler: CommandHandler

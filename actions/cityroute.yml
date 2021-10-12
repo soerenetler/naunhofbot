@@ -21,20 +21,52 @@ frage_skatepark:
     - type: sticker
       id: CAACAgIAAxkBAAIup2E4bpIKXaKdYMUZdNn_8iNw-SN6AAJbEgACdiGpSVlyhlHJDDqeIAQ
     - type: message
-      text: Unser Skatepark ist klein und fein. Aber ein bisschen größer könnte er schon sein...
-    - type: message
-      text: Wie würde ein perfekter Skatepark für dich aussehen? Zeichne deinen Skatepark und schicke uns einen Screenshot davon!
-    - type: photo
-      file: assets/Skatepark.png
-    - type: message
-      text: Wir sind gespannt auf deine Ideen!
-      InlineKeyboard:
-        - text: "🤷 Wie geht das?"
-          data:  'action:frage_skatepark_hilfe'
+      text: Das ist unser Skatepark - kennst du dich aus? Teste dein Wissen!
+    - type: poll
+      question: "Was gibt es nicht in unserem Skatepark?"
+      poll_type: quiz
+      correct_option_id: 2
+      options: 
+        - Quarterpipe
+        - Bowl
+        - Treppen
+        - Funbox-Pyramid-Combination
     - type: return
       state: FRAGE_SKATEPARK
 
-frage_skatepark_hilfe:
+frage_skatepark_tipp:
+    - type: message
+      text: 'Das habe ich nicht verstanden. Wenn du das Quiz beantwortest, geht es automatisch weiter.'
+
+
+frage_skatepark_2:
+    - type: function
+      func: eval_quiz
+      correct_option_id: 1
+      correct_answer_text: "Du liegst richtig! 🎉"
+      wrong_answer_text: "Nicht ganz! Eine Bowl fehlt hier"
+    - type: document
+      file: "assets/skatepark_bowl.gif"
+    - type: message
+      text: Für eine Bowl ist unser Skatepark viel zu klein.
+    - type: message
+      text: 🛹 Wir wünschen mehr Platz für unseren Skatepark. Zwischen der Straße und den Schienen wirkt er etwas verloren.
+    - type: photo
+      file: assets/Skatepark.png
+    - type: message
+      text: |
+            Wie sollte der Skatepark deiner Meinung nach aussehen? 
+            Zeichne deinen Skatepark und schicke uns einen Screenshot davon!
+      InlineKeyboard:
+        - text: "🤷 Wie geht das?"
+          data:  'action:frage_skatepark_2_hilfe'
+        - text: "🏃‍♂️ Überspringen"
+          data:  'action:weg_parkplatz'
+    - type: return
+      state: FRAGE_SKATEPARK_2
+
+
+frage_skatepark_2_hilfe:
     - type: message
       text: >
             Du kannst das Bild direkt in Telegram bearbeiten.
@@ -42,11 +74,11 @@ frage_skatepark_hilfe:
     - type: video
       file: assets/skatepark_small.mp4
 
-frage_skatepark_tipp:
+frage_skatepark_2_tipp:
     - type: message
       text: 'Ups, ich habe die Eingabe nicht verstanden. Du kannst eine Nachricht oder ein Foto schicken. Eine Sprachnachricht geht auch.'
 
-frage_skatepark_aufloesung:
+frage_skatepark2_aufloesung:
     - type: function
       func: write
       bucket: naunhofbot
