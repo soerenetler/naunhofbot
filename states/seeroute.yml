@@ -73,7 +73,7 @@ OBERSCHULE:
 WEG_NEUBAUGEBIET:
   - handler: CommandHandler
     command: weiter
-    action: neubaugebiet
+    action: neubaugebiet_frage
 
   - handler: TypeHandler
     type: Update
