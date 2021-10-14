@@ -168,7 +168,7 @@ weg_neubaugebiet:
     text: An dieser Stelle geht es weiter 📌
     InlineKeyboard:
       - text: "🐾 Weiter"
-        data: 'action:neubaugebiet'
+        data: 'action:neubaugebiet_frage'
   - type: return
     state: WEG_NEUBAUGEBIET
 
