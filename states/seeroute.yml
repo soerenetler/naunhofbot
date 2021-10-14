@@ -16,7 +16,25 @@ TOURISTENINFORMATION:
     type: Update
     action: weiter_tipp
 
-WEG_KRANWERK:
+WEG_KRANWERK_1:
+  - handler: CommandHandler
+    command: weiter
+    action: landart
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+LANDART:
+  - handler: CommandHandler
+    command: weiter
+    action: weg_kranwerk_2
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+WEG_KRANWERK_2:
   - handler: CommandHandler
     command: weiter
     action: kranwerk
@@ -61,14 +79,23 @@ WEG_NEUBAUGEBIET:
     type: Update
     action: weiter_tipp
 
-NEUBAUGEBIET:
+NEUBAUGEBIET_FRAGE:
   - handler: MessageHandler
     filter: text
-    action: weg_see
+    action: neubaugebiet_aufloesung
 
   - handler: TypeHandler
     type: Update
     action: neubaugebiet_tipp
+
+NEUBAUGEBIET_AUFLOESUNG:
+  - handler: CommandHandler
+    command: weiter
+    action: weg_see
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
 
 WEG_SEE:
   - handler: CommandHandler

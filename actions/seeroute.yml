@@ -1,8 +1,8 @@
 see_route_start:
     - type: message
-      text: Gute Wahl! An unserem Grillensee ist es super.
+      text: 🏝 Gute Wahl! An unserem Grillensee ist es super.
       InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:touristeninformation'
     - type: return
       state: SEE_ROUTE_START
@@ -10,45 +10,105 @@ see_route_start:
 touristeninformation:
   - type: message
     text: >
-          Noch stehst du am Bahnhof. Siehst du die Tourist*inneninformation?
+          Siehst du die 🚩 Tourist*inneninformation?
   - type: photo
     file: assets/Postkarte.png
   - type: message
-    text: Geh hinein und hole dir die Postkarte des Jugendforums, du wirst sie später noch brauchen.
+    text: Gehe hinein und hole dir die ✉ Postkarte des Jugendforums, du wirst sie später noch brauchen.
     InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Erledigt!"
           data:  'action:weg_kranwerk'
   - type: return
     state: TOURISTENINFORMATION
 
-weg_kranwerk:
+weg_kranwerk_1:
+  - type: message
+    text: Sehr gut, dann kann es jetzt losgehen! 🚶‍♂️
+  - type: message
+    text: Zuerst müssen wir auf die andere Seite der Bahnschienen.
+  - type: message
+    text: Folge der Bahnhofsstraße an der Bushaltestelle vorbei bis zum Bahnübergang.
+    InlineKeyboard:
+      - text: "🧭 Wo muss ich hin?"
+        data:  'action:weg_kranwerk_1_navigation'
+      - text: "🐾 Angekommen"
+        data:  'action:kranwerk'
+  - type: return
+    state: WEG_KRANWERK_1
+  
+weg_kranwerk_1_navigation:
+   - type: venue
+     latitude: 51.27555440751503
+     longitude: 12.595293558510079
+     address: 🛤️ Bahnübergang
+     title: Dein nächstes Ziel 📌
+   - type: message
+     text: 🛤️
+     InlineKeyboard:
+      - text: "🐾 Angekommen"
+        data:  'action:weg_kranwerk_2'
+
+landart:
+  - type: message
+    text: Biege hinter den Schienen gleich links ab. 👈
+  - type: message
+    text: Nur noch ein paar Schritte, dann findest du ein Stück Natur - der perfekte Ort für ein Landart-Kunstwerk!
+  - type: photo
+    file: assets/Postkarte.png
+  - type: message
+    text: Zaubere doch auch ein Landart-Kunstwerk. ✨
+  - type: message
+    text: Forme Steine und Stöcke und alles, was du um dich herum findest zu einem Muster auf dem Boden. 🍁🌰 
+    InlineKeyboard:
+      - text: "🏃‍♀️ Überspringen"
+        data:  'action:weg_kranwerk_3'
+      - text: "🐾 Fertig!"
+        data:  'action:landart'
+  - type: return
+    state: LANDART
+
+landart_tipp:
+  - type: message
+    text: Schick uns einen Schnappschuss 📸 davon, dann teilen wir dein Bild.
+    InlineKeyboard:
+      - text: "🏃‍♀️ Überspringen"
+        data:  'action:weg_kranwerk_2'
+
+weg_kranwerk_2:
+  - type: message
+    text: Unser nächstes Ziel ist das Alte Kranwerk. 🏗
+  - type: message
+    text: Dafür muss du nur etwas weiter am Wald entlang gehen.
   - type: venue
-    latitude: 51.278182
-    longitude: 12.589196
+    latitude: 51.27993022606565
+    longitude: 12.593893445404305
     address: 🏗️ Kranwerk
     title: Dein nächstes Ziel 📌
   - type: message
-    text: >
-          Jetzt hast du eine längere Wegstrecke vor dir.
+    text: Dafür muss du nur etwas weiter am Wald entlang gehen.
     InlineKeyboard:
-        - text: "🐾 weiter"
+        - text: "🐾 Bin da!"
           data:  'action:kranwerk'
   - type: return
-    state: WEG_KRANWERK
+    state: WEG_KRANWERK_2
 
 kranwerk:
   - type: message
     text: 🐾
   - type: message
-    text: Erste Station erreicht. Du stehst jetzt vorm Alten Kranwerk.
+    text: |
+          Erste Station erreicht.
+          Im Alte Kranwerk wurden früher Kräne 🏗 gebaut, doch danach lag hier für lange Zeit alles brach.
+  - type: photo
+    file: assets/Postkarte.png
   - type: message
     text: |
-          Lunz mal rein!
-          Das Alte Krankwerk ist eine freie Initiative mit dem Anspruch, gesellschaftliche und kulturelle Angebote auszufüllen. Aus einer Industriebrache wurde in Eigenleistung und vor allem, mittels vorhandener Ressourcen ein überregional bekannter Ort zum fröhlichen Kultivieren und engagierter Freizeitgestaltung geschaffen.
+          Heut entstehen hier vor allem neue Ideen für die Kultur. 
+          Du kannst hier Theaterstücke und Konzerte 🎭 erleben, oder guten Kaffee ☕ trinken. 
     InlineKeyboard:
       - text: "🏗️ Kranwerk"
         url:  'https://www.kranwerk.com'
-      - text: "🐾 weiter"
+      - text: "🐾 Weiter"
         data:  'action:weg_oberschule'
   - type: return
     state: KRANWERK
@@ -57,9 +117,11 @@ weg_oberschule:
   - type: message
     text: 🐾
   - type: message
-    text: Geh wieder vor zur Hauptstraße und biege ab nach rechts. Folge der Wurzener Straße bis du rechts einen großen Parkplatz und dahinter ein Schulgebäude siehst.
+    text: Laufe jetzt vor bis zur Hauptstraße und biege nach rechts ab.
+  - type: message
+    text: Folge der Hauptstraße, bis du rechts einen großen Parkplatz und dahinter ein Schulgebäude siehst.
     InlineKeyboard:
-      - text: "🐾 weiter"
+      - text: "🐾 Weiter"
         data:  'action:oberschule'
   - type: return
     state: WEG_OBERSCHULE
@@ -76,11 +138,11 @@ oberschule:
     title: "Oberschule Naunhof"
     performer: "JuFo Naunhof"
   - type: message
-    text: "Ab der Oberschule gibt es (auch) eine tolle Radtour. Vor allem für jene unter euch die gern fotografieren:"
+    text: "Ab der Oberschule gibt es (auch) eine tolle Radtour. Vor allem für jene unter euch, die gern fotografieren:"
     InlineKeyboard:
         - text: "🚴 Radtour 3"
           data:  action:radtour3
-        - text: "🐾 weiter"
+        - text: "🐾 Weiter"
           data:  'action:weg_neubaugebiet'
   - type: return
     state: OBERSCHULE
@@ -99,42 +161,61 @@ weg_neubaugebiet:
     text: 🐾
   - type: message
     text: Für heute wollten wir aber an den See.
+  - type: message
+    text: An dieser Stelle geht es weiter 📌
   - type: venue
     latitude: 51.278182
     longitude: 12.589196
     address: Neubaugbiet
     title: Dein nächstes Ziel 📌
-  - type: message
-    text: Navigation von der Oberschule zum Neubaugebiet
     InlineKeyboard:
-      - text: "🐾 weiter"
+      - text: "🐾 Weiter"
         data: 'action:neubaugebiet'
   - type: return
     state: WEG_NEUBAUGEBIET
 
-neubaugebiet:
+neubaugebiet_frage:
   - type: message
     text: 🐾
   - type: message
     text: >
-          Schau mal nach links. Siehst du Naunhof wachsen? 
-          Was denkst du, wieviel Zuzug hat Naunhof?
+          Schau mal, hier entsteht ein Wohngebiet für all die Menschen, die sich in Naunhof niederlassen wollen. 🏡
+  - type: message
+    text: Du guckst gerade auch eine Fläche von ungefähr 35 Fußballfeldern. Geplant sind 450 Wohneinheiten und Gewerbefläche.
+  - type: message
+    text: Wie viele Menschen wohnen später hier, wenn wir annehmen, dass pro Wohnung 3 Menschen leben?
   - type: return
-    state: NEUBAUGEBIET
+    state: NEUBAUGEBIET_FRAGE
 
 neubaugebiet_tipp:
     - type: message
       text: 'Wie viele Familien kommen neu nach Naunhof? Schick mir einfach eine Zahl!'
 
+neubaugebiet_aufloesung:
+    - type: message
+      text: Richtig! Ungefähr 1350 Menschen wohnen hier mal.
+    - type: message
+      text: "Und sie alle haben den besten Platz: Fast direkt am See."
+      InlineKeyboard:
+      - text: "🐾 Weiter"
+        data: 'action:weg_see'
+    - type: return
+      state: NEUBAUGEBIET_AUFLOESUNG
+
 weg_see:
   - type: message
     text: 🐾
   - type: message
-    text: >
-          Biege jetzt in den kleinen Waldweg hinter der Haltestelle ein. Rechts von dir liegt dann bald der See.
-          google! - Wann rechts zum See?
+    text: Biege jetzt in den kleinen Waldweg hinter der Haltestelle ein. Links von dir liegt dann bald der See.
+  - type: venue
+    latitude: 51.28787494964966
+    longitude: 12.60039736893049
+    address: Liegefläche
+    title: Dein nächstes Ziel 📌
+  - type: message
+    text: "Die beste Liegefläche findest du unserer Meinung nach hier:"
     InlineKeyboard:
-      - text: "🐾 weiter"
+      - text: "🐾 Weiter"
         data: 'action:see'
   - type: return
     state: WEG_SEE
@@ -147,10 +228,9 @@ see:
           Siehst du das Wasser?
           Dann nichts wie hin!
           Badetuch raus und Platz nehmen: Unser Grillensee. 
-          Du kannst hier chillen oder einfach auch eine Runde rundherum laufen. 
-          Die beste Liegefläche findest du unserer Meinung nach hier:
+          Du kannst hier chillen oder einfach auch eine Runde rundherum laufen.
     InlineKeyboard:
-      - text: "🐾 weiter"
+      - text: "🐾 Weiter"
         data: 'action:chillen'
   - type: return
     state: SEE
@@ -163,7 +243,9 @@ chillen:
   - type: message
     text: ... die Postkarte rauszuholen und einem lieben Menschen eine Nachricht zukommen zu lassen.
     InlineKeyboard:
-      - text: "🐾 weiter"
+      - text: "🙅‍♀️ Später"
+        data: 'action:musik'
+      - text: "🐾 Fertig!"
         data: 'action:musik'
   - type: return
     state: CHILLEN
@@ -172,15 +254,21 @@ musik:
   - type: message
     text: 🐾
   - type: message
+    text: Super, vergiss nicht, die Karte später einzuwerfen! 📮
+  - type: message
     text: >
-          Wenn du dich jetzt so in Naunhof umguckst, 
-          Gibt es ein Lied, dass dir dabei in den Sinn kommt, was deinen Eindruck beschreibt? Wenn ja, welches ist das?
+          Nachdem du dich jetzt so in Naunhof umgeguckt hast, gibt es ein Lied, dass dir dabei in den Sinn kommt?
   - type: message
     text: |
           Als kleine Inspiration:
           Auf dem Wiesenkonzert, dass das Jugendforum 2021 organisiert hat, war dieser Künstler hören: https://www.youtube.com/watch?v=LzboGa0DSxo
   - type: message
     text: Wie schön Rany so einen Sommer-See-Tag versüßt! 😊
+    InlineKeyboard:
+      - text: "🏃‍♀️ Überspringen"
+        data: 'action:musik'
+      - text: "🎵 Dieses Lied fällt mir ein!"
+        data: 'action:musik'
   - type: return
     state: MUSIK
 
@@ -190,16 +278,13 @@ musik_tipp:
 
 rueckweg:
   - type: message
+    text: 🎵 Danke, wir hören es uns auf jeden Fall an!
+  - type: message
     text: Du bist fertig zu baden und zu chillen?
-  - type: venue
-    latitude: 51.278182
-    longitude: 12.589196
-    address: Bahnhof Naunhof
-    title: Dein nächstes Ziel 📌
   - type: message
     text: Dann mach dich auf den Rückweg.
     InlineKeyboard:
-      - text: "🐾 weiter"
+      - text: "🐾 Auf geht's zurück!"
         data: 'action:postkarte_verschicken'
   - type: return
     state: RUECKWEG
@@ -207,10 +292,15 @@ rueckweg:
 postkarte_verschicken:
   - type: message
     text: 🐾
+  - type: venue
+    latitude: 51.27716457683439
+    longitude: 12.593862506986477
+    address: Bahnhof
+    title: Dein nächstes Ziel 📌
   - type: message
-    text: Vergiss nicht deine Postkarte mit einer Briefmarke zu versehen uns einzustecken!
+    text: Vergiss nicht, deine Postkarte abzuschicken!
     InlineKeyboard:
-      - text: "🐾 weiter"
+      - text: "🐾 Weiter"
         data: 'action:see_frage_feedback'
   - type: return
     state: POSTKARTE_VERSCHICKEN
@@ -218,10 +308,6 @@ postkarte_verschicken:
 see_frage_feedback:
   - type: message
     text: '🐾'
-  - type: message
-    text: >
-          Du bist wieder am Bahnhof, unserem Ausgangspunkt.
-          Unsere Tour ist hier zu Ende.
   - type: message
     text: >
           Wie hat dir die Route gefallen? Welcher Smiley trifft das am besten?
@@ -246,11 +332,11 @@ see_ende:
     id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
   - type: message
     text: >
-          Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
+          Du hast noch Reserven? Dann nimm doch noch unsere City Route in Angriff! 
           Bei schönem Wetter lohnt sich das bestimmt.
     InlineKeyboard:
-      - text: 🏝️ Seeroute
-        data: "action:see_route_start"
+      - text: 🏙️ Cityroute
+        data: "action:city_route_start"
       - text: 😓 fix und fertig
         data: "action:see_dank"
   - type: return
@@ -279,22 +365,23 @@ see_ende_feedback:
 
 see_dank:
   - type: message
-    text: >
-          Wir danken dir für deinen vollen Einsatz!
-          Zusätzlich danken wir unseren Fördergeldgebenden
+    text: Schön, dass du mitgemacht hast!
   - type: photo
     file: assets/Förderer Stadtrallye Jugendforum Naunhof.png
   - type: message
     text: >
-          Für diese Rallye hatten wir aber nicht nur finanziellen Support, sondern auch von vielen Naunhofer*innen vorab bei unseren Challenges. 
-          Ihr wollt wiessen, was Jugendliche und junge Menschen so zu Naunhof zu sagen haben?
-          Dann guckt mal hier drauf:
+          Viele junge Naunhofer*innen haben vorab bei unseren Challenges teilgenommen und diese Route gestaltet. 
+          Dabei haben wir folgende Wünsche herausgearbeitet:
   - type: photo
     file: assets/Stadtrallye Ergebnisse Umfragen.png
   - type: message
     text: >
           📬 Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
           https://de.padlet.com/jugendforum_naunhof/ex6wvkgs257mc58n
+  - type: message
+    text: Wir danken unseren Fördergeldgebenden
+  - type: photo
+    file: assets/Förderer Stadtrallye Jugendforum Naunhof.png
   - type: return
     state: SEE_DANK
 
