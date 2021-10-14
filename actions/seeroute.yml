@@ -21,7 +21,7 @@ touristeninformation:
   - type: return
     state: TOURISTENINFORMATION
 
-weg_kranwerk_1:
+weg_kranwerk:
   - type: message
     text: Sehr gut, dann kann es jetzt losgehen! 🚶‍♂️
   - type: message
@@ -34,7 +34,7 @@ weg_kranwerk_1:
       - text: "🐾 Angekommen"
         data:  'action:kranwerk'
   - type: return
-    state: WEG_KRANWERK_1
+    state: WEG_KRANWERK
   
 weg_kranwerk_1_navigation:
    - type: venue

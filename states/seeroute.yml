@@ -16,7 +16,7 @@ TOURISTENINFORMATION:
     type: Update
     action: weiter_tipp
 
-WEG_KRANWERK_1:
+WEG_KRANWERK:
   - handler: CommandHandler
     command: weiter
     action: landart
