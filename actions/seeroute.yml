@@ -77,8 +77,6 @@ landart_tipp:
 weg_kranwerk_2:
   - type: message
     text: Unser nächstes Ziel ist das Alte Kranwerk. 🏗
-  - type: message
-    text: Dafür muss du nur etwas weiter am Wald entlang gehen.
   - type: venue
     latitude: 51.27993022606565
     longitude: 12.593893445404305
@@ -161,13 +159,13 @@ weg_neubaugebiet:
     text: 🐾
   - type: message
     text: Für heute wollten wir aber an den See.
-  - type: message
-    text: An dieser Stelle geht es weiter 📌
   - type: venue
     latitude: 51.278182
     longitude: 12.589196
     address: Neubaugbiet
     title: Dein nächstes Ziel 📌
+  - type: message
+    text: An dieser Stelle geht es weiter 📌
     InlineKeyboard:
       - text: "🐾 Weiter"
         data: 'action:neubaugebiet'
