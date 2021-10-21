@@ -24,7 +24,7 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Call
 from digitalguide.generateActions import Action, read_action_yaml, callback_query_handler
 from digitalguide.uhrzeit_filter import FilterUhrzeit
 
-from actions import cityrouteActions, generalActions
+from actions import cityrouteActions, generalActions, seerouteActions
 from digitalguide.mongo_persistence import DBPersistence
 from digitalguide.generateStates import read_state_yml
 from digitalguide.errorHandler import error_handler
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     generalActions = read_action_yaml(
         "actions/general.yml", action_functions={**generalActions.action_functions, **writeActions.action_functions})
     seerouteActions = read_action_yaml(
-        "actions/seeroute.yml", action_functions={**writeActions.action_functions})
+        "actions/seeroute.yml", action_functions={**seerouteActions.action_functions, **writeActions.action_functions})
 
     cqh = callback_query_handler({**cityrouteActions, **generalActions, **seerouteActions})
 

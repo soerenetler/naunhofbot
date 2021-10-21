@@ -109,7 +109,7 @@ weg_parkplatz:
 
 weg_stadtgut_navigation:
     - type: sticker
-      id: CAACAgIAAxkBAAIup2E4bpIKXaKdYMUZdNn_8iNw-SN6AAJbEgACdiGpSVlyhlHJDDqeIAQ
+      id: CAACAgIAAxkBAAISDmFxG0Fxypo1uEA4Djnp6hnow8v3AAI3EAACXw6AS2DsEgFpz1ZoIQQ
     - type: message
       text: 🧭 Du hast dein Ziel erreicht, wenn du links von dir das Star Dönerhaus und rechts die Löwen Apotheke siehst.
       InlineKeyboard:
@@ -191,9 +191,11 @@ frage_stadtgut2:
     - type: message
       text: Tut mir leid... keine der Antworten war richtig. 😇😇😇
     - type: message
-      text: Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal.
+      text: >
+            Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal. 
+            Dabei hat Naunhof gar nicht so viele weitere Veranstaltungsstätten. 
     - type: message
-      text: 🕺 Wir fänden daher gut, wenn auch jungen Menschen den Bürgersaal öfter nutzt würde.
+      text: 🕺 Wir fänden daher gut, wenn auch junge Menschen den Bürgersaal öfter nutzen würden.
     - type: message
       text: Welche Veranstaltungen für Jugendliche könntest du dir hier vorstellen?
     - type: return
@@ -269,6 +271,9 @@ frage_marktplatz2_aufloesung:
       folder: marktplatz2
     - type: message
       text: ⛱ Wir wünschen uns einen grüneren Marktplatz mit schattigeren Bänken für den Sommer.
+      InlineKeyboard:
+        - text: "🐾 Weiter"
+          data:  'action:rathaus'
     - type: return
       state: FRAGE_MARKTPLATZ2_AUFLOESUNG
 
@@ -381,8 +386,8 @@ radtour1:
       file: assets/Tour1-Na-Erd-Ei-Alb-Fu.png
       caption: Radweg 1
     - type: audio
-      file: 'assets/audio/radweg_1.m4a'
-      title: "Radweg 1"
+      file: 'assets/audio/radtour1.mp3'
+      title: "🚴 Radweg 1"
       performer: "Jugenforum Naunhof"
     - type: message
       text: >
@@ -641,10 +646,10 @@ frage_schlossturmplatz_aufloesung:
 radtour2:
     - type: photo
       file: assets/Tour2-Na-Am.png
-      caption: Radweg 1
+      caption: Radweg 2
     - type: audio
-      file: 'assets/audio/radweg_2.m4a'
-      title: "Radweg 2"
+      file: 'assets/audio/radtour2.mp3'
+      title: "🚴 Radweg 2"
       performer: "Jugenforum Naunhof"
 
 weg_grundschule:
@@ -748,6 +753,21 @@ ende:
     id: CAACAgIAAxkBAAIuqWE4b3PHqw5RU1nKdntNrpXbxcbiAAJxDQACqAywSTNHjT3pHr7uIAQ
   - type: message
     text: >
+          Schön, dass du mitgemacht hast!
+  - type: message
+    text: >
+          Viele junge Naunhofer*innen haben vorab bei unseren Challenges teilgenommen und diese Route gestaltet. 
+  - type: message
+    text: | 
+          Dabei haben wir folgende Wünsche herausgearbeitet:
+          🚉 Einen Nachtzug aus Leipzig!
+          🛹 Mehr Platz für unseren Skatepark!
+          🕺 Junge Menschen im Bürgersaal!
+          ⛱ Einen grüneren Marktplatz!
+          ⚽ Einen renovierten Sportplatz!
+          👪 Mehr Spielplätze für Kinder!
+  - type: message
+    text: >
           Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
           Bei schönem Wetter lohnt sich das bestimmt.
     InlineKeyboard:
@@ -769,21 +789,6 @@ ende_feedback:
     text: Danke für dein Feedback!
   - type: message
     text: >
-          Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
-          Bei schönem Wetter lohnt sich das bestimmt.
-    InlineKeyboard:
-      - text: 🏝️ Seeroute
-        data: "action:see_route_start"
-      - text: 😓 fix und fertig
-        data: "action:dank"
-  - type: return
-    state: ENDE
-
-dank:
-  - type: message
-    text: '🐾'
-  - type: message
-    text: >
           Schön, dass du mitgemacht hast!
   - type: message
     text: >
@@ -797,6 +802,21 @@ dank:
           ⛱ Einen grüneren Marktplatz!
           ⚽ Einen renovierten Sportplatz!
           👪 Mehr Spielplätze für Kinder!
+  - type: message
+    text: >
+          Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
+          Bei schönem Wetter lohnt sich das bestimmt.
+    InlineKeyboard:
+      - text: 🏝️ Seeroute
+        data: "action:see_route_start"
+      - text: 😓 fix und fertig
+        data: "action:dank"
+  - type: return
+    state: ENDE
+
+dank:
+  - type: message
+    text: '🐾'
   - type: message
     text: >
           Ihr habt noch Anmerkungen an uns? Dann meldet euch beim Jugendforum:
