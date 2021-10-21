@@ -101,8 +101,8 @@ kranwerk:
     text: |
           Erste Station erreicht.
           Im Alten Kranwerk wurden früher Kräne 🏗 gebaut, doch danach lag hier für lange Zeit alles brach.
-  - type: photo
-    file: assets/Postkarte.png
+  - type: sticker
+    id: CAACAgIAAxkBAAISEGFxLErDSoaUywjiOS4XeXhRKePbAAI2DwACC8iISzDKr54eBNNEIQQ
   - type: message
     text: |
           Heut entstehen hier vor allem neue Ideen für die Kultur. 
