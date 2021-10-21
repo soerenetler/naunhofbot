@@ -1,5 +1,9 @@
 SEE_ROUTE_START:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: touristeninformation
 
@@ -8,6 +12,10 @@ SEE_ROUTE_START:
     action: weiter_tipp
 
 TOURISTENINFORMATION:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: weg_kranwerk
@@ -18,6 +26,10 @@ TOURISTENINFORMATION:
 
 WEG_KRANWERK:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: landart
 
@@ -26,6 +38,10 @@ WEG_KRANWERK:
     action: weiter_tipp
 
 LANDART:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: weg_kranwerk_2
@@ -36,6 +52,10 @@ LANDART:
 
 WEG_KRANWERK_2:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: kranwerk
 
@@ -44,6 +64,10 @@ WEG_KRANWERK_2:
     action: weiter_tipp
 
 KRANWERK:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: weg_oberschule
@@ -54,6 +78,10 @@ KRANWERK:
 
 WEG_OBERSCHULE:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: oberschule
 
@@ -62,6 +90,10 @@ WEG_OBERSCHULE:
     action: weiter_tipp
 
 OBERSCHULE:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: weg_neubaugebiet
@@ -72,6 +104,10 @@ OBERSCHULE:
 
 WEG_NEUBAUGEBIET:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: neubaugebiet_frage
 
@@ -80,6 +116,10 @@ WEG_NEUBAUGEBIET:
     action: weiter_tipp
 
 NEUBAUGEBIET_FRAGE:
+  - handler: CommandHandler
+    command: help
+    action: neubaugebiet_tipp
+
   - handler: MessageHandler
     filter: text
     action: neubaugebiet_aufloesung
@@ -90,6 +130,10 @@ NEUBAUGEBIET_FRAGE:
 
 NEUBAUGEBIET_AUFLOESUNG:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_see
 
@@ -98,6 +142,10 @@ NEUBAUGEBIET_AUFLOESUNG:
     action: weiter_tipp
 
 WEG_SEE:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: see
@@ -108,6 +156,10 @@ WEG_SEE:
 
 SEE:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: chillen
 
@@ -117,6 +169,10 @@ SEE:
 
 CHILLEN:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: musik
 
@@ -125,6 +181,10 @@ CHILLEN:
     action: weiter_tipp
 
 MUSIK:
+  - handler: CommandHandler
+    command: help
+    action: musik_tipp
+
   - handler: MessageHandler
     filter: text
     action: rueckweg_mit_musik
@@ -135,6 +195,10 @@ MUSIK:
 
 RUECKWEG:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: postkarte_verschicken
 
@@ -144,6 +208,10 @@ RUECKWEG:
 
 POSTKARTE_VERSCHICKEN:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: postkarte_verschicken
 
@@ -152,6 +220,10 @@ POSTKARTE_VERSCHICKEN:
     action: weiter_tipp
 
 SEE_FRAGE_FEEDBACK:
+  - handler: CommandHandler
+    command: help
+    action: see_feedback_tipp
+
   - handler: MessageHandler
     filter: text
     action: see_ende_feedback
@@ -171,6 +243,10 @@ SEE_FRAGE_FEEDBACK:
     action: see_feedback_tipp
 
 SEE_ENDE:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+    
   - handler: CommandHandler
     command: weiter
     action: see_dank

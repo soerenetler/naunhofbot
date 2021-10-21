@@ -3,6 +3,10 @@ INTRO:
     command: weiter
     action: frage_bahnhof
 
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: TypeHandler
     type: Update
     action: weiter_tipp
@@ -12,11 +16,19 @@ FRAGE_BAHNHOF:
     filter: uhrzeit
     action: frage_bahnhof_aufloesung
 
+  - handler: CommandHandler
+    command: help
+    action: frage_bahnhof_tipp
+
   - handler: TypeHandler
     type: Update
     action: frage_bahnhof_tipp
 
 FRAGE_BAHNHOF_AUFLOESUNG:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: routen_auswahl
@@ -26,6 +38,10 @@ FRAGE_BAHNHOF_AUFLOESUNG:
     action: weiter_tipp
 
 ROUTEN_AUSWAHL:
+  - handler: CommandHandler
+    command: help
+    action: routen_auswahl_tipp
+
   - handler: CommandHandler
     command: city
     action: city_route_start

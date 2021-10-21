@@ -1,5 +1,9 @@
 WEG_SKATEPARK:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: frage_skatepark
 
@@ -8,6 +12,10 @@ WEG_SKATEPARK:
     action: weiter_tipp
 
 FRAGE_SKATEPARK:
+  - handler: CommandHandler
+    command: help
+    action: frage_skatepark_tipp
+
   - handler: PollAnswerHandler
     action: frage_skatepark_2
 
@@ -16,6 +24,10 @@ FRAGE_SKATEPARK:
     action: frage_skatepark_tipp
  
 FRAGE_SKATEPARK_2:
+  - handler: CommandHandler
+    command: help
+    action: frage_skatepark_2_tipp
+
   - handler: MessageHandler
     filter: text
     action: frage_skatepark_2_aufloesung
@@ -32,6 +44,10 @@ FRAGE_SKATEPARK_2:
 
 FRAGE_SKATEPARK_2_AUFLOESUNG:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_parkplatz
 
@@ -40,6 +56,10 @@ FRAGE_SKATEPARK_2_AUFLOESUNG:
     action: weiter_tipp
  
 WEG_PARKPLATZ:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: weg_stadtgut
@@ -50,6 +70,10 @@ WEG_PARKPLATZ:
 
 WEG_STADTGUT:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: cafe_stadtgut
 
@@ -58,6 +82,10 @@ WEG_STADTGUT:
     action: weiter_tipp
 
 CAFE_STADTGUT:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: eis_stadtgut
@@ -68,6 +96,10 @@ CAFE_STADTGUT:
 
 EIS_STADTGUT:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: frage_stadtgut
 
@@ -76,6 +108,10 @@ EIS_STADTGUT:
     action: weiter_tipp
   
 FRAGE_STADTGUT:
+  - handler: CommandHandler
+    command: help
+    action: frage_stadtgut_tipp
+
   - handler: PollAnswerHandler
     action: frage_stadtgut2
 
@@ -84,6 +120,10 @@ FRAGE_STADTGUT:
     action: frage_stadtgut_tipp
 
 FRAGE_STADTGUT2:
+  - handler: CommandHandler
+    command: help
+    action: frage_stadtgut2_tipp
+
   - handler: MessageHandler
     filter: text
     action: frage_stadtgut2_aufloesung
@@ -100,6 +140,10 @@ FRAGE_STADTGUT2:
 
 FRAGE_STADTGUT2_AUFLOESUNG:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_marktplatz
 
@@ -109,6 +153,10 @@ FRAGE_STADTGUT2_AUFLOESUNG:
 
 WEG_MARKTPLATZ:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: frage_marktplatz
 
@@ -117,6 +165,10 @@ WEG_MARKTPLATZ:
     action: weiter_tipp
 
 FRAGE_MARKTPLATZ:
+  - handler: CommandHandler
+    command: help
+    action: frage_marktplatz_tipp
+
   - handler: MessageHandler
     filter: text
     action: frage_marktplatz2
@@ -132,6 +184,10 @@ FRAGE_MARKTPLATZ:
     action: frage_marktplatz_tipp
 
 FRAGE_MARKTPLATZ2:
+  - handler: CommandHandler
+    command: help
+    action: frage_marktplatz2_tipp
+
   - handler: MessageHandler
     filter: text
     action: frage_marktplatz2_aufloesung
@@ -148,6 +204,10 @@ FRAGE_MARKTPLATZ2:
 
 FRAGE_MARKTPLATZ2_AUFLOESUNG:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: rathaus
 
@@ -156,6 +216,10 @@ FRAGE_MARKTPLATZ2_AUFLOESUNG:
     action: weiter_tipp
 
 RATHAUS:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: weg_oase
@@ -166,6 +230,10 @@ RATHAUS:
 
 WEG_OASE:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_oase2
 
@@ -174,6 +242,10 @@ WEG_OASE:
     action: weiter_tipp
 
 WEG_OASE2:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: stadtteile
@@ -184,6 +256,10 @@ WEG_OASE2:
 
 STADTTEILE:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_kita
 
@@ -192,6 +268,10 @@ STADTTEILE:
     action: weiter_tipp
 
 WEG_KITA:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: weg_kita2
@@ -202,6 +282,10 @@ WEG_KITA:
 
 WEG_KITA2:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: frage_kita
 
@@ -210,6 +294,10 @@ WEG_KITA2:
     action: weiter_tipp
 
 FRAGE_KITA:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: MessageHandler
     filter: text
     action: frage_kita_aufloesung
@@ -220,6 +308,10 @@ FRAGE_KITA:
 
 FRAGE_KITA_AUFLOESUNG:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_gymnasium
 
@@ -228,6 +320,10 @@ FRAGE_KITA_AUFLOESUNG:
     action: weiter_tipp
 
 WEG_GYMNASIUM:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: gymnasium
@@ -238,6 +334,10 @@ WEG_GYMNASIUM:
 
 GYMNASIUM:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: feuerwehr
 
@@ -246,6 +346,10 @@ GYMNASIUM:
     action: weiter_tipp
 
 FEUERWEHR:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: parthelandhalle
@@ -256,6 +360,10 @@ FEUERWEHR:
 
 PARTHELANDHALLE:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_waldbad
 
@@ -265,6 +373,10 @@ PARTHELANDHALLE:
 
 WEG_WALDBAD:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: waldbad
 
@@ -273,6 +385,10 @@ WEG_WALDBAD:
     action: weiter_tipp
 
 WALDBAD:
+  - handler: CommandHandler
+    command: help
+    action: waldbad_tipp
+
   - handler: MessageHandler
     filter: text
     action: waldbad_aufloesung
@@ -283,6 +399,10 @@ WALDBAD:
 
 WALDBAD_AUFLOESUNG:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_schlossturmplatz
 
@@ -292,6 +412,10 @@ WALDBAD_AUFLOESUNG:
 
 WEG_SCHLOSSTURMPLATZ:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: frage_schlossturmplatz
 
@@ -300,6 +424,10 @@ WEG_SCHLOSSTURMPLATZ:
     action: weiter_tipp
 
 FRAGE_SCHLOSSTURMPLATZ:
+  - handler: CommandHandler
+    command: help
+    action: frage_schlossturmplatz_tipp
+
   - handler: MessageHandler
     filter: regex
     regex: EMOJI_PATTERN
@@ -310,6 +438,10 @@ FRAGE_SCHLOSSTURMPLATZ:
     action: frage_schlossturmplatz_tipp
 
 FRAGE_SCHLOSSTURMPLATZ_1:
+  - handler: CommandHandler
+    command: help
+    action: frage_schlossturmplatz_1_tipp
+
   - handler: MessageHandler
     filter: text
     action: frage_schlossturmplatz_aufloesung
@@ -326,6 +458,10 @@ FRAGE_SCHLOSSTURMPLATZ_1:
 
 FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: weg_grundschule
 
@@ -335,6 +471,10 @@ FRAGE_SCHLOSSTURMPLATZ_AUFLOESUNG:
 
 WEG_GRUNDSCHULE:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: frage_grundschule
 
@@ -343,6 +483,10 @@ WEG_GRUNDSCHULE:
     action: weiter_tipp
 
 FRAGE_GRUNDSCHULE:
+  - handler: CommandHandler
+    command: help
+    action: frage_grundschule_tipp
+
   - handler: PollAnswerHandler
     action: frage_grundschule_aufloesung
 
@@ -351,6 +495,10 @@ FRAGE_GRUNDSCHULE:
     action: frage_grundschule_tipp
 
 FRAGE_GRUNDSCHULE_AUFLOESUNG:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: weg_bahnhof
@@ -361,6 +509,10 @@ FRAGE_GRUNDSCHULE_AUFLOESUNG:
 
 WEG_BAHNHOF:
   - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: CommandHandler
     command: weiter
     action: frage_feedback
 
@@ -369,6 +521,10 @@ WEG_BAHNHOF:
     action: weiter_tipp
 
 FRAGE_FEEDBACK:
+  - handler: CommandHandler
+    command: help
+    action: feedback_tipp
+
   - handler: MessageHandler
     filter: text
     action: ende_feedback
@@ -388,6 +544,10 @@ FRAGE_FEEDBACK:
     action: feedback_tipp
 
 ENDE:
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
   - handler: CommandHandler
     command: weiter
     action: dank
