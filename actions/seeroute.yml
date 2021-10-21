@@ -412,4 +412,4 @@ timeout:
 
 weiter_tipp:
   - type: message
-    text: "Ich habe deine Eingabe nicht verstanden: Weiter kommst du mit /weiter oder einem klick of den Button"
+    text: "Weiter kommst du mit /weiter oder einem klick auf den Button."

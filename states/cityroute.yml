@@ -28,6 +28,10 @@ FRAGE_SKATEPARK_2:
     command: help
     action: frage_skatepark_2_tipp
 
+  - handler: CommandHandler
+    command: weiter
+    action: weg_parkplatz
+
   - handler: MessageHandler
     filter: text
     action: frage_skatepark_2_aufloesung

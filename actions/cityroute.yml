@@ -1,6 +1,6 @@
 routen_auswahl_tipp:
     - type: message
-      text: 'Deine Auswahl habe ich nicht verstanden. Du kannst auf die Buttons klicken oder mit /city und /see die Routen auswählen.'
+      text: 'Du kannst auf die Buttons klicken oder mit /city und /see die Routen auswählen.'
 
 city_route_start:
     - type: message
@@ -36,8 +36,7 @@ frage_skatepark:
 
 frage_skatepark_tipp:
     - type: message
-      text: 'Das habe ich nicht verstanden. Wenn du das Quiz beantwortest, geht es automatisch weiter.'
-
+      text: 'Wenn du das Quiz beantwortest, geht es automatisch weiter.'
 
 frage_skatepark_2:
     - type: function
@@ -76,7 +75,7 @@ frage_skatepark_2_hilfe:
 
 frage_skatepark_2_tipp:
     - type: message
-      text: 'Ups, ich habe die Eingabe nicht verstanden. Du kannst eine Nachricht oder ein Foto schicken. Eine Sprachnachricht geht auch.'
+      text: 'Du kannst eine Nachricht oder ein Foto schicken. Eine Sprachnachricht geht auch. Mit /weiter kommst du direkt zur nächsten Nachricht.'
 
 frage_skatepark_2_aufloesung:
     - type: function
@@ -185,7 +184,7 @@ frage_stadtgut:
 
 frage_stadtgut_tipp:
     - type: message
-      text: 'Das habe ich nicht verstanden. Wenn du das Quiz beantwortest, geht es automatisch weiter.'
+      text: 'Wenn du das Quiz beantwortest, geht es automatisch weiter.'
 
 frage_stadtgut2:
     - type: message
@@ -198,6 +197,9 @@ frage_stadtgut2:
       text: 🕺 Wir fänden daher gut, wenn auch junge Menschen den Bürgersaal öfter nutzen würden.
     - type: message
       text: Welche Veranstaltungen für Jugendliche könntest du dir hier vorstellen?
+      InlineKeyboard:
+        - text: "🏃‍♂️ Überspringen"
+          data:  'action:weg_marktplatz'
     - type: return
       state: FRAGE_STADTGUT2
 
@@ -688,7 +690,7 @@ frage_grundschule:
 
 frage_grundschule_tipp:
     - type: message
-      text: 'Das habe ich nicht verstanden. Wenn du das Quiz beantwortest geht es automatisch weiter.'
+      text: 'Wenn du das Quiz beantwortest geht es automatisch weiter.'
 
 frage_grundschule_aufloesung:
   - type: function
@@ -836,4 +838,4 @@ timeout:
 
 weiter_tipp:
   - type: message
-    text: "Ich habe deine Eingabe nicht verstanden: Weiter kommst du mit /weiter oder einem klick of den Button"
+    text: "Weiter kommst du mit /weiter oder einem klick auf den Button."
