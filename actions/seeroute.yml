@@ -385,8 +385,6 @@ see_ende_feedback:
 see_dank:
   - type: message
     text: Schön, dass du mitgemacht hast!
-  - type: photo
-    file: assets/Förderer Stadtrallye Jugendforum Naunhof.png
   - type: message
     text: >
           Viele junge Naunhofer*innen haben vorab bei unseren Challenges teilgenommen und diese Route gestaltet. 
