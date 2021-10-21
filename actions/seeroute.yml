@@ -162,7 +162,7 @@ weg_neubaugebiet:
   - type: message
     text: 🐾
   - type: message
-    text: Für heute wollten wir aber an den See.
+    text: Heute wollten wir aber an den See.
   - type: venue
     latitude: 51.278182
     longitude: 12.589196

@@ -288,8 +288,6 @@ rathaus:
       file: 'assets/audio/Oberschule.m4a'
       title: "Visionen für die Jugendbeteiligung"
       performer: "Frau Conrad"
-    - type: message
-      text: ✨✨✨
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:weg_oase'
@@ -479,12 +477,12 @@ gymnasium:
     - type: message
       text: >
             Das hier ist das Freie Gymnasium Naunhof, eine der zwei weiterführenden Schulen in Naunhof.
+    - type: message
+      text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice. 🔊
     - type: audio
       file: 'assets/audio/Gymnasium.mp3'
       title: "Gymnasium Naunhof"
       performer: "JuFo Naunhof"
-    - type: message
-      text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice. 🔊
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:feuerwehr'
@@ -582,7 +580,7 @@ weg_schlossturmplatz:
       text: >
             Unser Weg führt uns links am Waldbad vorbei. Du kannst hier durch den Zaun gucken, um das Waldbad von innen zu sehen. 🕵️‍♀️
     - type: message
-      text: Folge dem Weg, bis du an den Sportplatz kommst.
+      text: Folge dem Weg, geh am Ende nach rechts und an der Schlossmühle vorbei. Bieg dann links ab und laufe links an der Kegelbahn vorbei. Dort ist der Sportplatz.
       InlineKeyboard:
         - text: "🐾 weiter"
           data:  'action:frage_schlossturmplatz'
@@ -676,7 +674,7 @@ frage_grundschule:
   - type: message
     text: >
           Hier findest du alle Grundschüler*innen bis zur vierten Klasse.
-          Wie du siehst, wird die Grundschule gerade erweitert, weil es hier immer mehr Kinder- und Jugendliche geben wird. 
+          Wie du siehst, wurde die Grundschule gerade erweitert, weil immer mehr Kinder und Jugendliche gemeinsam mit ihren Eltern nach Naunhof ziehen.
   - type: poll
     question: "Siehst du den Spielplatz? Was meinst du, wie weit der nächste Spielplatz entfernt ist:"
     poll_type: quiz
@@ -701,7 +699,7 @@ frage_grundschule_aufloesung:
   - type: message
     text: Einmal zum Spielplatz in Lindhardt und einmal zum Spielplatz in Ermannshain.
   - type: message
-    text: Dafür, dass es 10 Kindergärten in Naunhof gibt und jede Menge junge Familien hierher ziehen, ist das ganz schön wenig an Spielmöglichkeiten.
+    text: Dafür, dass es zehn Kindergärten in Naunhof gibt und jede Menge junge Familien hierher ziehen, gibt es hier relativ wenig Spielmöglichkeiten
     InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:weg_bahnhof'
@@ -764,10 +762,11 @@ ende:
           Dabei haben wir folgende Wünsche herausgearbeitet:
           🚉 Einen Nachtzug aus Leipzig!
           🛹 Mehr Platz für unseren Skatepark!
-          🕺 Junge Menschen im Bürgersaal!
+          🕺 Veranstaltungen für junge Menschen im Bürgersaal!
           ⛱ Einen grüneren Marktplatz!
           ⚽ Einen renovierten Sportplatz!
           👪 Mehr Spielplätze für Kinder!
+          🚩 Mehr Orte für Jugendliche!
   - type: message
     text: >
           Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
@@ -800,10 +799,11 @@ ende_feedback:
           Dabei haben wir folgende Wünsche herausgearbeitet:
           🚉 Einen Nachtzug aus Leipzig!
           🛹 Mehr Platz für unseren Skatepark!
-          🕺 Junge Menschen im Bürgersaal!
+          🕺 Veranstaltungen für junge Menschen im Bürgersaal!
           ⛱ Einen grüneren Marktplatz!
           ⚽ Einen renovierten Sportplatz!
           👪 Mehr Spielplätze für Kinder!
+          🚩 Mehr Orte für Jugendliche!
   - type: message
     text: >
           Du hast noch Reserven? Dann nimm doch noch unsere zweite Route zum See in Angriff! 
