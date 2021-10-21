@@ -157,8 +157,8 @@ eis_stadtgut:
       file: 'assets/audio/Stadtgut.m4a'
       title: "Eis im Stadtgut"
       performer: "Jugenforum Naunhof"
-    - type: message
-      text: 🍨🍧🍦
+ #   - type: message
+ #     text: 🍨🍧🍦
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:frage_stadtgut'
