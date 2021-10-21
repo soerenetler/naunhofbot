@@ -43,5 +43,5 @@ def eval_schaetzfrage_neubaugebiet(update, context):
                                   reply_markup=ReplyKeyboardRemove())
 
 action_functions = {"eval_quiz": eval_quiz,
-                    "eval_schaetzfrage_kitas": eval_schaetzfrage_kitas,
+                    "eval_schaetzfrage_neubaugebiet": eval_schaetzfrage_neubaugebiet,
                     }
