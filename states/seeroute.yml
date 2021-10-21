@@ -127,7 +127,7 @@ CHILLEN:
 MUSIK:
   - handler: MessageHandler
     filter: text
-    action: rueckweg
+    action: rueckweg_mit_musik
 
   - handler: TypeHandler
     type: Update
