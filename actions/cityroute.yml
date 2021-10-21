@@ -198,6 +198,8 @@ frage_stadtgut2:
     - type: message
       text: Welche Veranstaltungen für Jugendliche könntest du dir hier vorstellen?
       InlineKeyboard:
+        - text: "💡 Ich habe eine Idee"
+          data:  'action:frage_stadtgut2_tipp'
         - text: "🏃‍♂️ Überspringen"
           data:  'action:weg_marktplatz'
     - type: return
