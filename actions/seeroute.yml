@@ -61,7 +61,7 @@ landart:
     text: Forme Steine und Stöcke und alles, was du um dich herum findest zu einem Muster auf dem Boden. 🍁🌰 
     InlineKeyboard:
       - text: "🏃‍♀️ Überspringen"
-        data:  'action:weg_kranwerk_3'
+        data:  'action:weg_kranwerk_2'
       - text: "🐾 Fertig!"
         data:  'action:landart'
   - type: return
@@ -75,6 +75,10 @@ landart_tipp:
         data:  'action:weg_kranwerk_2'
 
 weg_kranwerk_2:
+  - type: function
+    func: write
+    bucket: naunhofbot
+    folder: landart
   - type: message
     text: Unser nächstes Ziel ist das Alte Kranwerk. 🏗
   - type: venue
