@@ -27,7 +27,7 @@ weg_skatepark_navigation:
       text: Am Skatepark geht es weiter!
       InlineKeyboard:
         - text: "🐾 Weiter"
-          data:  'action:weg_oase2'
+          data:  'action:frage_skatepark'
 
 frage_skatepark:
     - type: message

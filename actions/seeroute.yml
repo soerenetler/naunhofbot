@@ -32,7 +32,7 @@ weg_kranwerk:
       - text: "🧭 Wo muss ich hin?"
         data:  'action:weg_kranwerk_1_navigation'
       - text: "🐾 Angekommen"
-        data:  'action:kranwerk'
+        data:  'action:landart'
   - type: return
     state: WEG_KRANWERK
   
@@ -46,11 +46,11 @@ weg_kranwerk_1_navigation:
      text: 🛤️
      InlineKeyboard:
       - text: "🐾 Angekommen"
-        data:  'action:weg_kranwerk_2'
+        data:  'action:landart'
 
 landart:
   - type: message
-    text: Biege hinter gleich links ab. 👈
+    text: Biege gleich links ab. 👈
   - type: message
     text: Nur noch ein paar Schritte, dann findest du ein Stück Natur - der perfekte Ort für ein Landart-Kunstwerk!
   - type: photo
@@ -63,7 +63,7 @@ landart:
       - text: "🏃‍♀️ Überspringen"
         data:  'action:weg_kranwerk_2'
       - text: "🐾 Fertig!"
-        data:  'action:landart'
+        data:  'action:landart_tipp'
   - type: return
     state: LANDART
 
