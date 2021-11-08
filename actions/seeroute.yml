@@ -1,6 +1,6 @@
 see_route_start:
     - type: message
-      text: 🏝 Gute Wahl! An unserem Grillensee ist es super.
+      text: 🏝 Gute Wahl! Unser Grillensee ist einer der schönsten Seen im ganzen Landkreis..
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:touristeninformation'
@@ -25,9 +25,9 @@ weg_kranwerk:
   - type: message
     text: Sehr gut, dann kann es jetzt losgehen! 🚶‍♂️
   - type: message
-    text: Zuerst müssen wir auf die andere Seite der Bahnschienen.
+    text: Zuerst müssen wir die Bahnschienen überqueren.
   - type: message
-    text: Folge der Bahnhofsstraße an der Bushaltestelle vorbei bis zum Bahnübergang.
+    text: Gehe über die Überführung auf die andere Seite.
     InlineKeyboard:
       - text: "🧭 Wo muss ich hin?"
         data:  'action:weg_kranwerk_1_navigation'
@@ -38,8 +38,8 @@ weg_kranwerk:
   
 weg_kranwerk_1_navigation:
    - type: venue
-     latitude: 51.27555440751503
-     longitude: 12.595293558510079
+     latitude: 51.27738973575101
+     longitude: 12.594546832437224
      address: 🛤️ Bahnübergang
      title: Dein nächstes Ziel 📌
    - type: message
@@ -50,11 +50,11 @@ weg_kranwerk_1_navigation:
 
 landart:
   - type: message
-    text: Biege hinter den Schienen gleich links ab. 👈
+    text: Biege hinter gleich links ab. 👈
   - type: message
     text: Nur noch ein paar Schritte, dann findest du ein Stück Natur - der perfekte Ort für ein Landart-Kunstwerk!
   - type: photo
-    file: assets/Postkarte.png
+    file: assets/Landart.jpg
   - type: message
     text: Zaubere doch auch ein Landart-Kunstwerk. ✨
   - type: message
@@ -106,7 +106,7 @@ kranwerk:
   - type: message
     text: |
           Heut entstehen hier vor allem neue Ideen für die Kultur. 
-          Du kannst hier Theaterstücke und Konzerte 🎭 erleben, oder guten Kaffee ☕ trinken. 
+          Du kannst hier Theaterstücke und Konzerte 🎭 erleben, oder sonntags guten Kaffee ☕ trinken. 
     InlineKeyboard:
       - text: "🏗️ Kranwerk"
         url:  'https://www.kranwerk.com'
@@ -119,9 +119,9 @@ weg_oberschule:
   - type: message
     text: 🐾
   - type: message
-    text: Laufe jetzt vor bis zur Hauptstraße und biege nach rechts ab.
+    text: Laufe jetzt vor bis zur Wurzener und biege nach rechts ab.
   - type: message
-    text: Folge der Hauptstraße, bis du rechts einen großen Parkplatz und dahinter ein Schulgebäude siehst.
+    text: Folge dieser Straße, bis du rechts einen großen Parkplatz und dahinter ein Schulgebäude siehst.
     InlineKeyboard:
       - text: "🐾 Weiter"
         data:  'action:oberschule'
@@ -185,7 +185,7 @@ neubaugebiet_frage:
   - type: message
     text: Du guckst gerade auch eine Fläche von ungefähr 35 Fußballfeldern. Geplant sind 450 Wohneinheiten und Gewerbefläche.
   - type: message
-    text: Wie viele Menschen wohnen später hier, wenn wir annehmen, dass pro Wohnung 3 Menschen leben?
+    text: Wie viele Menschen wohnen später hier, wenn wir annehmen, dass in jeder Wohnung 3 Menschen leben?
   - type: return
     state: NEUBAUGEBIET_FRAGE
 
@@ -210,10 +210,10 @@ weg_see:
   - type: message
     text: 🐾
   - type: message
-    text: Biege jetzt in den kleinen Waldweg hinter der Haltestelle ein. Links von dir liegt dann bald der See.
+    text: Biege jetzt rechts in den kleinen Waldweg vor der Haltestelle ein. Links von dir liegt dann bald der See.
   - type: venue
     latitude: 51.28787494964966
-    longitude: 12.60039736893049
+    longitude: 51.28787494964966
     address: Liegefläche
     title: Dein nächstes Ziel 📌
   - type: message
@@ -232,7 +232,7 @@ see:
           Siehst du das Wasser?
           Dann nichts wie hin!
           Badetuch raus und Platz nehmen: Unser Grillensee. 
-          Du kannst hier chillen oder einfach auch eine Runde rundherum laufen.
+          Du kannst hier chillen oder einfach eine Runde rundherum laufen.
     InlineKeyboard:
       - text: "🐾 Weiter"
         data: 'action:chillen'

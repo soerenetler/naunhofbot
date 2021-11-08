@@ -25,7 +25,7 @@ intro:
     - type: video
       file: assets/intro_video_small.mp4
     - type: message
-      text: Los geht's auf unsere Tour durch Naunhof!
+      text: Los geht's mit unserer Tour durch Naunhof!
       InlineKeyboard:
         - text: "👍 Facebook"
           url:  'https://www.facebook.com/Jugendforum-Naunhof-100477228376229/'
@@ -43,7 +43,7 @@ frage_bahnhof:
       parse_mode: MarkdownV2
       text: |
             *Wir starten am Bahnhof\.*
-            Der wurde schon 1887 eröffnet und bietet seitdem eine gute Anbindung nach Grimma oder Leipzig\. Nur Nachts ist das mit den Verbindungen so eine Sache \.\.\. 
+            Der wurde schon 1887 (187 höhö) eröffnet und bietet seitdem eine gute Anbindung nach Grimma oder Leipzig\. Nur Nachts ist das mit den Verbindungen so eine Sache \.\.\. 
     - type: message
       text: Wann denkst du fährt freitags der letzte Zug aus Leipzig nach Naunhof ab? 🚂
     - type: return

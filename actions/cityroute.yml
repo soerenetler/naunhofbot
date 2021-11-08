@@ -10,10 +10,24 @@ city_route_start:
             Dein nächstes Ziel ist gar nicht weit weg.
             Folge der Ladestraße entlang der Bahnschienen, bis du zu einem kleinen Skatepark rechts von dir kommst.
       InlineKeyboard:
+        - text: 🧭 Wo muss ich hin?
+          data: 'action:weg_skatepark_navigation'
         - text: "🐾 Gefunden"
           data:  'action:frage_skatepark'
     - type: return
       state: WEG_SKATEPARK
+
+weg_skatepark_navigation:
+    - type: venue
+      latitude: 51.27852932239324
+      longitude: 12.59317139552346
+      address: 🛹 Skatepark
+      title: Dein nächstes Ziel 📌
+    - type: message
+      text: Am Skatepark geht es weiter!
+      InlineKeyboard:
+        - text: "🐾 Weiter"
+          data:  'action:weg_oase2'
 
 frage_skatepark:
     - type: message
@@ -47,15 +61,15 @@ frage_skatepark_2:
     - type: document
       file: "assets/skatepark_bowl.gif"
     - type: message
-      text: Für eine Bowl ist unser Skatepark viel zu klein.
+      text: Für eine Bowl ist unser Park viel zu klein.
     - type: message
-      text: 🛹 Wir wünschen mehr Platz für unseren Skatepark. Zwischen der Straße und den Schienen wirkt er etwas verloren.
+      text: 🛹 Wir wünschen uns mehr Platz zum skaten.
     - type: photo
       file: assets/Skatepark.png
     - type: message
       text: |
             Wie sollte der Skatepark deiner Meinung nach aussehen? 
-            Zeichne deinen Skatepark und schicke uns einen Screenshot davon!
+            Zeichne deine Traumvorstellung und schicke uns einen Screenshot davon!
       InlineKeyboard:
         - text: "🤷 Wie geht das?"
           data:  'action:frage_skatepark_2_hilfe'
@@ -120,7 +134,7 @@ weg_stadtgut:
       text: '🐾'
     - type: message
       text: >
-            Wir überqueren jetzt auch noch diesen Parkplatzt und die Straße vor uns.
+            Wir überqueren nun den Parkplatz und die Straße vor uns.
             Das Stadtgut ist gut versteckt.
     - type: venue
       latitude: 51.278182
@@ -157,8 +171,6 @@ eis_stadtgut:
       file: 'assets/audio/Stadtgut.m4a'
       title: "Eis im Stadtgut"
       performer: "Jugenforum Naunhof"
- #   - type: message
- #     text: 🍨🍧🍦
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:frage_stadtgut'
@@ -172,7 +184,7 @@ frage_stadtgut:
       text: >
             Bevor du weitergehst:
     - type: poll
-      question: Welche Veranstaltungen für Jugendliche finden hier statt?
+      question: "Was denkst du: Welche Veranstaltungen finden hier für Jugendliche statt?"
       poll_type: regular
       options:
         - "🕺 Punkkonzert"
@@ -194,7 +206,7 @@ frage_stadtgut2:
             Bisher gibt es kaum Veranstaltungen für Jugendliche im Bürgersaal. 
             Dabei hat Naunhof gar nicht so viele weitere Veranstaltungsstätten. 
     - type: message
-      text: 🕺 Wir fänden daher gut, wenn auch junge Menschen den Bürgersaal öfter nutzen würden.
+      text: 🕺 Wir fänden daher gut, wenn auch junge Menschen den Bürgersaal öfter nutzen könnten oder mehr Veranstaltungen für Jugendliche angeboten würden.
     - type: message
       text: Welche Veranstaltungen für Jugendliche könntest du dir hier vorstellen?
       InlineKeyboard:
@@ -229,7 +241,7 @@ weg_marktplatz:
       file: "assets/Stadtgut.jpeg"
     - type: message
       text: >
-            Jetzt gehst du vorn aus dem Stadtgut raus, an der Litfaßsäule 💈 vorbei, auf den Marktplatz.
+            Jetzt gehst du vorn aus dem Stadtgut raus, links an der Litfaßsäule 💈 vorbei, auf den Marktplatz.
       InlineKeyboard:
         - text: "🐾 Weiter"
           data: 'action:frage_marktplatz'
@@ -284,12 +296,12 @@ frage_marktplatz2_aufloesung:
 rathaus:
     - type: message
       text: Hier am Marktplatz steht auch das Rathaus mit der Stadtverwaltung.
-    - type: message
-      text: 🎤 Wir haben für dich die Bürgermeisterin gefragt, welche Visionen sie für Jugendbeteiligung hat.
-    - type: audio
-      file: 'assets/audio/Oberschule.m4a'
-      title: "Visionen für die Jugendbeteiligung"
-      performer: "Frau Conrad"
+    # - type: message
+    #   text: 🎤 Wir haben für dich die Bürgermeisterin gefragt, welche Visionen sie für Jugendbeteiligung hat.
+    # - type: audio
+    #   file: 'assets/audio/Oberschule.m4a'
+    #   title: "Visionen für die Jugendbeteiligung"
+    #   performer: "Frau Conrad"
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:weg_oase'
@@ -334,7 +346,7 @@ weg_oase2:
       text: '🐾'
     - type: message
       text: >
-            Du musst dich nur noch ein Stück des Weges kämpfen.
+            Es ist nicht mehr weit.
             Biege hinter dem Schild in die Parthestraße und folge ihr, bis du auf der rechten Seite die Oase findest. 🏝
       InlineKeyboard:
         - text: "🐾 Weiter"
@@ -350,7 +362,7 @@ oase:
     - type: message
       text: >
             Ja, das ist keine Fata Morgana, sondern unser Jugendclub. 🐪
-            Hier hat Julia das Sagen. Schau doch mal, ob sie da ist. 
+            Hier hat Julia das Sagen. Schau doch mal nach, ob sie da ist. 
     - type: message
       text: >
             🥤 Drinnen wartet eine Erfrischung auf dich, bevor wir unsere Reise fortsetzen.
@@ -422,6 +434,8 @@ weg_kita2:
     - type: message
       text: >
             Der Wiesenstraße kannst du dann folgen, bis du auf der linken Seite einen Kindergarten entdeckst.
+    - type: photo
+      file: assets/Kita.jpg
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:frage_kita'
@@ -478,7 +492,7 @@ gymnasium:
       text: '🐾'
     - type: message
       text: >
-            Das hier ist das Freie Gymnasium Naunhof, eine der zwei weiterführenden Schulen in Naunhof.
+            Das hier ist das Freie Gymnasium, eine der zwei weiterführenden Schulen in Naunhof.
     - type: message
       text: Wie so ein Schulalltag im Gymnasium ausssieht, hörst du jetzt von Maurice. 🔊
     - type: audio
@@ -509,7 +523,9 @@ weg_parthelandhalle:
     - type: message
       text: '🐾'
     - type: message
-      text: "Lauf jetzt einfach weiter bis zum nächsten Gebäude."
+      text: >
+            Lauf jetzt weiter bis zu dem roten Backsteingebäude. Dies ist Teil der Parthelandhalle.
+            Eine große Sporthalle, die für Schul-/Vereinssport und verschiedene Veranstaltungen genutzt wird.
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:parthelandhalle'
@@ -522,7 +538,7 @@ parthelandhalle:
     - type: message
       text: >
             Als wir geboren wurden, gab es hier weder die Feuerwehr, noch das Gymnasium oder die Parthelandhalle. 
-            Die Parthelandhalle wurde erst 2003 gebaut, vorher war hier eine Merino-Spinnerei. 🐑
+            Letztere wurde erst 2003 gebaut, vorher war hier eine Merino-Spinnerei. 🐑
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:weg_waldbad'
@@ -534,8 +550,8 @@ weg_waldbad:
       text: '🐾'
     - type: message
       text: >
-            Wenn du in dieser Route schon eins gelernt hast, dann, dass wir über Parkplätze immer quer drübergehen.
-            Mach das auch bei diesem Parkplatz, um zum Waldbad zu gelangen. 🏞
+            Wenn du auf dieser Route schon eins gelernt hast, dann, dass wir über Parkplätze immer quer drübergehen.
+            Halte dich auch diesmal daran, und du gelangst zum Waldbad 🏞
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:waldbad'
@@ -567,8 +583,11 @@ waldbad_aufloesung:
     - type: function
       func: eval_schaetzfrage_waldbad
     - type: message
-      text: Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders.
-            Das ist auch schlecht für den Wald drumherum und die Seen, für die Naunhof bekannt ist.
+      text: >
+            Während dem Becken im Waldbad das Wasser im Sommer nie ausgeht, ist das bei der Parthe ganz anders.
+            Die liegt eigentlich immer trocken, doch das ist schlecht für den Wald und die Seen, für die Naunhof bekannt ist.
+    - type: message
+      text: https://www.youtube.com/watch?v=04ivV0oWfQQ
       InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:weg_schlossturmplatz'
@@ -625,11 +644,6 @@ frage_schlossturmplatz_aufloesung:
       folder: schlossturmplatz_pimpen
     - type: message
       text: "⚽ Bei uns im Jugendforum sind nicht alle sportlich aktiv, aber einen renovierten Sportplatz wünschen wir uns alle! 🏸🏃‍♀️"
-    - type: message
-      text: "Was es sonst noch für Sportperspektiven in Naunhof gibt, erfährst du jetzt vom Kreissportbund, der seinen Sitz auch in Naunhof hat:"
-      InlineKeyboard:
-        - text: "Website"
-          url:  https://www.ksb-ll.de/
     - type: message
       text: |
             Du suchst noch eine Strecke zum Joggen oder Radfahren?
@@ -717,7 +731,7 @@ weg_bahnhof:
     address: Bahnhof
     title: Dein nächstes Ziel 📌
   - type: message
-    text: Am Bahnhof sehen wir uns dann noch letztes Mal.
+    text: Am Bahnhof sehen wir uns dann noch ein letztes Mal.
     InlineKeyboard:
         - text: "🐾 Weiter"
           data:  'action:frage_feedback'
@@ -764,7 +778,7 @@ ende:
           Dabei haben wir folgende Wünsche herausgearbeitet:
           🚉 Einen Nachtzug aus Leipzig!
           🛹 Mehr Platz für unseren Skatepark!
-          🕺 Veranstaltungen für junge Menschen im Bürgersaal!
+          🕺 Veranstaltungen für junge Menschen!
           ⛱ Einen grüneren Marktplatz!
           ⚽ Einen renovierten Sportplatz!
           👪 Mehr Spielplätze für Kinder!
@@ -801,7 +815,7 @@ ende_feedback:
           Dabei haben wir folgende Wünsche herausgearbeitet:
           🚉 Einen Nachtzug aus Leipzig!
           🛹 Mehr Platz für unseren Skatepark!
-          🕺 Veranstaltungen für junge Menschen im Bürgersaal!
+          🕺 Veranstaltungen für junge Menschen!
           ⛱ Einen grüneren Marktplatz!
           ⚽ Einen renovierten Sportplatz!
           👪 Mehr Spielplätze für Kinder!
