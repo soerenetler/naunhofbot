@@ -30,16 +30,16 @@ def eval_schaetzfrage_neubaugebiet(update, context):
 
     differenz = schaetzung - echter_wert
     if differenz == -1:
-        update.message.reply_text('Es ist ein Mensch mehr, als du geschätzt hast.',
+        update.message.reply_text('Es ist ein Mensch mehr als du geschätzt hast.',
                                   reply_markup=ReplyKeyboardRemove())
     elif differenz < -1:
-        update.message.reply_text('Es sind {} Menschen mehr, als du geschätzt hast.'.format(abs(differenz)),
+        update.message.reply_text('Es sind {} Menschen mehr als du geschätzt hast.'.format(abs(differenz)),
                                   reply_markup=ReplyKeyboardRemove())
     elif differenz == 1:
-        update.message.reply_text('Es ist eine Mensch weniger, als du geschätzt hast.',
+        update.message.reply_text('Es ist eine Mensch weniger als du geschätzt hast.',
                                   reply_markup=ReplyKeyboardRemove())
     elif differenz > 1:
-        update.message.reply_text('Es sind {} Menschen weniger, als du geschätzt hast.'.format(abs(differenz)),
+        update.message.reply_text('Es sind {} Menschen weniger als du geschätzt hast.'.format(abs(differenz)),
                                   reply_markup=ReplyKeyboardRemove())
 
 action_functions = {"eval_quiz": eval_quiz,

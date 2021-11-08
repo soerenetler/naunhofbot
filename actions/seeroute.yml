@@ -213,7 +213,7 @@ weg_see:
     text: Biege jetzt rechts in den kleinen Waldweg vor der Haltestelle ein. Links von dir liegt dann bald der See.
   - type: venue
     latitude: 51.28787494964966
-    longitude: 51.28787494964966
+    longitude: 12.60039736893049
     address: Liegefläche
     title: Dein nächstes Ziel 📌
   - type: message
