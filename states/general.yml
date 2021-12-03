@@ -1,6 +1,19 @@
 INTRO:
   - handler: CommandHandler
     command: weiter
+    action: datenschutz
+
+  - handler: CommandHandler
+    command: help
+    action: weiter_tipp
+
+  - handler: TypeHandler
+    type: Update
+    action: weiter_tipp
+
+Datenschutz:
+  - handler: CommandHandler
+    command: weiter
     action: frage_bahnhof
 
   - handler: CommandHandler

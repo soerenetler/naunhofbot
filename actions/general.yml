@@ -32,9 +32,22 @@ intro:
         - text: "📸 Instagram"
           url: "https://www.instagram.com/jugendforum_naunhof"
         - text: "🐾 Los geht's!"
-          data: 'action:frage_bahnhof'
+          data: 'action:datenschutz'
     - type: return
       state: INTRO
+
+datenschutz:
+    - type: message
+      text: Um unsere Stadt mit deiner Meinung weiter zu verbessern, möchten wir deine Antworten gern speichern. Wenn du dir nicht sicher bist, frag bitte deine Eltern. 
+    - type: message
+      text: "Bist du damit einverstanden?"
+      InlineKeyboard:
+        - text: "🛡️ Datenschutz"
+          url: "www.blauedaecher.com/datenschutz"
+        - text: "👍 Einverstanden!"
+          data: 'action:frage_bahnhof'
+    - type: return
+      state: Datenschutz
 
 frage_bahnhof:
     - type: message
