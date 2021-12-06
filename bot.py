@@ -50,8 +50,10 @@ if __name__ == '__main__':
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    my_persistence = DBPersistence("naunhofbot_persistencedb")
-    updater = Updater(TOKEN, persistence=my_persistence, use_context=True)
+    #my_persistence = DBPersistence("naunhofbot_persistencedb")
+    updater = Updater(TOKEN, 
+                      #persistence=my_persistence,
+                      use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
@@ -74,7 +76,6 @@ if __name__ == '__main__':
         per_chat=False,
         conversation_timeout=6 * 60 * 60,
         entry_points=[CommandHandler('start', generalActions["intro"])],
-        persistent=True,
         name='naunhofbot',
 
         states={
