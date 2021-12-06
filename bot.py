@@ -59,11 +59,11 @@ if __name__ == '__main__':
     dp = updater.dispatcher
 
     cityrouteActions = read_action_yaml(
-        "actions/cityroute.yml", action_functions={**cityrouteActions.action_functions, **writeActions.action_functions}, log_user=False, log_interaction=False)
+        "actions/cityroute.yml", action_functions={**cityrouteActions.action_functions, **writeActions.telegram_action_functions}, log_user=False, log_interaction=False)
     generalActions = read_action_yaml(
-        "actions/general.yml", action_functions={**generalActions.action_functions, **writeActions.action_functions}, log_user=False, log_interaction=False)
+        "actions/general.yml", action_functions={**generalActions.action_functions, **writeActions.telegram_action_functions}, log_user=False, log_interaction=False)
     seerouteActions = read_action_yaml(
-        "actions/seeroute.yml", action_functions={**seerouteActions.action_functions, **writeActions.action_functions}, log_user=False, log_interaction=False)
+        "actions/seeroute.yml", action_functions={**seerouteActions.action_functions, **writeActions.telegram_action_functions}, log_user=False, log_interaction=False)
 
     cqh = callback_query_handler({**cityrouteActions, **generalActions, **seerouteActions})
 
