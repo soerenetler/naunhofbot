@@ -164,8 +164,8 @@ weg_neubaugebiet:
   - type: message
     text: Heute wollten wir aber an den See.
   - type: venue
-    latitude: 51.278182
-    longitude: 12.589196
+    latitude: 51.28490600025655
+    longitude: 12.596480218837801
     address: Neubaugbiet
     title: Dein nächstes Ziel 📌
   - type: message
